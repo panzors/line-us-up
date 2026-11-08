@@ -34,9 +34,13 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .go { display: inline-block; background: linear-gradient(90deg, var(--cyan), var(--lime)); color: var(--bg); border: none; text-decoration: none; font-weight: 800; padding: 10px 18px;
   box-shadow: 0 0 20px color-mix(in srgb, var(--lime) 35%, transparent); white-space: nowrap; }
 .go:hover { filter: brightness(1.1); }
+/* PARTY MODE: gradient tile is 2x the button, starts and ends on cyan, and shifts right by one tile per loop, so it cycles seamlessly. */
+#letsgo { background: linear-gradient(90deg, var(--cyan), var(--lime), var(--yellow), var(--accent), var(--cyan)) 0 0 / 200% 100%; animation: party 2.67s linear infinite; } /* 4s original, 1.5x speed */
+@keyframes party { to { background-position: -200% 0; } }
+@media (prefers-reduced-motion: reduce) { #letsgo { animation: none; } }
 
 /* index.html: title bar, "who's going" panel, then the day/search/filter bar */
-.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0 12px; }
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0 12px 16px; }
 .top p { margin: 6px 0 0; }
 .panel { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 12px; margin-bottom: 12px;
   border: 1px solid var(--line); border-radius: var(--r); background: color-mix(in srgb, var(--surface) 70%, transparent); }
@@ -59,10 +63,15 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .seg button[aria-pressed="true"] { background: var(--lime); color: var(--bg); }
 
 /* now.html: a focused "where to be" view. Big Now/Next cards, tinted by stage colour. */
-.go-page { max-width: 560px; }
+/* Header spans the full page; the content below stays a narrow column. */
+.go-page { max-width: none; }
+.go-page > :not(.bar) { max-width: 560px; margin-left: auto; margin-right: auto; }
+.go-page .bar { margin: 0 -16px; padding: 12px 16px; } /* cancel body's side padding so the bar meets the screen edges */
 .go-page #lineup { border: none; background: none; padding: 0; }
 .bar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 12px; padding: 12px 0; background: var(--bg); }
 .bar a { text-decoration: none; font-weight: 600; }
+.bar #back { font-size: 22px; line-height: 1; }
+.footer { top: auto; bottom: 0; margin: 24px -16px -48px; padding: 12px 16px; border-top: 1px solid var(--line); flex-wrap: wrap; font-size: 14px; }
 .bar #title { flex: 1; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #clock { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--lime); }
 h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
@@ -112,7 +121,10 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
 /* Tom Select, themed to match (its default CSS is light-only) */
 .ts-wrapper { flex: 1; min-width: 200px; }
 .ts-control, .ts-wrapper.single.input-active .ts-control, .ts-dropdown { background: var(--surface); color: var(--fg); border-color: var(--line); border-radius: var(--r); font-size: 14px; }
-.ts-control { padding: 7px 12px; }
+/* Fixed one-line height in every state (Tom Select's defaults pad differently once items are picked), so picking never pushes the page down; extra chips scroll sideways. */
+.ts-wrapper .ts-control, .ts-wrapper.multi.has-items .ts-control { height: 36px; padding: 0 12px; flex-wrap: nowrap; align-items: center; overflow-x: auto; overflow-y: hidden; }
+.ts-wrapper.multi .ts-control > div { margin: 0 4px 0 0; padding: 1px 6px; white-space: nowrap; }
+.ts-control > input { flex: 1 0 80px; }
 .ts-control input { color: var(--fg); }
 .ts-dropdown .active { background: var(--line); color: var(--fg); }
 .ts-dropdown .optgroup-header { background: var(--surface); color: var(--yellow); font-weight: 700; }
@@ -129,12 +141,19 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
   background: var(--surface); transition: background .15s; }
 .set:hover { background: var(--raised); }
 .set.fav { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent); }
+/* Starred cards beat at 70bpm (60s / 70 = .857s): a 3px ring grows out and back. A box-shadow, so neighbours never move. */
+.set.fav { animation: beat .857s ease-in-out infinite; }
+@keyframes beat { 50% { box-shadow: 0 0 0 3px var(--accent), 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent); } }
+@media (prefers-reduced-motion: reduce) { .set.fav { animation: none; } }
 .set.dim { opacity: .25; }
 .artist { font-weight: 700; font-size: 14px; line-height: 1.2; }
 .meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
 .links { margin-top: 4px; }
 .links a { color: var(--muted); font-size: 11px; text-decoration: none; margin-right: 6px; }
 .links a:hover { color: var(--cyan); text-decoration: underline; }
+/* Brand logo tinted via mask so one SVG source works in any colour */
+.links a.logo { display: inline-block; width: 16px; height: 16px; vertical-align: middle; background: var(--brand); -webkit-mask: var(--logo) center / contain no-repeat; mask: var(--logo) center / contain no-repeat; }
+.links a.logo:hover { transform: scale(1.15); }
 .clash { color: var(--warn); font-size: 12px; }
 .star { float: right; font-size: 20px; line-height: 1; border: none; background: none; padding: 0 0 0 4px; color: var(--yellow); }
 .star:hover { transform: scale(1.15); }
@@ -157,6 +176,7 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
   .artist { font-size: 11px; }
   .meta, .clash { font-size: 9px; }
   .links a { font-size: 9px; display: block; margin: 0; }
+  .links a.logo { display: inline-block; width: 13px; height: 13px; margin-right: 3px; }
   .star { font-size: 14px; padding: 0; }
 }
 /* Stage colour strip on the left of every set/card (--stage set inline per stage); last so it beats fav/playing borders. */
@@ -165,4 +185,44 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
 
 /* Artists announced for a day but without set times yet */
 .tba { margin: 16px 0 6px; font-size: 15px; }
+/* Scrolls right-to-left: the span's 100% left padding starts the text off the right edge. */
+.marquee { overflow: hidden; white-space: nowrap; }
+.marquee span { display: inline-block; padding-left: 100%; animation: marquee 12s linear infinite; }
+@keyframes marquee { to { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .marquee span { padding-left: 0; animation: none; } }
 .tba-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
+
+/* now.html, high contrast for blurry vision. Used at night, in crowds, at a glance: bigger and bolder text, near-black
+   backgrounds, no glows or gradients that soften edges. Stage colour is only a thick bar, never text (some stage
+   neons, like the blue, are too dim to read as text). Last in the file so it overrides the rules above. */
+.go-page { --bg: #000; --surface: #120624; --fg: #fff; --muted: #e8dfff; --line: #9b7fd4;
+  background: var(--bg); font-size: 18px; font-weight: 500; }
+.go-page .bar { border-bottom: 2px solid var(--line); }
+.go-page .bar #title { font-size: 18px; font-weight: 700; }
+.go-page #clock { font-size: 26px; color: var(--fg); }
+.go-page h2 { font-size: 16px; font-weight: 800; color: var(--fg); }
+.go-page .starts { font-size: 22px; font-weight: 700; }
+.go-page .focus { background: var(--surface); box-shadow: none; border: 3px solid var(--fg); border-left: 12px solid var(--stage); }
+.go-page .focus .label { font-size: 16px; font-weight: 700; color: var(--fg); }
+.go-page .focus .label b { font-size: 20px; }
+.go-page .focus .where { font-size: 20px; color: var(--fg); }
+.go-page .focus.next .where { font-size: 26px; }
+.go-page .focus .who { font-size: clamp(32px, 10vw, 48px); font-weight: 900; }
+.go-page .focus .row { font-size: 20px; font-weight: 700; color: var(--fg); }
+.go-page .progress { height: 14px; border-radius: 7px; background: #333; border: 1px solid var(--fg); }
+.go-page .progress span { box-shadow: none; background: var(--fg); }
+.go-page .live { color: #ff3b3b; animation: none; } /* a blinking dot is hard to find when blurry: keep it solid */
+.go-page .option { border: 2px solid var(--fg); border-left: 8px solid var(--stage); }
+.go-page .focus .option .where { font-size: 16px; }
+.go-page .focus .option .who { font-size: 24px; }
+.go-page .later li { font-size: 20px; border: 2px solid var(--line); border-left: 8px solid var(--stage); }
+.go-page .later time { font-size: 22px; font-weight: 900; color: var(--fg); }
+.go-page .muted { color: var(--muted); }
+.go-page #full summary { font-size: 18px; font-weight: 700; color: var(--fg); }
+.go-page .card { font-size: 15px; font-weight: 700; border-color: var(--line); }
+.go-page .card .where { font-size: 13px; color: var(--fg); }
+.go-page .card.playing { background: var(--surface); border: 3px solid var(--fg); border-left: 8px solid var(--stage); }
+.go-page .card.past { opacity: .55; filter: none; }
+.go-page .nowline { box-shadow: none; border-top-width: 4px; }
+.go-page .nowline span { font-size: 14px; color: #000; }
+.go-page a:focus-visible, .go-page summary:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }

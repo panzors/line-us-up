@@ -38,7 +38,7 @@ node test.mjs                # tests
 ```
 On GitHub Pages: Settings → Pages → deploy from the `main` branch root.
 
-**Let's go** (`now.html`): at the festival, shows what you're watching now, where to head next (with a countdown) and the rest of your picks, using your phone's clock.
+**PARTY MODE** (`now.html`): at the festival, shows what you're watching now, where to head next (with a countdown) and the rest of your picks, using your phone's clock.
 Test it with a frozen clock: `now.html?now=2026-12-19T18:00` (festival time; add `Z` or `+07:00` for an explicit zone). Anything that isn't a single datetime is ignored.
 
 To use a different lineup: `?lineup=lineups/your-file.json`
@@ -67,7 +67,7 @@ To use a different lineup: `?lineup=lineups/your-file.json`
 Each set's saved key is its festival day + artist, e.g. `2026-12-19 Kaskade`, so picks made from an artist-only lineup still match once you add `stage`/`start`/`end` (keep `day` and the artist name the same; for after-midnight sets keep `day` set to the night they belong to).
 The app refuses to load a lineup where the same artist is listed twice on one day: rename one (e.g. add "(closing set)").
 Changing an artist's name or day changes its key, so people's saved picks for it are lost.
-Artists without times can be starred but don't clash, aren't exported to the calendar and don't show in Let's go.
+Artists without times can be starred but don't clash, aren't exported to the calendar and don't show in PARTY MODE.
 
 `lineups/edc-thailand-2026-dec.json` (default) lists the December artists by day, no set times yet.
 `lineups/edc-thailand-2026-jan.json` holds set times scraped various locations (`?lineup=lineups/edc-thailand-2026-jan.json`).

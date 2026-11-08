@@ -3,6 +3,17 @@ import { esc, $, dayLabel, stageColours, loadLineup, loadState, saveState, clear
 
 const STARS = ['☆', '★', '🌟']; // none, want to see, SUPERMUSTSEE
 const LINK_LABELS = { spotify: 'Spotify', soundcloud: 'SoundCloud', instagram: 'Instagram', facebook: 'Facebook', twitter: 'X', x: 'X', website: 'Website' };
+// site -> [icon URL, colour]; sites not listed fall back to a text label.
+const si = slug => `https://cdn.jsdelivr.net/npm/simple-icons@13.0.0/icons/${slug}.svg`;
+// simple-icons has no generic globe, so "website" uses an inline one (encoded: it sits in an unquoted CSS url()).
+const GLOBE = 'data:image/svg+xml,' + encodeURIComponent("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2'><circle cx='12' cy='12' r='10'/><ellipse cx='12' cy='12' rx='4' ry='10'/><path d='M2 12h20'/></svg>").replace(/'/g, '%27');
+const LOGOS = { spotify: [si('spotify'), '#1DB954'], soundcloud: [si('soundcloud'), '#FF5500'], instagram: [si('instagram'), '#E4405F'], facebook: [si('facebook'), '#0866FF'], twitter: [si('x'), 'var(--fg)'], x: [si('x'), 'var(--fg)'], website: [GLOBE, 'var(--cyan)'] };
+const linkHTML = (site, url) => {
+  const label = esc(LINK_LABELS[site] || site), logo = LOGOS[site];
+  return logo
+    ? `<a class="logo" href="${esc(url)}" target="_blank" rel="noopener" aria-label="${label}" title="${label}" style="--logo:url(${logo[0]});--brand:${logo[1]}"></a>`
+    : `<a href="${esc(url)}" target="_blank" rel="noopener">${label}</a>`;
+};
 
 let lineup, state, currentDay;
 const picked = new Set(); // search picks: "g:<lower-cased genre>" or "a:<artist>"; empty = show all
@@ -20,7 +31,15 @@ function download(filename, text, type) {
 }
 
 function render() {
-  const filter = $('filter').value;
+  // Friends come and go (import/remove), so rebuild their filter options each render, keeping the current pick if it still exists.
+  const sel = $('filter'), prev = sel.value;
+  sel.querySelector('optgroup')?.remove();
+  if (state.friends.length) sel.insertAdjacentHTML('beforeend', '<optgroup label="Friends">' +
+    state.friends.map(f => `<option value="${esc('f:' + f.name)}">${esc(f.name)}'s picks</option>`).join('') + '</optgroup>');
+  sel.value = prev;
+  if (!sel.value) sel.value = 'all';
+  const filter = sel.value;
+  const onlyFriend = filter.startsWith('f:') && state.friends.find(f => 'f:' + f.name === filter);
   const clash = clashes(lineup.sets, state.favourites);
   const byId = Object.fromEntries(lineup.sets.map(s => [s.id, s]));
   const friendsOf = s => state.friends.filter(f => f.favourites[s.id]);
@@ -30,7 +49,8 @@ function render() {
     && (filter === 'all'
       || (filter === 'mine' && state.favourites[s.id])
       || (filter === 'friends' && friendsOf(s).length)
-      || (filter === 'shared' && state.favourites[s.id] && friendsOf(s).length));
+      || (filter === 'shared' && state.favourites[s.id] && friendsOf(s).length)
+      || (onlyFriend && onlyFriend.favourites[s.id]));
 
   const days = [...new Set(lineup.sets.map(dayOf))].sort();
   if (!days.length) { $('lineup').innerHTML = '<p class="muted">This lineup has no sets.</p>'; return; }
@@ -55,8 +75,7 @@ function render() {
       <div class="meta">${s.start ? `${timeOf(s.start)}–${timeOf(s.end)}` : 'Time TBA'}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
       ${clash[s.id] ? `<div class="clash">⚠ ${clash[s.id].map(id => esc(byId[id].artist)).join(', ')}</div>` : ''}
       <div>${(lvl ? [state] : []).concat(friendsOf(s)).map(p => person(p, p.favourites[s.id])).join('')}</div>
-      <div class="links">${Object.entries(links).map(([site, url]) =>
-        `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(LINK_LABELS[site] || site)}</a>`).join(' ')}</div>
+      <div class="links">${Object.entries(links).map(([site, url]) => linkHTML(site, url)).join(' ')}</div>
     </div>`;
   };
 
@@ -76,7 +95,7 @@ function render() {
     html += timed.map(s => card(s, `--stage:${colour[s.stage]}; grid-column:${stages.indexOf(s.stage) + 2}; grid-row:${row(Date.parse(s.start))} / ${row(Date.parse(s.end))}`)).join('') + '</div>';
   }
   if (tba.length) {
-    html += `<h2 class="tba">Set times TBA</h2><div class="tba-list">` +
+    html += `<h2 class="tba marquee"><span>Set times TBA</span></h2><div class="tba-list">` +
       [...tba].sort((a, b) => a.artist.localeCompare(b.artist)).map(s => card(s, '')).join('') + '</div>';
   }
   $('lineup').innerHTML = html;
