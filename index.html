@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Line Us Up</title>
+  <!-- Tom Select: type-ahead multi-select. If the CDN fails, the plain <select multiple> still works. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/css/tom-select.css">
+  <script src="https://cdn.jsdelivr.net/npm/tom-select@2.3.1/dist/js/tom-select.complete.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1 id="title">Line Us Up</h1>
+      <p id="notice" class="muted"></p>
+    </div>
+    <a id="letsgo" class="button go" href="now.html">Let's go →</a>
+  </header>
+  <section class="panel" aria-label="Who's going">
+    <label class="name">You're <input id="name" placeholder="your name" maxlength="40"></label>
+    <div id="friends"></div>
+    <label class="button ghost">+ Add friend's list <input type="file" id="import-friend" accept=".json,application/json" hidden multiple></label>
+    <details class="menu">
+      <summary class="button ghost">My list ▾</summary>
+      <div class="menu-panel">
+        <button id="export-ics">Add to calendar (.ics)</button>
+        <button id="export-json">Export my list (JSON)</button>
+        <label class="button">Import my list <input type="file" id="import-mine" accept=".json,application/json" hidden></label>
+        <hr>
+        <button id="clear-all" class="danger">Clear all data</button>
+      </div>
+    </details>
+  </section>
+  <div class="controls">
+    <nav id="days" class="seg" aria-label="Festival day"></nav>
+    <select id="search-select" multiple placeholder="Search artists or genres…" aria-label="Search artists or genres (sets matching any pick)"></select>
+    <select id="filter" aria-label="Show">
+      <option value="all">All sets</option>
+      <option value="mine">My picks</option>
+      <option value="friends">Any friend's picks</option>
+      <option value="shared">Shared with a friend</option>
+    </select>
+  </div>
+  <main id="lineup"><p class="muted">Loading lineup…</p></main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

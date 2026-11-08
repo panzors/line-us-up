@@ -1,0 +1,164 @@
+/* Palette from the EDC Thailand 2026 poster: night purple, magenta glow, cyan/lime/yellow neon. Dark only, like the poster. */
+:root {
+  color-scheme: dark;
+  --bg: #1a0838;      /* night sky */
+  --surface: #2a0f52; /* set cells, cards */
+  --raised: #351566;  /* hover / menus */
+  --glow: #7a1a8c;    /* magenta haze behind the lineup */
+  --fg: #f6eeff;
+  --muted: #bba6e3;
+  --line: #4a2380;
+  --accent: #ff2d8a;  /* "Rhythm Park" pink */
+  --cyan: #3ee0f5;    /* Friday */
+  --lime: #c8f53c;    /* Sunday / edc logo */
+  --yellow: #ffe714;  /* "Thailand 2026" */
+  --blue: #2f6bff;    /* date banner */
+  --warn: #ff9a2e;    /* flower-petal orange */
+  --r: 10px;
+}
+* { box-sizing: border-box; }
+body { min-height: 100vh; margin: 0 auto; max-width: 1280px; padding: 0 16px 48px; font: 15px/1.4 system-ui, sans-serif; color: var(--fg);
+  background: var(--bg) radial-gradient(ellipse 120% 500px at 50% 0, var(--glow), transparent) no-repeat; }
+h1 { margin: 0; font-size: clamp(26px, 5vw, 40px); line-height: 1.1; color: var(--yellow); letter-spacing: .02em; text-transform: uppercase;
+  text-shadow: 0 0 24px color-mix(in srgb, var(--yellow) 35%, transparent); }
+a { color: var(--cyan); }
+.muted { color: var(--muted); font-size: 13px; }
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; align-items: center; }
+button, .button, input, select { font: inherit; font-size: 14px; padding: 7px 12px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); color: var(--fg); }
+button, .button, summary { cursor: pointer; }
+button:hover, .button:hover, select:hover { border-color: var(--cyan); }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+.danger { color: #ff5c7a; }
+.ghost { background: transparent; }
+/* edc-logo gradient */
+.go { display: inline-block; background: linear-gradient(90deg, var(--cyan), var(--lime)); color: var(--bg); border: none; text-decoration: none; font-weight: 800; padding: 10px 18px;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--lime) 35%, transparent); white-space: nowrap; }
+.go:hover { filter: brightness(1.1); }
+
+/* index.html: title bar, "who's going" panel, then the day/search/filter bar */
+.top { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0 12px; }
+.top p { margin: 6px 0 0; }
+.panel { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 10px 12px; margin-bottom: 12px;
+  border: 1px solid var(--line); border-radius: var(--r); background: color-mix(in srgb, var(--surface) 70%, transparent); }
+.name { display: flex; align-items: center; gap: 6px; color: var(--muted); font-size: 14px; }
+.name input { width: 9em; }
+#friends { display: contents; }
+.menu { position: relative; margin-left: auto; }
+.menu summary { list-style: none; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu-panel { position: absolute; right: 0; top: calc(100% + 6px); z-index: 10; display: flex; flex-direction: column; gap: 4px; min-width: 220px; padding: 6px;
+  border: 1px solid var(--line); border-radius: var(--r); background: var(--raised); box-shadow: 0 12px 32px #0008; }
+.menu-panel button, .menu-panel .button { border: none; background: none; text-align: left; }
+.menu-panel button:hover, .menu-panel .button:hover { background: var(--surface); }
+.menu-panel hr { width: 100%; border: none; border-top: 1px solid var(--line); margin: 2px 0; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 12px; }
+/* day picker: one segmented pill */
+.seg { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.seg button { border: none; border-radius: 999px; background: none; padding: 6px 14px; font-weight: 600; color: var(--muted); }
+.seg button:hover { color: var(--fg); }
+.seg button[aria-pressed="true"] { background: var(--lime); color: var(--bg); }
+
+/* now.html: a focused "where to be" view. Big Now/Next cards, tinted by stage colour. */
+.go-page { max-width: 560px; }
+.go-page #lineup { border: none; background: none; padding: 0; }
+.bar { position: sticky; top: 0; z-index: 5; display: flex; align-items: center; gap: 12px; padding: 12px 0; background: var(--bg); }
+.bar a { text-decoration: none; font-weight: 600; }
+.bar #title { flex: 1; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#clock { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--lime); }
+h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.starts { margin: 12px 0; font-size: 18px; text-align: center; color: var(--yellow); }
+.focus { --stage: var(--accent); margin: 12px 0; padding: 18px 20px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--stage) 60%, transparent);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--stage) 26%, var(--surface)), var(--surface) 70%);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--stage) 25%, transparent); }
+.focus .label { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.focus .label b { color: var(--fg); font-size: 15px; }
+.focus .where { margin-top: 6px; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--stage); }
+.focus .who { font-size: clamp(26px, 8vw, 38px); font-weight: 800; line-height: 1.1; overflow-wrap: anywhere; }
+.focus .row { display: flex; justify-content: space-between; margin-top: 8px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.focus .row b { color: var(--fg); }
+.focus .people:not(:empty) { margin-top: 8px; }
+.live { color: var(--stage); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .3; } }
+@media (prefers-reduced-motion: reduce) { .live { animation: none; } }
+.progress { height: 6px; margin-top: 14px; border-radius: 3px; background: color-mix(in srgb, var(--fg) 12%, transparent); overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--stage); box-shadow: 0 0 10px var(--stage); }
+.focus.next .where { font-size: 22px; }
+.focus.free, .focus.empty { --stage: var(--line); box-shadow: none; text-align: center; }
+.focus.free .who, .focus.empty .who { font-size: 24px; }
+.focus.pick { --stage: var(--warn); }
+.options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 10px; }
+.option { padding: 12px; border-radius: 12px; border-left: 4px solid var(--stage); background: var(--bg); }
+.focus .option .where { font-size: 13px; margin: 0; }
+.focus .option .who { font-size: 20px; }
+.later { list-style: none; margin: 0; padding: 0; }
+.later li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; margin-bottom: 6px; border-radius: 10px; border-left: 4px solid var(--stage); background: var(--surface); }
+.later time { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--muted); }
+.later li > span:nth-child(2) { flex: 1; }
+#full { margin-top: 24px; }
+#full summary { padding: 10px 0; color: var(--muted); font-size: 14px; }
+#full summary:hover { color: var(--fg); }
+/* Timeline: heights are proportional to time (except capped breaks), so the now line can sit at the exact moment. */
+.timeline { position: relative; }
+.cluster { position: relative; }
+.card { position: absolute; overflow: hidden; padding: 4px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 13px; }
+.card .where { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+.card.playing { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); border: 2px solid var(--accent); }
+.card.past { opacity: .35; filter: grayscale(.6); }
+.card.must { outline: 2px solid var(--yellow); }
+.gap { display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.nowline { position: absolute; left: -8px; right: 0; z-index: 3; border-top: 3px solid var(--lime); box-shadow: 0 0 10px var(--lime); pointer-events: none; }
+.nowline span { position: absolute; right: 0; top: -12px; background: var(--lime); color: var(--bg); font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 8px; }
+
+/* Tom Select, themed to match (its default CSS is light-only) */
+.ts-wrapper { flex: 1; min-width: 200px; }
+.ts-control, .ts-wrapper.single.input-active .ts-control, .ts-dropdown { background: var(--surface); color: var(--fg); border-color: var(--line); border-radius: var(--r); font-size: 14px; }
+.ts-control { padding: 7px 12px; }
+.ts-control input { color: var(--fg); }
+.ts-dropdown .active { background: var(--line); color: var(--fg); }
+.ts-dropdown .optgroup-header { background: var(--surface); color: var(--yellow); font-weight: 700; }
+.ts-wrapper.multi .ts-control > div { background: var(--accent); color: var(--bg); border-radius: 12px; }
+
+/* Timetable. Never scrolls itself: full height, and stage columns shrink to fit the width (stage headers stick to the page). */
+#lineup { border: 1px solid var(--line); border-radius: var(--r); background: color-mix(in srgb, var(--bg) 60%, transparent); padding: 0 6px 6px 0; }
+.set, .stage { overflow-wrap: anywhere; }
+.grid { display: grid; grid-auto-rows: minmax(7px, auto); column-gap: 6px; position: relative; }
+.stage { grid-row: 1; position: sticky; top: 0; z-index: 2; background: var(--bg); padding: 10px 8px 8px; font-size: 13px; font-weight: 700; color: var(--cyan);
+  text-transform: uppercase; letter-spacing: .05em; border-bottom: 2px solid var(--accent); }
+.tick { grid-column: 1; position: sticky; left: 0; z-index: 1; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; border-top: 1px dashed var(--line); padding: 2px 6px; }
+.set { margin: 2px 0; padding: 6px 8px; border: 1px solid transparent; border-left: 3px solid var(--line); border-radius: 8px; font-size: 13px; overflow: hidden;
+  background: var(--surface); transition: background .15s; }
+.set:hover { background: var(--raised); }
+.set.fav { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--surface)); box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent); }
+.set.dim { opacity: .25; }
+.artist { font-weight: 700; font-size: 14px; line-height: 1.2; }
+.meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.links { margin-top: 4px; }
+.links a { color: var(--muted); font-size: 11px; text-decoration: none; margin-right: 6px; }
+.links a:hover { color: var(--cyan); text-decoration: underline; }
+.clash { color: var(--warn); font-size: 12px; }
+.star { float: right; font-size: 20px; line-height: 1; border: none; background: none; padding: 0 0 0 4px; color: var(--yellow); }
+.star:hover { transform: scale(1.15); }
+.chip { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; padding: 3px 10px 3px 6px; border-radius: 999px; background: var(--line); vertical-align: middle; }
+/* outline keeps the black ranger visible on the dark background */
+.person svg { vertical-align: middle; stroke: var(--fg); stroke-width: 1; }
+.person.must svg { stroke: var(--yellow); stroke-width: 2.5; }
+.chip button { border: none; background: none; padding: 0 0 0 4px; font-size: 12px; color: var(--muted); }
+
+@media (max-width: 600px) {
+  .top { padding-top: 16px; }
+  .menu { margin-left: 0; }
+  .menu-panel { left: 0; right: auto; }
+  .seg { width: 100%; }
+  .seg button { flex: 1; padding: 6px 4px; }
+  #filter { flex: 1; }
+  .stage { font-size: 10px; padding: 6px 2px; letter-spacing: 0; }
+  .grid { column-gap: 3px; }
+  .set { padding: 3px; font-size: 10px; border-left-width: 2px; border-radius: 6px; }
+  .artist { font-size: 11px; }
+  .meta, .clash { font-size: 9px; }
+  .links a { font-size: 9px; display: block; margin: 0; }
+  .star { font-size: 14px; padding: 0; }
+}
+/* Stage colour strip on the left of every set/card (--stage set inline per stage); last so it beats fav/playing borders. */
+.set, .set.fav, .card, .card.playing { border-left: 6px solid var(--stage, var(--line)); }
+.stage { border-bottom-color: var(--stage, var(--accent)); }

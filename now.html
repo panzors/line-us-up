@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Let's Go</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="go-page">
+  <header class="bar">
+    <a id="back" href="index.html">← Lineup</a>
+    <span id="title" class="muted">Let's go</span>
+    <span id="clock"></span>
+  </header>
+  <main id="lineup" aria-live="polite"><p class="muted">Loading…</p></main>
+  <!-- Outside #lineup so re-renders keep it open/closed. -->
+  <details id="full" hidden>
+    <summary>Full timeline</summary>
+    <div id="timeline"></div>
+  </details>
+  <script type="module" src="now.js"></script>
+</body>
+</html>
