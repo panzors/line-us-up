@@ -6,7 +6,7 @@ const NOW_PARAM = new URLSearchParams(location.search).get('now');
 let testNow = null; // ms, set once the lineup (and so the festival's time zone) is known
 const now = () => testNow ?? Date.now();
 
-const PX_PER_MIN = 2.5;
+const PX_PER_MIN = 3.2; // a 30-minute set gets 96px: enough for stage, artist, time and friend icons at PARTY MODE's text size
 const PARTY = ['🎉', '🪩', '🍻', '🕺', '💃', '🎊', '🥳', '🍹', '🌈', '✨', '🎶', '🔊'];
 // Same emoji for the same break on every refresh.
 const partyEmoji = ms => PARTY[Math.floor(ms / 60000) * 7919 % PARTY.length];

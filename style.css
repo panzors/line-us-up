@@ -73,50 +73,48 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .bar #back { font-size: 22px; line-height: 1; }
 .footer { top: auto; bottom: 0; margin: 24px -16px -48px; padding: 12px 16px; border-top: 1px solid var(--line); flex-wrap: wrap; font-size: 14px; }
 .bar #title { flex: 1; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-#clock { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--lime); }
-h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-.starts { margin: 12px 0; font-size: 18px; text-align: center; color: var(--yellow); }
-.focus { --stage: var(--accent); margin: 12px 0; padding: 18px 20px; border-radius: 16px; border: 1px solid color-mix(in srgb, var(--stage) 60%, transparent);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--stage) 26%, var(--surface)), var(--surface) 70%);
-  box-shadow: 0 0 28px color-mix(in srgb, var(--stage) 25%, transparent); }
-.focus .label { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
-.focus .label b { color: var(--fg); font-size: 15px; }
-.focus .where { margin-top: 6px; font-size: 15px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: var(--stage); }
-.focus .who { font-size: clamp(26px, 8vw, 38px); font-weight: 800; line-height: 1.1; overflow-wrap: anywhere; }
-.focus .row { display: flex; justify-content: space-between; margin-top: 8px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.focus .row b { color: var(--fg); }
+/* PARTY MODE is high contrast for blurry vision: used at night, in crowds, at a glance. Big bold text, near-black
+   backgrounds, no glows or gradients that soften edges. Stage colour is only a thick bar, never text (some stage
+   neons, like the blue, are too dim to read as text). These classes are only used on now.html. */
+#clock { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--fg); }
+.starts { margin: 12px 0; font-size: 22px; font-weight: 700; text-align: center; color: var(--yellow); }
+.focus { --stage: var(--accent); margin: 12px 0; padding: 18px 20px; border-radius: 16px; background: var(--surface);
+  border: 3px solid var(--fg); border-left: 12px solid var(--stage); }
+.focus .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--fg); }
+.focus .label b { font-size: 20px; }
+.focus .where { margin-top: 6px; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.focus .who { font-size: clamp(32px, 10vw, 48px); font-weight: 900; line-height: 1.1; overflow-wrap: anywhere; }
+.focus .row { display: flex; justify-content: space-between; margin-top: 8px; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .focus .people:not(:empty) { margin-top: 8px; }
-.live { color: var(--stage); animation: pulse 1.6s ease-in-out infinite; }
-@keyframes pulse { 50% { opacity: .3; } }
-@media (prefers-reduced-motion: reduce) { .live { animation: none; } }
-.progress { height: 6px; margin-top: 14px; border-radius: 3px; background: color-mix(in srgb, var(--fg) 12%, transparent); overflow: hidden; }
-.progress span { display: block; height: 100%; background: var(--stage); box-shadow: 0 0 10px var(--stage); }
-.focus.next .where { font-size: 22px; }
-.focus.free, .focus.empty { --stage: var(--line); box-shadow: none; text-align: center; }
+.live { color: #ff3b3b; } /* solid, not blinking: a blinking dot is hard to find when blurry */
+.progress { height: 14px; margin-top: 14px; border-radius: 7px; background: #333; border: 1px solid var(--fg); overflow: hidden; }
+.progress span { display: block; height: 100%; background: var(--fg); }
+.focus.next .where { font-size: 26px; }
+.focus.free, .focus.empty { --stage: var(--line); text-align: center; }
 .focus.free .who, .focus.empty .who { font-size: 24px; }
 .focus.pick { --stage: var(--warn); }
 .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 10px; }
-.option { padding: 12px; border-radius: 12px; border-left: 4px solid var(--stage); background: var(--bg); }
-.focus .option .where { font-size: 13px; margin: 0; }
-.focus .option .who { font-size: 20px; }
+.option { padding: 12px; border-radius: 12px; border: 2px solid var(--fg); border-left: 8px solid var(--stage); background: var(--bg); }
+.focus .option .where { font-size: 16px; margin: 0; }
+.focus .option .who { font-size: 24px; }
 .later { list-style: none; margin: 0; padding: 0; }
-.later li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; margin-bottom: 6px; border-radius: 10px; border-left: 4px solid var(--stage); background: var(--surface); }
-.later time { font-weight: 700; font-variant-numeric: tabular-nums; color: var(--muted); }
+.later li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; margin-bottom: 6px; border-radius: 10px; font-size: 20px;
+  border: 2px solid var(--line); border-left: 8px solid var(--stage); background: var(--surface); }
+.later time { font-size: 22px; font-weight: 900; font-variant-numeric: tabular-nums; }
 .later li > span:nth-child(2) { flex: 1; }
 #full { margin-top: 24px; }
-#full summary { padding: 10px 0; color: var(--muted); font-size: 14px; }
-#full summary:hover { color: var(--fg); }
+#full summary { padding: 10px 0; font-size: 18px; font-weight: 700; }
 /* Timeline: heights are proportional to time (except capped breaks), so the now line can sit at the exact moment. */
 .timeline { position: relative; }
 .cluster { position: relative; }
-.card { position: absolute; overflow: hidden; padding: 4px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 13px; }
-.card .where { font-size: 11px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
-.card.playing { background: color-mix(in srgb, var(--accent) 22%, var(--surface)); border: 2px solid var(--accent); }
-.card.past { opacity: .35; filter: grayscale(.6); }
+.card { position: absolute; overflow: hidden; padding: 4px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); font-size: 15px; font-weight: 700; }
+.card .where { font-size: 13px; text-transform: uppercase; letter-spacing: .05em; }
+.card.playing { border: 3px solid var(--fg); }
+.card.past { opacity: .55; }
 .card.must { outline: 2px solid var(--yellow); }
 .gap { display: flex; align-items: center; justify-content: center; font-size: 28px; }
-.nowline { position: absolute; left: -8px; right: 0; z-index: 3; border-top: 3px solid var(--lime); box-shadow: 0 0 10px var(--lime); pointer-events: none; }
-.nowline span { position: absolute; right: 0; top: -12px; background: var(--lime); color: var(--bg); font-size: 11px; font-weight: 700; padding: 1px 6px; border-radius: 8px; }
+.nowline { position: absolute; left: -8px; right: 0; z-index: 3; border-top: 4px solid var(--lime); pointer-events: none; }
+.nowline span { position: absolute; right: 0; top: -12px; background: var(--lime); color: #000; font-size: 14px; font-weight: 700; padding: 1px 6px; border-radius: 8px; }
 
 /* Tom Select, themed to match (its default CSS is light-only) */
 .ts-wrapper { flex: 1; min-width: 200px; }
@@ -129,6 +127,8 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
 .ts-dropdown .active { background: var(--line); color: var(--fg); }
 .ts-dropdown .optgroup-header { background: var(--surface); color: var(--yellow); font-weight: 700; }
 .ts-wrapper.multi .ts-control > div { background: var(--accent); color: var(--bg); border-radius: 12px; }
+/* Artist picks stay pink; genre picks (value "g:…") are cyan so the two kinds are easy to tell apart. */
+.ts-wrapper.multi .ts-control > div[data-value^="g:"] { background: var(--cyan); }
 
 /* Timetable. Never scrolls itself: full height, and stage columns shrink to fit the width (stage headers stick to the page). */
 #lineup { border: 1px solid var(--line); border-radius: var(--r); background: color-mix(in srgb, var(--bg) 60%, transparent); padding: 0 6px 6px 0; }
@@ -144,7 +144,8 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
 /* Starred cards beat at 70bpm (60s / 70 = .857s): a 3px ring grows out and back. A box-shadow, so neighbours never move. */
 .set.fav { animation: beat .857s ease-in-out infinite; }
 @keyframes beat { 50% { box-shadow: 0 0 0 3px var(--accent), 0 0 12px color-mix(in srgb, var(--accent) 40%, transparent); } }
-@media (prefers-reduced-motion: reduce) { .set.fav { animation: none; } }
+/* Off on touch phones too: a forever-repainting shadow on every starred card drains battery. */
+@media (prefers-reduced-motion: reduce), (pointer: coarse) { .set.fav { animation: none; } }
 .set.dim { opacity: .25; }
 .artist { font-weight: 700; font-size: 14px; line-height: 1.2; }
 .meta { color: var(--muted); font-size: 12px; margin-top: 2px; }
@@ -192,37 +193,10 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
 @media (prefers-reduced-motion: reduce) { .marquee span { padding-left: 0; animation: none; } }
 .tba-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }
 
-/* now.html, high contrast for blurry vision. Used at night, in crowds, at a glance: bigger and bolder text, near-black
-   backgrounds, no glows or gradients that soften edges. Stage colour is only a thick bar, never text (some stage
-   neons, like the blue, are too dim to read as text). Last in the file so it overrides the rules above. */
+/* now.html page tokens (high contrast, see PARTY MODE above) and its versions of rules shared with index.html. */
 .go-page { --bg: #000; --surface: #120624; --fg: #fff; --muted: #e8dfff; --line: #9b7fd4;
   background: var(--bg); font-size: 18px; font-weight: 500; }
 .go-page .bar { border-bottom: 2px solid var(--line); }
 .go-page .bar #title { font-size: 18px; font-weight: 700; }
-.go-page #clock { font-size: 26px; color: var(--fg); }
 .go-page h2 { font-size: 16px; font-weight: 800; color: var(--fg); }
-.go-page .starts { font-size: 22px; font-weight: 700; }
-.go-page .focus { background: var(--surface); box-shadow: none; border: 3px solid var(--fg); border-left: 12px solid var(--stage); }
-.go-page .focus .label { font-size: 16px; font-weight: 700; color: var(--fg); }
-.go-page .focus .label b { font-size: 20px; }
-.go-page .focus .where { font-size: 20px; color: var(--fg); }
-.go-page .focus.next .where { font-size: 26px; }
-.go-page .focus .who { font-size: clamp(32px, 10vw, 48px); font-weight: 900; }
-.go-page .focus .row { font-size: 20px; font-weight: 700; color: var(--fg); }
-.go-page .progress { height: 14px; border-radius: 7px; background: #333; border: 1px solid var(--fg); }
-.go-page .progress span { box-shadow: none; background: var(--fg); }
-.go-page .live { color: #ff3b3b; animation: none; } /* a blinking dot is hard to find when blurry: keep it solid */
-.go-page .option { border: 2px solid var(--fg); border-left: 8px solid var(--stage); }
-.go-page .focus .option .where { font-size: 16px; }
-.go-page .focus .option .who { font-size: 24px; }
-.go-page .later li { font-size: 20px; border: 2px solid var(--line); border-left: 8px solid var(--stage); }
-.go-page .later time { font-size: 22px; font-weight: 900; color: var(--fg); }
-.go-page .muted { color: var(--muted); }
-.go-page #full summary { font-size: 18px; font-weight: 700; color: var(--fg); }
-.go-page .card { font-size: 15px; font-weight: 700; border-color: var(--line); }
-.go-page .card .where { font-size: 13px; color: var(--fg); }
-.go-page .card.playing { background: var(--surface); border: 3px solid var(--fg); border-left: 8px solid var(--stage); }
-.go-page .card.past { opacity: .55; filter: none; }
-.go-page .nowline { box-shadow: none; border-top-width: 4px; }
-.go-page .nowline span { font-size: 14px; color: #000; }
 .go-page a:focus-visible, .go-page summary:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }

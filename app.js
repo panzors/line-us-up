@@ -166,6 +166,7 @@ async function init() {
   };
   $('export-ics').onclick = () => {
     if (!Object.keys(state.favourites).length) return alert('Star some sets first.');
+    if (!lineup.sets.some(s => s.start && state.favourites[s.id])) return alert("None of your picks have set times yet, so there's nothing to add to a calendar.");
     download(fileBase() + '.ics', toICS(lineup, state.favourites), 'text/calendar');
   };
   $('import-mine').onchange = e => readFiles(e.target, list => {

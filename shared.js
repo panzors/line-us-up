@@ -1,8 +1,11 @@
 // Page code shared by index.html and now.html: lineup loading, saved state, person icons.
 import { withKeys, pickColour } from './lib.js';
 
-// Point at another lineup with ?lineup=lineups/your-file.json
-export const LINEUP_URL = new URLSearchParams(location.search).get('lineup') || 'lineups/edc-thailand-2026-dec.json';
+// Pick a lineup with ?lineup=lineups/<file>.json. Only these files are allowed, so a shared link can't make the site
+// show someone else's JSON (fake event name or notice) under this domain. First one is the default.
+const LINEUPS = ['lineups/edc-thailand-2026-dec.json', 'lineups/edc-thailand-2026-jan.json'];
+const requested = new URLSearchParams(location.search).get('lineup');
+export const LINEUP_URL = LINEUPS.includes(requested) ? requested : LINEUPS[0];
 export const esc = t => String(t).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
 export const $ = id => document.getElementById(id);
 // "2026-12-19" → "Sat, 19 Dec" (in the viewer's language); UTC so the date never shifts.
@@ -17,17 +20,12 @@ export function stageColours(lineup) {
 
 export async function loadLineup() {
   const url = new URL(LINEUP_URL, location.href).href;
-  console.info('[line-us-up] loading lineup', { requested: LINEUP_URL, url });
   try {
     const res = await fetch(url);
-    console.info('[line-us-up] response', res.status, res.headers.get('content-type'));
     if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
     const data = await res.json();
-    console.info('[line-us-up] parsed', { id: data.id, event: data.event, topLevelKeys: Object.keys(data), sets: data.sets?.length });
     if (!Array.isArray(data.sets)) throw new Error('file has no "sets" array, so it is not a lineup file');
-    const lineup = withKeys(data);
-    console.info('[line-us-up] lineup ready', lineup);
-    return lineup;
+    return withKeys(data);
   } catch (e) {
     console.error('[line-us-up] failed to load', url, e);
     $('lineup').innerHTML = `<p class="clash">Could not load ${esc(LINEUP_URL)}: ${esc(e.message)}</p>`;
@@ -42,11 +40,17 @@ export function loadState(lineup) {
   try { state = JSON.parse(localStorage.getItem(key(lineup))); } catch {}
   state ||= { name: '', favourites: {}, friends: [] };
   for (const p of [state, ...state.friends]) p.colour ||= pickColour(usedColours(state));
-  console.info('[line-us-up] saved state', key(lineup), state);
   return state;
 }
 export const clearState = lineup => { try { localStorage.removeItem(key(lineup)); } catch {} };
-export const saveState =(lineup, state) => { try { localStorage.setItem(key(lineup), JSON.stringify(state)); } catch {} };
+let saveWarned = false; // warn once, not on every star
+export const saveState = (lineup, state) => {
+  try { localStorage.setItem(key(lineup), JSON.stringify(state)); }
+  catch {
+    if (!saveWarned) alert("Your browser won't let this page save, so your picks will be lost on reload. Use My list → Export to keep them.");
+    saveWarned = true;
+  }
+};
 
 export const person = (p, lvl, state) => {
   const label = esc((p === state ? (state.name || 'You') : p.name) + (lvl === 2 ? ' (SUPERMUSTSEE)' : ''));

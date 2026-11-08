@@ -41,7 +41,7 @@ On GitHub Pages: Settings → Pages → deploy from the `main` branch root.
 **PARTY MODE** (`now.html`): at the festival, shows what you're watching now, where to head next (with a countdown) and the rest of your picks, using your phone's clock.
 Test it with a frozen clock: `now.html?now=2026-12-19T18:00` (festival time; add `Z` or `+07:00` for an explicit zone). Anything that isn't a single datetime is ignored.
 
-To use a different lineup: `?lineup=lineups/your-file.json`
+To use a different lineup: `?lineup=lineups/edc-thailand-2026-jan.json`. Only files listed in `LINEUPS` in `shared.js` are accepted (anything else falls back to the default), so add new lineup files there.
 
 ## Lineup schema (`lineups/*.json`)
 ```json
