@@ -141,14 +141,22 @@ async function init() {
   const group = (label, prefix, values) => `<optgroup label="${label}">` +
     [...new Set(values)].sort((a, b) => a.localeCompare(b)).map(v => `<option value="${esc(prefix + v)}">${esc(v)}</option>`).join('') + '</optgroup>';
   searchSelect.innerHTML = group('Artists', 'a:', lineup.sets.map(s => s.artist)) + group('Genres', 'g:', lineup.sets.flatMap(genresOf));
-  // Both paths read the native <select>, which Tom Select keeps in sync.
+  // Both paths read the native <select>, which Tom Select keeps in sync. Picks show as chips in their own row (#picks), not in the box.
   const syncSearch = () => {
     picked.clear();
     for (const o of searchSelect.selectedOptions) picked.add(o.value);
+    $('picks').innerHTML = [...searchSelect.selectedOptions].map(o =>
+      `<button class="pick${o.value.startsWith('g:') ? ' genre' : ''}" data-value="${esc(o.value)}" aria-label="Remove ${esc(o.textContent)}">${esc(o.textContent)} ✕</button>`).join('');
     render();
   };
-  if (window.TomSelect) new TomSelect(searchSelect, { plugins: ['remove_button'], maxOptions: null, onChange: syncSearch });
-  else searchSelect.onchange = syncSearch;
+  const ts = window.TomSelect && new TomSelect(searchSelect, { maxOptions: null, hidePlaceholder: false, onChange: syncSearch });
+  if (!ts) searchSelect.onchange = syncSearch;
+  $('picks').onclick = e => {
+    const v = e.target.dataset?.value;
+    if (v === undefined) return;
+    if (ts) ts.removeItem(v); // fires onChange → syncSearch
+    else { [...searchSelect.options].find(o => o.value === v).selected = false; syncSearch(); }
+  };
   $('friends').onclick = e => {
     const i = e.target.dataset?.remove;
     if (i === undefined) return;

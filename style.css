@@ -75,28 +75,28 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .bar #title { flex: 1; text-align: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 /* PARTY MODE is high contrast for blurry vision: used at night, in crowds, at a glance. Big bold text, near-black
    backgrounds, no glows or gradients that soften edges. Stage colour is only a thick bar, never text (some stage
-   neons, like the blue, are too dim to read as text). These classes are only used on now.html. */
+   neons, like the blue, are too dim to read as text). Scoped to .go-page where the names clash: Tom Select also uses .focus (wrapper) and .option (dropdown items). */
 #clock { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--fg); }
 .starts { margin: 12px 0; font-size: 22px; font-weight: 700; text-align: center; color: var(--yellow); }
-.focus { --stage: var(--accent); margin: 12px 0; padding: 18px 20px; border-radius: 16px; background: var(--surface);
+.go-page .focus { --stage: var(--accent); margin: 12px 0; padding: 18px 20px; border-radius: 16px; background: var(--surface);
   border: 3px solid var(--fg); border-left: 12px solid var(--stage); }
-.focus .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--fg); }
-.focus .label b { font-size: 20px; }
-.focus .where { margin-top: 6px; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
-.focus .who { font-size: clamp(32px, 10vw, 48px); font-weight: 900; line-height: 1.1; overflow-wrap: anywhere; }
-.focus .row { display: flex; justify-content: space-between; margin-top: 8px; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.focus .people:not(:empty) { margin-top: 8px; }
+.go-page .focus .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--fg); }
+.go-page .focus .label b { font-size: 20px; }
+.go-page .focus .where { margin-top: 6px; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.go-page .focus .who { font-size: clamp(32px, 10vw, 48px); font-weight: 900; line-height: 1.1; overflow-wrap: anywhere; }
+.go-page .focus .row { display: flex; justify-content: space-between; margin-top: 8px; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.go-page .focus .people:not(:empty) { margin-top: 8px; }
 .live { color: #ff3b3b; } /* solid, not blinking: a blinking dot is hard to find when blurry */
 .progress { height: 14px; margin-top: 14px; border-radius: 7px; background: #333; border: 1px solid var(--fg); overflow: hidden; }
 .progress span { display: block; height: 100%; background: var(--fg); }
-.focus.next .where { font-size: 26px; }
-.focus.free, .focus.empty { --stage: var(--line); text-align: center; }
-.focus.free .who, .focus.empty .who { font-size: 24px; }
-.focus.pick { --stage: var(--warn); }
+.go-page .focus.next .where { font-size: 26px; }
+.go-page .focus.free, .go-page .focus.empty { --stage: var(--line); text-align: center; }
+.go-page .focus.free .who, .go-page .focus.empty .who { font-size: 24px; }
+.go-page .focus.pick { --stage: var(--warn); }
 .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 10px; }
-.option { padding: 12px; border-radius: 12px; border: 2px solid var(--fg); border-left: 8px solid var(--stage); background: var(--bg); }
-.focus .option .where { font-size: 16px; margin: 0; }
-.focus .option .who { font-size: 24px; }
+.go-page .option { padding: 12px; border-radius: 12px; border: 2px solid var(--fg); border-left: 8px solid var(--stage); background: var(--bg); }
+.go-page .focus .option .where { font-size: 16px; margin: 0; }
+.go-page .focus .option .who { font-size: 24px; }
 .later { list-style: none; margin: 0; padding: 0; }
 .later li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; margin-bottom: 6px; border-radius: 10px; font-size: 20px;
   border: 2px solid var(--line); border-left: 8px solid var(--stage); background: var(--surface); }
@@ -116,19 +116,24 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .nowline { position: absolute; left: -8px; right: 0; z-index: 3; border-top: 4px solid var(--lime); pointer-events: none; }
 .nowline span { position: absolute; right: 0; top: -12px; background: var(--lime); color: #000; font-size: 14px; font-weight: 700; padding: 1px 6px; border-radius: 8px; }
 
-/* Tom Select, themed to match (its default CSS is light-only) */
-.ts-wrapper { flex: 1; min-width: 200px; }
-.ts-control, .ts-wrapper.single.input-active .ts-control, .ts-dropdown { background: var(--surface); color: var(--fg); border-color: var(--line); border-radius: var(--r); font-size: 14px; }
-/* Fixed one-line height in every state (Tom Select's defaults pad differently once items are picked), so picking never pushes the page down; extra chips scroll sideways. */
-.ts-wrapper .ts-control, .ts-wrapper.multi.has-items .ts-control { height: 36px; padding: 0 12px; flex-wrap: nowrap; align-items: center; overflow-x: auto; overflow-y: hidden; }
-.ts-wrapper.multi .ts-control > div { margin: 0 4px 0 0; padding: 1px 6px; white-space: nowrap; }
-.ts-control > input { flex: 1 0 80px; }
-.ts-control input { color: var(--fg); }
-.ts-dropdown .active { background: var(--line); color: var(--fg); }
-.ts-dropdown .optgroup-header { background: var(--surface); color: var(--yellow); font-weight: 700; }
-.ts-wrapper.multi .ts-control > div { background: var(--accent); color: var(--bg); border-radius: 12px; }
-/* Artist picks stay pink; genre picks (value "g:…") are cyan so the two kinds are easy to tell apart. */
-.ts-wrapper.multi .ts-control > div[data-value^="g:"] { background: var(--cyan); }
+/* Tom Select search box, kept plain: looks like the other inputs and is one fixed line. Picked items are hidden in the box and
+   shown as chips in their own row below (#picks), so typing and picking never change the box's size. */
+.ts-wrapper { flex: 1 1 240px; min-width: 0; }
+.ts-wrapper .ts-control, .ts-wrapper.multi.has-items .ts-control, .ts-wrapper.focus .ts-control {
+  height: 36px; padding: 0 12px; flex-wrap: nowrap; align-items: center; overflow: hidden;
+  background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: var(--r); box-shadow: none; font-size: 14px; }
+.ts-wrapper.focus .ts-control { border-color: var(--cyan); }
+.ts-wrapper.multi .ts-control > .item { display: none; }
+.ts-control input, .has-items .ts-control > input { flex: 1 0 80px; min-width: 80px; margin: 0 !important; color: var(--fg); }
+.ts-dropdown { margin-top: 4px; background: var(--surface); color: var(--fg); border: 1px solid var(--line); border-radius: var(--r); box-shadow: none; font-size: 14px; }
+.ts-dropdown .active { background: var(--raised); color: var(--fg); }
+.ts-dropdown .optgroup-header { background: var(--surface); color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+/* Search picks row: full width under the controls, gone when empty. Artists pink, genres cyan. */
+.picks { flex-basis: 100%; display: flex; flex-wrap: wrap; gap: 6px; }
+.picks:empty { display: none; }
+.pick { padding: 2px 10px; border: 1px solid var(--accent); border-radius: 999px; background: none; color: var(--accent); font-size: 13px; }
+.pick.genre { border-color: var(--cyan); color: var(--cyan); }
+.pick:hover { background: var(--raised); }
 
 /* Timetable. Never scrolls itself: full height, and stage columns shrink to fit the width (stage headers stick to the page). */
 #lineup { border: 1px solid var(--line); border-radius: var(--r); background: color-mix(in srgb, var(--bg) 60%, transparent); padding: 0 6px 6px 0; }
