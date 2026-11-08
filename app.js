@@ -39,38 +39,47 @@ function render() {
     `<button data-day="${esc(d)}" aria-pressed="${d === currentDay}">${esc(dayLabel(d))}</button>`).join('');
 
   // Timetable: one grid row per 5 minutes (row 1 = stage headers), column 1 = times, then one column per stage.
+  // Artists without set times yet (just `artist` + `day`) are listed under the grid instead.
   const daySets = lineup.sets.filter(s => dayOf(s) === currentDay);
-  const stages = [...new Set(daySets.map(s => s.stage))]; // order of first appearance in the JSON
-  const offset = offsetMinutes(daySets[0].start);
-  const HALF_HOUR = 1800000;
-  const t0 = Math.floor(Math.min(...daySets.map(s => Date.parse(s.start))) / HALF_HOUR) * HALF_HOUR;
-  const tEnd = Math.max(...daySets.map(s => Date.parse(s.end)));
-  const row = ms => Math.round((ms - t0) / 300000) + 2;
-
-  let html = `<div class="grid" style="grid-template-columns: 44px repeat(${stages.length}, minmax(0, 1fr))">`;
+  const timed = daySets.filter(s => s.start), tba = daySets.filter(s => !s.start);
   const colour = stageColours(lineup);
-  html += stages.map((st, i) => `<div class="stage" style="grid-column:${i + 2}; --stage:${colour[st]}">${esc(st)}</div>`).join('');
-  for (let t = t0; t < tEnd; t += HALF_HOUR) {
-    html += `<div class="tick" style="grid-row:${row(t)} / span 6">${localTime(t, offset)}</div>`;
-  }
-  for (const s of daySets) {
+  const card = (s, style) => {
     const lvl = state.favourites[s.id] || 0;
     const search = encodeURIComponent(s.artist);
     // Links from lineup.artists; only http(s) so a bad data file can't inject javascript: links.
     let links = Object.fromEntries(Object.entries(artistLinks(lineup, s.artist)).filter(([, u]) => /^https?:\/\//i.test(u)));
     if (!Object.keys(links).length) links = { spotify: 'https://open.spotify.com/search/' + search, soundcloud: 'https://soundcloud.com/search?q=' + search };
-    html += `<div class="set${lvl ? ' fav' : ''}${matches(s) ? '' : ' dim'}"
-        style="--stage:${colour[s.stage]}; grid-column:${stages.indexOf(s.stage) + 2}; grid-row:${row(Date.parse(s.start))} / ${row(Date.parse(s.end))}">
+    return `<div class="set${lvl ? ' fav' : ''}${matches(s) ? '' : ' dim'}" style="${style}">
       <button class="star" data-id="${esc(s.id)}" aria-label="Favourite level ${lvl} of 2 for ${esc(s.artist)}">${STARS[lvl]}</button>
       <div class="artist">${esc(s.artist)}</div>
-      <div class="meta">${timeOf(s.start)}–${timeOf(s.end)}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
+      <div class="meta">${s.start ? `${timeOf(s.start)}–${timeOf(s.end)}` : 'Time TBA'}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
       ${clash[s.id] ? `<div class="clash">⚠ ${clash[s.id].map(id => esc(byId[id].artist)).join(', ')}</div>` : ''}
       <div>${(lvl ? [state] : []).concat(friendsOf(s)).map(p => person(p, p.favourites[s.id])).join('')}</div>
       <div class="links">${Object.entries(links).map(([site, url]) =>
         `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(LINK_LABELS[site] || site)}</a>`).join(' ')}</div>
     </div>`;
+  };
+
+  let html = '';
+  if (timed.length) {
+    const stages = [...new Set(timed.map(s => s.stage))]; // order of first appearance in the JSON
+    const offset = offsetMinutes(timed[0].start);
+    const HALF_HOUR = 1800000;
+    const t0 = Math.floor(Math.min(...timed.map(s => Date.parse(s.start))) / HALF_HOUR) * HALF_HOUR;
+    const tEnd = Math.max(...timed.map(s => Date.parse(s.end)));
+    const row = ms => Math.round((ms - t0) / 300000) + 2;
+    html += `<div class="grid" style="grid-template-columns: 44px repeat(${stages.length}, minmax(0, 1fr))">`;
+    html += stages.map((st, i) => `<div class="stage" style="grid-column:${i + 2}; --stage:${colour[st]}">${esc(st)}</div>`).join('');
+    for (let t = t0; t < tEnd; t += HALF_HOUR) {
+      html += `<div class="tick" style="grid-row:${row(t)} / span 6">${localTime(t, offset)}</div>`;
+    }
+    html += timed.map(s => card(s, `--stage:${colour[s.stage]}; grid-column:${stages.indexOf(s.stage) + 2}; grid-row:${row(Date.parse(s.start))} / ${row(Date.parse(s.end))}`)).join('') + '</div>';
   }
-  $('lineup').innerHTML = html + '</div>';
+  if (tba.length) {
+    html += `<h2 class="tba">Set times TBA</h2><div class="tba-list">` +
+      [...tba].sort((a, b) => a.artist.localeCompare(b.artist)).map(s => card(s, '')).join('') + '</div>';
+  }
+  $('lineup').innerHTML = html;
 
   $('friends').innerHTML = `<span class="chip">${person(state)} ${esc(state.name || 'You')}</span>` +
     state.friends.map((f, i) => `<span class="chip">${person(f)} ${esc(f.name)}<button data-remove="${i}" aria-label="Remove ${esc(f.name)}">✕</button></span>`).join('');

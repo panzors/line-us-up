@@ -7,12 +7,13 @@ const used = RANGER_COLOURS.slice(0, 6);
 assert.equal(pickColour(used), RANGER_COLOURS[6]); // only unused colour
 assert.equal(pickColour([...RANGER_COLOURS, RANGER_COLOURS[0]], () => 0), RANGER_COLOURS[1]); // all used once → skip the doubled one
 
-assert.equal(setKey({ stage: 'Main Stage', start: '2026-12-19T17:00:00+07:00' }), 'MS-2026-12-19T17:00');
-assert.equal(setKey({ stage: 'kineticFIELD', start: '2026-12-19T17:00:00+07:00' }), 'K-2026-12-19T17:00');
+assert.equal(setKey({ artist: 'Kaskade', stage: 'Main Stage', start: '2026-12-19T17:00:00+07:00' }), '2026-12-19 Kaskade');
+assert.equal(setKey({ artist: 'Kaskade', day: '2026-12-19' }), '2026-12-19 Kaskade'); // same key before and after times are out
+assert.equal(setKey({ artist: 'Kaskade', day: '2026-12-19', start: '2026-12-20T01:00:00+07:00' }), '2026-12-19 Kaskade');
 assert.throws(() => withKeys({ sets: [
   { artist: 'X', stage: 'Main Stage', start: '2026-12-19T17:00:00+07:00' },
-  { artist: 'Y', stage: 'Mega Stage', start: '2026-12-19T17:00:00+07:00' },
-] }), /both get key MS-2026-12-19T17:00/);
+  { artist: 'X', day: '2026-12-19' },
+] }), /both get key 2026-12-19 X/);
 
 assert.equal(offsetMinutes('2026-12-19T17:00:00+07:00'), 420);
 assert.equal(offsetMinutes('2026-12-19T17:00:00-03:30'), -210);
@@ -73,20 +74,28 @@ assert.equal(countdown(-5), '0m');
 assert.deepEqual(clashes(sets, { a: 1, b: 2, c: 1 }), { a: ['b'], b: ['a', 'c'], c: ['b'] });
 assert.deepEqual(clashes(sets, { a: 1, c: 1 }), {});
 
+// untimed artists (no start/end) never clash and stay out of the calendar
+const tba = { id: 't', artist: 'T', day: '2026-12-19' };
+assert.deepEqual(clashes([...sets, tba], { a: 1, t: 1 }), {});
+assert.equal(toICS({ id: 'x', event: 'Fest', sets: [tba] }, { t: 1 }).includes('VEVENT'), false);
+
 const ics = toICS({ id: 'x', event: 'Fest', sets }, { a: 2 });
 assert.match(ics, /DTSTART:20261219T130000Z\r\n/); // +07:00 converted to UTC
 assert.match(ics, /SUMMARY:★ A\\, B\r\n/);
 assert.equal(ics.match(/BEGIN:VEVENT/g).length, 1);
 
-const list = parseList(JSON.stringify({ event: lineup.id, name: 'Sam', favourites: { 'KF-2026-01-16T15:00': 2, bogus: 1, 'KF-2026-01-16T16:15': 9 } }), lineup);
-assert.deepEqual(list, { name: 'Sam', favourites: { 'KF-2026-01-16T15:00': 2 } });
+const [k1, k2] = lineup.sets.map(s => s.id);
+const list = parseList(JSON.stringify({ event: lineup.id, name: 'Sam', favourites: { [k1]: 2, bogus: 1, [k2]: 9 } }), lineup);
+assert.deepEqual(list, { name: 'Sam', favourites: { [k1]: 2 } });
 assert.throws(() => parseList('{"event":"other","favourites":{}}', lineup), /not "edc-thailand-2026"/);
 
 // sample data is well-formed
 for (const s of lineup.sets) {
   assert.ok(s.artist && s.stage && dayOf(s), JSON.stringify(s));
-  assert.ok(new Date(s.start) < new Date(s.end), s.id);
+  assert.ok(!s.start || new Date(s.start) < new Date(s.end), s.id);
 }
+const dec = withKeys(JSON.parse(readFileSync('lineups/edc-thailand-2026-dec.json', 'utf8'))); // keys unique
+assert.ok(dec.sets.every(s => s.artist && /^2026-12-(18|19|20)$/.test(s.day) && !s.start));
 console.log('ok');
 
 // artist links: case/accent-insensitive, B2B sets merge both artists

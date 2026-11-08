@@ -121,7 +121,11 @@ function render() {
 }
 
 lineup = await loadLineup();
-if (lineup) {
+if (lineup) lineup.sets = lineup.sets.filter(s => s.start); // artists without set times can't be scheduled yet
+if (lineup && !lineup.sets.length) {
+  $('lineup').innerHTML = `<section class="focus empty"><div class="who">Set times aren't out yet</div><p><a class="button go" href="index.html${esc(location.search)}">Star some artists →</a></p></section>`;
+  $('full').hidden = true;
+} else if (lineup) {
   state = loadState(lineup);
   colour = stageColours(lineup);
   if (NOW_PARAM !== null) {

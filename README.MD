@@ -52,7 +52,9 @@ To use a different lineup: `?lineup=lineups/your-file.json`
   "artists": {                            // optional; Spotify/SoundCloud buttons use these instead of a search
     "Artist Name": { "spotify": "https://open.spotify.com/artist/…", "soundcloud": "https://soundcloud.com/…" }
   },
-  "sets": [{
+  "sets": [
+    { "artist": "Announced Artist", "day": "2026-12-19" }, // before set times are out: just artist + day (shown as "Set times TBA")
+    {
     "artist": "Artist Name",
     "stage": "Main Stage",
     "start": "2026-12-19T17:00:00+07:00", // ISO 8601 with the festival's UTC offset
@@ -62,14 +64,16 @@ To use a different lineup: `?lineup=lineups/your-file.json`
   }]
 }
 ```
-Each set's saved key is built from the stage initials + local start time, e.g. `Main Stage` at 17:00 → `MS-2026-12-19T17:00`.
-The app refuses to load a lineup where two sets get the same key (e.g. "Main Stage" and "Mega Stage" at the same time): rename a stage.
-Changing a set's stage name or start time changes its key, so people's saved picks for that set are lost.
+Each set's saved key is its festival day + artist, e.g. `2026-12-19 Kaskade`, so picks made from an artist-only lineup still match once you add `stage`/`start`/`end` (keep `day` and the artist name the same; for after-midnight sets keep `day` set to the night they belong to).
+The app refuses to load a lineup where the same artist is listed twice on one day: rename one (e.g. add "(closing set)").
+Changing an artist's name or day changes its key, so people's saved picks for it are lost.
+Artists without times can be starred but don't clash, aren't exported to the calendar and don't show in Let's go.
 
-`lineups/edc-thailand-2026-jan.json` holds set times scraped various locations.
+`lineups/edc-thailand-2026-dec.json` (default) lists the December artists by day, no set times yet.
+`lineups/edc-thailand-2026-jan.json` holds set times scraped various locations (`?lineup=lineups/edc-thailand-2026-jan.json`).
 
 ## Personal list schema (what Export JSON writes)
 ```json
-{ "event": "edc-thailand-2026", "name": "Sam", "favourites": { "MS-2026-12-19T17:00": 1, "SS-2026-12-19T20:00": 2 } }
+{ "event": "edc-thailand-2026", "name": "Sam", "favourites": { "2026-12-19 Kaskade": 1, "2026-12-20 Tiësto": 2 } }
 ```
 `1` = want to see, `2` = SUPERMUSTSEE. Tap the star to cycle ☆ → ★ → 🌟 → ☆.

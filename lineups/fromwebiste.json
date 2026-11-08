@@ -1,0 +1,592 @@
+{
+  "Kaskade": {
+    "facebook": "https://www.facebook.com/kaskade",
+    "soundcloud": "https://soundcloud.com/kaskade",
+    "instagram": "https://www.instagram.com/kaskade/",
+    "spotify": "https://open.spotify.com/artist/6TQj5BFPooTa08A7pk8AQ1",
+    "twitter": "https://twitter.com/kaskade",
+    "website": "http://www.kaskademusic.com"
+  },
+  "Showtek": {
+    "facebook": "https://www.facebook.com/showtek",
+    "soundcloud": "https://soundcloud.com/showtek",
+    "instagram": "https://www.instagram.com/showtek/",
+    "spotify": "https://open.spotify.com/artist/3gk0OYeLFWYupGFRHqLSR7",
+    "twitter": "https://twitter.com/showtek",
+    "website": "https://www.showtek.com/"
+  },
+  "Green Velvet": {
+    "website": "http://www.green-velvet.com",
+    "soundcloud": "http://soundcloud.com/green-velvet-1",
+    "facebook": "http://facebook.com/GreenVelvetFanpage",
+    "twitter": "http://twitter.com/GreenVelvet_"
+  },
+  "Steve Angello": {
+    "facebook": "https://www.facebook.com/steveangello/",
+    "soundcloud": "https://soundcloud.com/STEVEANGELLO",
+    "instagram": "https://www.instagram.com/steveangello/",
+    "spotify": "https://open.spotify.com/artist/4FqPRilb0Ja0TKG3RS3y4s",
+    "twitter": "https://x.com/steveangello",
+    "website": "https://www.steveangello.com/"
+  },
+  "Tiësto": {
+    "facebook": "https://www.facebook.com/tiesto",
+    "soundcloud": "https://soundcloud.com/tiesto",
+    "instagram": "https://instagram.com/tiesto/",
+    "spotify": "https://open.spotify.com/artist/2o5jDhtHVPhrJdv3cEQ99Z",
+    "twitter": "https://twitter.com/tiesto",
+    "website": "http://www.tiesto.com/"
+  },
+  "Above & Beyond": {
+    "facebook": "https://www.facebook.com/aboveandbeyond",
+    "soundcloud": "http://soundcloud.com/aboveandbeyond",
+    "instagram": "https://www.instagram.com/aboveandbeyond",
+    "spotify": "https://open.spotify.com/artist/10gzBoINW3cLJfZUka8Zoe",
+    "twitter": "https://x.com/aboveandbeyond",
+    "website": "http://www.aboveandbeyond.nu/"
+  },
+  "Coone": {
+    "facebook": "https://www.facebook.com/djcoone",
+    "soundcloud": "https://soundcloud.com/coone",
+    "instagram": "http://instagram.com/djcoone",
+    "spotify": "https://open.spotify.com/artist/1Wt63OMKtv6v2ivHuQLm2C",
+    "twitter": "http://twitter.com/djcoone",
+    "website": "http://www.djcoone.com/"
+  },
+  "Loco Dice": {
+    "facebook": "http://facebook.com/locodiceofc",
+    "soundcloud": "http://soundcloud.com/locodiceofc",
+    "instagram": "https://instagram.com/locodiceofc/",
+    "spotify": "https://open.spotify.com/artist/4rbw4Z9Hjn6n9x5oYzZe7P",
+    "twitter": "http://twitter.com/LocoDiceOFC",
+    "website": "http://www.locodice.com/"
+  },
+  "Andy C": {
+    "website": "http://www.andyc.cc/",
+    "soundcloud": "https://soundcloud.com/andyc_ram",
+    "facebook": "https://facebook.com/andyc",
+    "twitter": "https://twitter.com/andyc_ram",
+    "instagram": "https://instagram.com/andyc_ramagram"
+  },
+  "Jamie Jones": {
+    "facebook": "https://www.facebook.com/jamiejonesmusic",
+    "soundcloud": "https://soundcloud.com/jamie-jones",
+    "instagram": "https://www.instagram.com/jamiejonesmusic/",
+    "spotify": "https://open.spotify.com/artist/4admDxmnri5Zco0xYrJ0ji",
+    "twitter": "https://twitter.com/jamiejonesmusic"
+  },
+  "Darren Styles": {
+    "facebook": "https://www.facebook.com/DarrenStylesDJ/",
+    "soundcloud": "https://soundcloud.com/darren-styles",
+    "instagram": "https://www.instagram.com/darrenstylesuk/",
+    "spotify": "https://open.spotify.com/artist/2gZzTzeACSwFqkMroVxmnm",
+    "twitter": "https://twitter.com/darrenstylesuk",
+    "website": "http://www.darrenstyles.co.uk/"
+  },
+  "Baggi": {
+    "facebook": "https://www.facebook.com/BaggiOfficial",
+    "soundcloud": "https://soundcloud.com/baggiofficial",
+    "instagram": "https://instagram.com/baggiofficial",
+    "spotify": "https://open.spotify.com/artist/2YMB0FGsysOP5wOGJpXZom",
+    "twitter": "https://twitter.com/BaggiOfficial",
+    "website": "http://baggibegovic.com"
+  },
+  "DJ Snake": {
+    "facebook": "https://www.facebook.com/djsnake.fr",
+    "soundcloud": "https://soundcloud.com/djsnake",
+    "instagram": "https://www.instagram.com/djsnake/",
+    "twitter": "https://twitter.com/djsnake",
+    "website": "http://www.djsnake.fr"
+  },
+  "Martin Garrix": {
+    "facebook": "https://www.facebook.com/martin.garrix",
+    "soundcloud": "https://soundcloud.com/martingarrix",
+    "instagram": "https://www.instagram.com/martingarrix/",
+    "spotify": "https://open.spotify.com/artist/60d24wfXkVzDSfLS6hyCjZ",
+    "twitter": "https://twitter.com/martingarrix",
+    "website": "https://martingarrix.com/"
+  },
+  "Andrew Rayel": {
+    "facebook": "https://www.facebook.com/Andrew.Rayel",
+    "soundcloud": "https://soundcloud.com/andrewrayel",
+    "instagram": "https://www.instagram.com/andrew_rayel/",
+    "twitter": "https://twitter.com/Andrew_Rayel",
+    "website": "http://andrewrayel.net/"
+  },
+  "Paul van Dyk": {
+    "facebook": "https://www.facebook.com/PVD",
+    "soundcloud": "https://soundcloud.com/paulvandykofficial",
+    "instagram": "https://www.instagram.com/paulvandyk/",
+    "spotify": "https://open.spotify.com/artist/7wU1naftD3lNq7rNsiDvOR",
+    "twitter": "https://twitter.com/paulvandyk",
+    "website": "http://paulvandyk.com/"
+  },
+  "MaRLo": {
+    "facebook": "https://www.facebook.com/marlomusic",
+    "soundcloud": "https://soundcloud.com/marlomusic",
+    "instagram": "https://www.instagram.com/marlomusic/",
+    "spotify": "https://open.spotify.com/artist/2kd1zg9ZyGG6WjZO2dAsFd",
+    "twitter": "http://www.twitter.com/marlo_music",
+    "website": "http://www.marlomusic.com/"
+  },
+  "Da Tweekaz": {
+    "facebook": "https://www.facebook.com/DaTweekaz",
+    "soundcloud": "https://soundcloud.com/datweekaz",
+    "instagram": "https://www.instagram.com/datweekaz/?hl=en",
+    "spotify": "https://open.spotify.com/artist/6UOk7DmvqlzWmo6gjhZvn6",
+    "twitter": "https://twitter.com/datweekaz",
+    "website": "http://datweekaz.com/"
+  },
+  "Giuseppe Ottaviani": {
+    "facebook": "https://www.facebook.com/giuseppeottaviani",
+    "soundcloud": "https://soundcloud.com/giuseppeottaviani",
+    "instagram": "https://www.instagram.com/giuseppeottaviani/",
+    "spotify": "https://open.spotify.com/artist/5B9q1NRokzWYB7nSgnlHyv",
+    "twitter": "https://twitter.com/gottaviani",
+    "website": "http://www.giuseppeottaviani.com/"
+  },
+  "Dom Dolla": {
+    "facebook": "https://www.facebook.com/domdollamusic",
+    "soundcloud": "https://soundcloud.com/domdolla",
+    "instagram": "https://instagram.com/domdolla",
+    "spotify": "https://open.spotify.com/artist/205i7E8fNVfojowcQSfK9m",
+    "twitter": "https://twitter.com/dominicdolla",
+    "website": "https://www.domdolla.com/"
+  },
+  "Vintage Culture": {
+    "facebook": "https://www.facebook.com/vintageculturemusic",
+    "soundcloud": "https://soundcloud.com/vintageculturemusic",
+    "instagram": "https://www.instagram.com/vintageculture/",
+    "spotify": "https://open.spotify.com/artist/28uJnu5EsrGml2tBd7y8ts",
+    "twitter": "https://twitter.com/vintageculture"
+  },
+  "Max Styler": {
+    "facebook": "https://www.facebook.com/MaxStylerOfficial",
+    "soundcloud": "https://soundcloud.com/maxstyler",
+    "instagram": "https://www.instagram.com/maxstyler/",
+    "spotify": "https://open.spotify.com/artist/3NKKngINK1tP6BFy0WOyWk",
+    "twitter": "https://twitter.com/maxstylermusic"
+  },
+  "Taiki Nulight": {
+    "facebook": "https://www.facebook.com/taikinulight",
+    "instagram": "https://www.instagram.com/taikinulightuk/",
+    "soundcloud": "https://soundcloud.com/taiki-nulight-uk",
+    "x": "https://x.com/Taiki_Nulight",
+    "spotify": "https://open.spotify.com/artist/4QWmN97HRZya55JvxN3I5a"
+  },
+  "CamelPhat": {
+    "facebook": "https://www.facebook.com/CamelPhat/",
+    "soundcloud": "https://soundcloud.com/CAMELPHAT",
+    "instagram": "https://www.instagram.com/camelphatmusic/",
+    "spotify": "https://open.spotify.com/artist/240wlM8vDrf6S4zCyzGj2W",
+    "twitter": "https://x.com/CamelPhat",
+    "website": "https://www.camelphatmusic.com/"
+  },
+  "ATLiens": {
+    "facebook": "https://www.facebook.com/ATLiensOfficial",
+    "soundcloud": "https://soundcloud.com/atliens",
+    "instagram": "https://www.instagram.com/atliensofficial/",
+    "spotify": "https://open.spotify.com/artist/74RET4rCZPTGzhsLjD0i3g",
+    "twitter": "https://twitter.com/ATLiensOfficial",
+    "website": "http://www.atliensofficial.com/"
+  },
+  "ALPHA 9": {
+    "website": "https://www.alpha9official.com/",
+    "facebook": "https://www.facebook.com/artymusic",
+    "twitter": "https://twitter.com/arty_music",
+    "instagram": "https://www.instagram.com/artymusic/"
+  },
+  "Lil Texas": {
+    "facebook": "https://www.facebook.com/LilTexasMusic/",
+    "soundcloud": "https://soundcloud.com/liltexas",
+    "instagram": "https://www.instagram.com/liltexas/",
+    "spotify": "https://open.spotify.com/artist/76raIy8boaM9sf9gMGXGJ5",
+    "twitter": "https://twitter.com/LILTEXAS"
+  },
+  "Subtronics": {
+    "facebook": "https://www.facebook.com/Subtronicsofficial/",
+    "soundcloud": "https://soundcloud.com/subtronics",
+    "instagram": "https://www.instagram.com/subtronics/",
+    "spotify": "https://open.spotify.com/artist/3NJ94iuAmmMjbszODYT6pO",
+    "twitter": "https://x.com/Subtronics",
+    "website": "https://subtronics.net/"
+  },
+  "Charlotte de Witte": {
+    "facebook": "https://www.facebook.com/charlottedewittemusic/",
+    "soundcloud": "https://soundcloud.com/charlottedewittemusic",
+    "instagram": "https://www.instagram.com/charlottedewittemusic/",
+    "spotify": "https://open.spotify.com/artist/1lJhME1ZpzsEa5M0wW6Mso",
+    "website": "https://charlottedewittemusic.com/"
+  },
+  "Carta": {
+    "facebook": "https://www.facebook.com/cartaofficial/",
+    "soundcloud": "https://soundcloud.com/cartaofficial",
+    "instagram": "https://www.instagram.com/cartaofficial/",
+    "spotify": "https://open.spotify.com/artist/3MTk6MUbUmV5X0N04N56JF",
+    "twitter": "https://twitter.com/cartaofficial"
+  },
+  "Kaku": {
+    "soundcloud": "https://soundcloud.com/djkaku",
+    "facebook": "https://www.facebook.com/DJKAKUOFFICIAL/",
+    "instagram": "https://www.instagram.com/kakuberry/",
+    "twitter": "https://twitter.com/kakuberry"
+  },
+  "OMNOM": {
+    "facebook": "https://www.facebook.com/imOMNOM",
+    "soundcloud": "https://soundcloud.com/omnom",
+    "instagram": "https://www.instagram.com/imOMNOM/",
+    "spotify": "https://open.spotify.com/artist/3PYRXP25JcbqhvNaJYcnWy",
+    "twitter": "https://twitter.com/imOMNOM"
+  },
+  "WhoMadeWho": {
+    "facebook": "https://www.facebook.com/whomadewho/",
+    "soundcloud": "https://soundcloud.com/whomadewho",
+    "instagram": "https://www.instagram.com/WhoMadeWhoOfficial/",
+    "spotify": "https://open.spotify.com/artist/50Lr1puweM1hFsF1LpIZLM",
+    "twitter": "https://twitter.com/whomadewho",
+    "website": "https://whomadewho.dk/"
+  },
+  "KREAM": {
+    "facebook": "https://www.facebook.com/wearekream/",
+    "soundcloud": "https://soundcloud.com/kreamofficial",
+    "instagram": "https://www.instagram.com/wearekream/",
+    "spotify": "https://open.spotify.com/artist/0DdDnziut7wOo6cAYWVZC5",
+    "twitter": "https://twitter.com/wearekream",
+    "website": "http://www.wearekream.com/"
+  },
+  "Sofi Tukker": {
+    "facebook": "https://www.facebook.com/sofitukker",
+    "soundcloud": "https://soundcloud.com/sofitukker",
+    "instagram": "https://www.instagram.com/sofitukker/",
+    "spotify": "https://open.spotify.com/artist/586uxXMyD5ObPuzjtrzO1Q",
+    "twitter": "https://twitter.com/sofitukker",
+    "website": "https://www.sofitukker.com/"
+  },
+  "Odd Mob": {
+    "facebook": "https://www.facebook.com/ODDMOB",
+    "soundcloud": "https://soundcloud.com/ODDMOB",
+    "instagram": "https://www.instagram.com/odd_mob/",
+    "spotify": "https://open.spotify.com/artist/4qLwtWhlhyAoQ4S9mSrDW9",
+    "twitter": "https://twitter.com/ODD_MOB",
+    "website": "https://www.oddmobmusic.com/"
+  },
+  "James Hype": {
+    "facebook": "https://www.facebook.com/jameshypethedj",
+    "soundcloud": "https://soundcloud.com/jameshypethedj",
+    "instagram": "https://www.instagram.com/jameshype/",
+    "spotify": "https://open.spotify.com/artist/43BxCL6t4c73BQnIJtry5v",
+    "twitter": "https://twitter.com/JamesHYPE"
+  },
+  "Kanine": {
+    "facebook": "https://www.facebook.com/KANINEDNB",
+    "soundcloud": "https://soundcloud.com/kaninednb",
+    "instagram": "https://www.instagram.com/kanineuk/",
+    "twitter": "https://twitter.com/KANINEDNB",
+    "website": "https://www.djkanine.com/"
+  },
+  "SABAI": {
+    "facebook": "https://www.facebook.com/sabaiofficial",
+    "soundcloud": "https://soundcloud.com/sabaimusic",
+    "instagram": "https://www.instagram.com/sabaimusic/",
+    "spotify": "https://open.spotify.com/artist/4OaSyxqlkp7aVpAZwF02QZ",
+    "twitter": "https://twitter.com/sabai_music"
+  },
+  "I Hate Models": {
+    "facebook": "https://www.facebook.com/ihatemodel",
+    "soundcloud": "https://soundcloud.com/IHATEMODELS",
+    "instagram": "https://www.instagram.com/ihatemodels1/",
+    "spotify": "https://open.spotify.com/artist/0KqSULB80ft2H3aFg6kJmN"
+  },
+  "Miss Monique": {
+    "facebook": "https://www.facebook.com/MissMoniqueUA/",
+    "soundcloud": "https://soundcloud.com/alesia-arkusha",
+    "instagram": "https://www.instagram.com/djmissmonique/",
+    "twitter": "https://twitter.com/djmissmonique"
+  },
+  "GUDFELLA": {
+    "facebook": "https://www.facebook.com/Gudfellaofficial",
+    "soundcloud": "https://soundcloud.com/gudfellaofficial",
+    "instagram": "https://www.instagram.com/gudfella/",
+    "spotify": "https://open.spotify.com/artist/3KjZMSSy0BaCVdvL0VABRO",
+    "twitter": "https://mobile.twitter.com/gudfellamusic",
+    "website": "https://www.gudfella.com/"
+  },
+  "Mau P": {
+    "facebook": "https://www.facebook.com/maupmusic/",
+    "soundcloud": "https://soundcloud.com/realmaup",
+    "instagram": "https://www.instagram.com/maup/",
+    "spotify": "https://open.spotify.com/artist/0w1sbtZVQoK6GzV4A4OkCv",
+    "twitter": "https://twitter.com/realmaup",
+    "website": "https://maupmusic.com/"
+  },
+  "ChaseWest": {
+    "soundcloud": "https://soundcloud.com/chase_west",
+    "instagram": "https://www.instagram.com/chasewest/",
+    "spotify": "https://open.spotify.com/artist/4770WxUOyJMOJ1CHiZi2d6",
+    "twitter": "https://twitter.com/NotChasewest"
+  },
+  "Hamdi": {
+    "facebook": "https://www.facebook.com/HamdiOfficialMusic/",
+    "soundcloud": "https://soundcloud.com/hamdiofficialmusic",
+    "instagram": "https://www.instagram.com/hamdimusic/",
+    "spotify": "https://open.spotify.com/artist/7vvicoei9BbKpZix8qSeLg",
+    "twitter": "https://twitter.com/hamdimusic"
+  },
+  "Korolova": {
+    "facebook": "https://www.facebook.com/korolova.dj/",
+    "soundcloud": "https://soundcloud.com/korolovadj",
+    "instagram": "https://www.instagram.com/korolova.dj/",
+    "spotify": "https://open.spotify.com/artist/0I6oCyQQ1Q50q97y9B9gAx",
+    "twitter": "https://twitter.com/korolovamusik"
+  },
+  "VTSS": {
+    "facebook": "https://www.facebook.com/vtssvtssvtss/",
+    "soundcloud": "https://soundcloud.com/vtss",
+    "instagram": "https://www.instagram.com/vtss.pl/",
+    "spotify": "https://open.spotify.com/artist/0zo109NM3S7CqHpvlXwqEN",
+    "twitter": "https://x.com/vtss_pl"
+  },
+  "ALLEYCVT": {
+    "facebook": "https://www.facebook.com/ALLEYCVT",
+    "instagram": "https://www.instagram.com/alleycvt/",
+    "soundcloud": "https://soundcloud.com/alleycvt",
+    "spotify": "https://open.spotify.com/artist/4JxRK2gxmri7L7OWaxnVD1",
+    "website": "https://alleycvt.com/"
+  },
+  "OMRI.": {},
+  "Daxson": {
+    "facebook": "https://www.facebook.com/DaxsonMusic",
+    "instagram": "https://www.instagram.com/daxsonmusic",
+    "spotify": "https://open.spotify.com/artist/4WwMR8h0vztJLNgiL5ZFqW"
+  },
+  "horsegiirL": {
+    "soundcloud": "https://soundcloud.com/horsegiirl",
+    "instagram": "https://www.instagram.com/horsegiirl420/",
+    "spotify": "https://open.spotify.com/artist/0auP293abZeTWwMUi3fZw2"
+  },
+  "Sihk": {
+    "soundcloud": "https://soundcloud.com/sihk66",
+    "instagram": "https://www.instagram.com/sihksihk",
+    "spotify": "https://open.spotify.com/artist/0GRYh4b8TJ9LQelJhQuKh6",
+    "twitter": "https://twitter.com/sihksihk"
+  },
+  "Sickmode": {
+    "facebook": "https://www.facebook.com/SICKMODEDJ/",
+    "instagram": "https://www.instagram.com/sickmodedj",
+    "spotify": "https://open.spotify.com/artist/5PbgCU02dfdBCAzpOaNmYW",
+    "website": "https://www.sickmodedj.com/"
+  },
+  "Restricted": {
+    "facebook": "https://www.facebook.com/itsrestricted/",
+    "soundcloud": "https://soundcloud.com/itsrestricted",
+    "instagram": "https://www.instagram.com/itsrestricted_/",
+    "spotify": "https://open.spotify.com/artist/7mx6iGwPF157vXwYcl1DQ3"
+  },
+  "Adiel": {
+    "facebook": "https://www.facebook.com/adiel.danzatribale/",
+    "soundcloud": "https://soundcloud.com/a-diel",
+    "instagram": "https://www.instagram.com/__adiel__",
+    "spotify": "https://open.spotify.com/artist/1yetl1fEx0mE16k164jXvw"
+  },
+  "Basstripper": {
+    "facebook": "https://www.facebook.com/BTdnb/",
+    "soundcloud": "https://soundcloud.com/basstripper",
+    "instagram": "https://www.instagram.com/basstripper/",
+    "spotify": "https://open.spotify.com/artist/1tSiIyp5dxfbEaS0nZGMEl"
+  },
+  "Hannah Laing": {
+    "facebook": "https://www.facebook.com/Hannahlaingdj",
+    "soundcloud": "https://soundcloud.com/hannahlaingdj",
+    "instagram": "https://www.instagram.com/hannahlaingdj/",
+    "spotify": "https://open.spotify.com/artist/1QEd635szhierW6gzRiS1o"
+  },
+  "Jackie Hollander": {
+    "soundcloud": "https://soundcloud.com/jackiehollander",
+    "instagram": "https://www.instagram.com/jackiehollander/",
+    "spotify": "https://open.spotify.com/artist/5ykY9Uweo3gl5VFpb6z6pQ"
+  },
+  "Funk Tribu": {
+    "instagram": "https://www.instagram.com/funktribu/",
+    "soundcloud": "https://soundcloud.com/funktribumusic",
+    "spotify": "https://open.spotify.com/artist/1vK8NnrPlBlF34LaiFX1SK"
+  },
+  "Clara Cuvé": {
+    "facebook": "https://www.facebook.com/cuveclara/",
+    "soundcloud": "https://soundcloud.com/claracuve",
+    "instagram": "https://www.instagram.com/clara_cuve/",
+    "spotify": "https://open.spotify.com/artist/7daFW9cX9jHmOxZ0PIofRm"
+  },
+  "Kikie": {
+    "facebook": "https://www.facebook.com/djkikiethailand/",
+    "instagram": "https://www.instagram.com/djkikie_kie/"
+  },
+  "Dennett": {
+    "facebook": "https://www.facebook.com/profile.php?id=100089908165104",
+    "soundcloud": "https://soundcloud.com/dennettofficial",
+    "instagram": "https://www.instagram.com/dennettofficial/",
+    "spotify": "https://open.spotify.com/artist/00iuR3hBqoYxY8I0XYcWN9"
+  },
+  "Alex Wann": {
+    "facebook": "https://www.facebook.com/alexwannmusic/",
+    "soundcloud": "https://soundcloud.com/alexwann",
+    "instagram": "https://www.instagram.com/alexwannmusic/",
+    "spotify": "https://open.spotify.com/artist/6PTNNcLg90Kkl89JcEwKhT?si=U-WPbmzpQvKjAHtQkH2BEg&nd=1&dlsi=203715fdffae4bed"
+  },
+  "Sota": {
+    "facebook": "https://www.facebook.com/Sotadnb/",
+    "soundcloud": "https://soundcloud.com/so_ta",
+    "instagram": "https://www.instagram.com/sotauk/",
+    "spotify": "https://open.spotify.com/artist/78UYwUXnotbqcp2NTxjujP",
+    "website": "https://sota.live/"
+  },
+  "RØZ": {
+    "soundcloud": "https://soundcloud.com/roz-175282464",
+    "instagram": "https://www.instagram.com/roz.wavvv/",
+    "spotify": "https://open.spotify.com/artist/0aULg7LximLNhI6lLzxcXI",
+    "website": "https://roz.mx/"
+  },
+  "Quest": {
+    "facebook": "https://www.facebook.com/Quest.wax",
+    "soundcloud": "https://soundcloud.com/questwax",
+    "instagram": "https://www.instagram.com/_____quest/"
+  },
+  "Mr. Sour": {
+    "instagram": "https://www.instagram.com/mr_sour_22/",
+    "website": "https://www.mixcloud.com/krypto/"
+  },
+  "Supergloss": {
+    "soundcloud": "https://soundcloud.com/superglozz",
+    "instagram": "https://www.instagram.com/superglosss/",
+    "spotify": "https://open.spotify.com/artist/7uvZrAOASv4qg1VawEFR7Z?si=cpt4jkYVShWFbm3aznZaag"
+  },
+  "Noise Mafia": {
+    "soundcloud": "https://soundcloud.com/noisemafia",
+    "instagram": "https://www.instagram.com/noise_mafia/",
+    "spotify": "https://open.spotify.com/artist/4MiEz25tF9BmzSEU0XKqxS"
+  },
+  "FIFI": {
+    "instagram": "https://www.instagram.com/sophiaziskin/",
+    "soundcloud": "https://soundcloud.com/sophia-ziskin-693113507",
+    "spotify": "https://open.spotify.com/artist/0G31cfQ16TnAGyi5AZG5qT"
+  },
+  "Rafael": {
+    "soundcloud": "https://soundcloud.com/rafaelmusic242",
+    "instagram": "https://www.instagram.com/rafael___music/",
+    "spotify": "https://open.spotify.com/artist/3DHC2ZUVADRKLSmqPcqvc6"
+  },
+  "Ana Rova": {
+    "soundcloud": "https://soundcloud.com/37rx5j9vpro2",
+    "instagram": "https://www.instagram.com/anarovamusic/"
+  },
+  "PETERBLUE": {
+    "soundcloud": "https://soundcloud.com/peterblu3",
+    "instagram": "https://www.instagram.com/peter_blue_/",
+    "spotify": "https://open.spotify.com/artist/1gyRea2i4KWngzrniV5CXz"
+  },
+  "SundaySundae": {
+    "instagram": "https://www.instagram.com/sundaysundaemusic/"
+  },
+  "Yanamaste": {
+    "facebook": "https://www.facebook.com/yanamastee",
+    "soundcloud": "https://soundcloud.com/yanamaste14",
+    "instagram": "https://www.instagram.com/yanamaste/",
+    "spotify": "https://open.spotify.com/artist/6zRdaJArenH7DjolPTm6hY"
+  },
+  "Hanky": {},
+  "Kamiko": {},
+  "Guide": {},
+  "JWP.": {},
+  "Oxyboy": {},
+  "Omar+": {
+    "soundcloud": "https://soundcloud.com/omarplus",
+    "instagram": "https://www.instagram.com/omarplus/",
+    "spotify": "https://open.spotify.com/artist/06HO1b1nd4kQzRakdZBTSc"
+  },
+  "&friends": {
+    "instagram": "https://www.instagram.com/andfriendssss/",
+    "spotify": "https://open.spotify.com/artist/0Z7zcsIphrPDnfZj9Ppqw0"
+  },
+  "Afem Syko": {
+    "instagram": "https://www.instagram.com/afemsyko/",
+    "soundcloud": "https://soundcloud.com/afemsyko",
+    "spotify": "https://open.spotify.com/artist/0AI1UbChn1oJGs5JHFkebU"
+  },
+  "Barbara Lago": {
+    "facebook": "https://www.facebook.com/barbaralagomusic/",
+    "instagram": "https://www.instagram.com/barbara__lago",
+    "soundcloud": "https://soundcloud.com/barbaralago",
+    "spotify": "https://open.spotify.com/artist/5MHwARUytljJHQDYzBlyG5"
+  },
+  "Worship (Sub Focus, Dimension, Culture Shock, 1991)": {
+    "facebook": "https://www.facebook.com/worshipartists/",
+    "instagram": "https://www.instagram.com/worshipartists/",
+    "soundcloud": "https://soundcloud.com/worshipartists",
+    "x": "https://x.com/worship_artists",
+    "website": "https://www.worshipartists.uk/"
+  },
+  "Osmosis Jones": {
+    "instagram": "https://www.instagram.com/osmosisjonesinthehouse/",
+    "soundcloud": "https://soundcloud.com/osmosisjones1er",
+    "spotify": "https://open.spotify.com/artist/39vtMUnZETGKSh6MFRSJ7n"
+  },
+  "Dean Turnley": {
+    "instagram": "https://www.instagram.com/dean_turnley/",
+    "soundcloud": "https://soundcloud.com/dean_turnley",
+    "spotify": "https://open.spotify.com/artist/3BcWcwYXVjvLWHMGKsuvsd"
+  },
+  "Anderex": {
+    "facebook": "https://www.facebook.com/AnderexOfficial/",
+    "instagram": "https://www.instagram.com/anderex.wav/",
+    "soundcloud": "https://soundcloud.com/anderex",
+    "spotify": "https://open.spotify.com/artist/7wXBtpPB5GFddtz9OeBlPW"
+  },
+  "Bella Claxton": {
+    "instagram": "https://www.instagram.com/bellaclaxton/",
+    "soundcloud": "https://soundcloud.com/bellaclaxton",
+    "spotify": "https://open.spotify.com/artist/2imSh48JkQxpNcJr8ub8A7"
+  },
+  "Kyle Starkey": {
+    "soundcloud": "https://soundcloud.com/kyle_starkey43",
+    "spotify": "https://open.spotify.com/artist/1crvHImsszKXTJr4wsOPhe"
+  },
+  "Annē": {
+    "facebook": "https://www.facebook.com/anne.musicofficialpage/",
+    "instagram": "https://www.instagram.com/anne__gr_/",
+    "soundcloud": "https://soundcloud.com/annemusicofficial",
+    "spotify": "https://open.spotify.com/artist/3OGLZyNTROPbmMMX6oD4Jf"
+  },
+  "Am Not Joy": {},
+  "Bravery": {},
+  "Coop": {},
+  "Ekanan": {},
+  "Genji": {},
+  "Jaidee": {},
+  "Sachi Moki": {},
+  "Nakadia": {},
+  "Nghtshift": {},
+  "Pnny Collective": {},
+  "Thanac": {},
+  "Level Up&Subtronics": {
+    "facebook": "https://www.facebook.com/Subtronicsofficial/",
+    "soundcloud": "https://soundcloud.com/subtronics",
+    "instagram": "https://www.instagram.com/subtronics/",
+    "spotify": "https://open.spotify.com/artist/3NJ94iuAmmMjbszODYT6pO",
+    "twitter": "https://x.com/Subtronics",
+    "website": "https://subtronics.net/"
+  },
+  "Space 92&Popof": {
+    "facebook": "https://www.facebook.com/popofofficial",
+    "soundcloud": "https://soundcloud.com/popofofficial",
+    "instagram": "https://www.instagram.com/popof_official/",
+    "spotify": "https://open.spotify.com/artist/4f2K0RSYyxP4TUyZu1azYB",
+    "twitter": "https://twitter.com/popofofficial"
+  },
+  "Wukong&Bassjackers": {
+    "instagram": "http://instagram.com/bassjackers",
+    "spotify": "https://open.spotify.com/artist/6AtgLd3rwVPep5RSPWRQ1T",
+    "website": "http://www.bassjackers.com",
+    "soundcloud": "http://soundcloud.com/bassjackers",
+    "facebook": "http://facebook.com/bassjackers",
+    "twitter": "http://twitter.com/Bassjackers"
+  }
+}

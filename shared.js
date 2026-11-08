@@ -2,7 +2,7 @@
 import { withKeys, pickColour } from './lib.js';
 
 // Point at another lineup with ?lineup=lineups/your-file.json
-export const LINEUP_URL = new URLSearchParams(location.search).get('lineup') || 'lineups/edc-thailand-2026-jan.json';
+export const LINEUP_URL = new URLSearchParams(location.search).get('lineup') || 'lineups/edc-thailand-2026-dec.json';
 export const esc = t => String(t).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
 export const $ = id => document.getElementById(id);
 // "2026-12-19" → "Sat, 19 Dec" (in the viewer's language); UTC so the date never shifts.

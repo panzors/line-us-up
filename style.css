@@ -162,3 +162,7 @@ h2 { margin: 24px 0 8px; font-size: 13px; text-transform: uppercase; letter-spac
 /* Stage colour strip on the left of every set/card (--stage set inline per stage); last so it beats fav/playing borders. */
 .set, .set.fav, .card, .card.playing { border-left: 6px solid var(--stage, var(--line)); }
 .stage { border-bottom-color: var(--stage, var(--accent)); }
+
+/* Artists announced for a day but without set times yet */
+.tba { margin: 16px 0 6px; font-size: 15px; }
+.tba-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 6px; }

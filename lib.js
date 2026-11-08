@@ -2,15 +2,15 @@
 
 export const dayOf = s => s.day || s.start.slice(0, 10);
 
-// Saved-list key: stage initials + festival-local start, e.g. "MS-2026-12-19T17:00".
-export const setKey = s => s.stage.split(/\s+/).map(w => w[0]).join('').toUpperCase() + '-' + s.start.slice(0, 16);
+// Saved-list key: festival day + artist, e.g. "2026-12-19 Kaskade", so picks made before set times are out still match once they are.
+export const setKey = s => dayOf(s) + ' ' + s.artist;
 
-// Gives every set its key as `id`; refuses lineups where two sets share one (e.g. "Main Stage"/"Mega Stage" at the same time).
+// Gives every set its key as `id`; refuses lineups where an artist is listed twice on the same day.
 export function withKeys(lineup) {
   const seen = {};
   for (const s of lineup.sets) {
     s.id = setKey(s);
-    if (seen[s.id]) throw new Error(`"${s.artist}" and "${seen[s.id]}" both get key ${s.id}; rename a stage so the initials differ`);
+    if (seen[s.id]) throw new Error(`"${s.artist}" and "${seen[s.id]}" both get key ${s.id}; rename one (e.g. add "(closing set)")`);
     seen[s.id] = s.artist;
   }
   return lineup;
@@ -58,7 +58,7 @@ const icsText = t => String(t).replace(/[\\,;]/g, m => '\\' + m).replace(/\n/g, 
 
 export function toICS(lineup, favs) {
   const now = icsDate(new Date().toISOString());
-  const events = lineup.sets.filter(s => favs[s.id]).map(s => [
+  const events = lineup.sets.filter(s => favs[s.id] && s.start).map(s => [
     'BEGIN:VEVENT',
     `UID:${s.id}@${lineup.id}.line-us-up`,
     `DTSTAMP:${now}`,
