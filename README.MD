@@ -11,6 +11,7 @@ Standalone app that allows anyone to generate and compare sets that they want to
 - [x] (optional) Notes clashes
 - [x] (optional) SUPERMUSTSEE
 - [x] (optional) Searches spotify or soundcloud who they are and how to sample it.
+- [ ] (optional, built but disabled: the app owner needs Spotify Premium; uncomment the Spotify lines in `app.js` and `index.html`) My list → Create Spotify playlist: 2 songs per starred artist, made in your own Spotify account. Setup: create an app at developer.spotify.com/dashboard (Web API), add redirect URIs `https://<you>.github.io/line-us-up/` and `http://127.0.0.1:8000/`, put its Client ID in `CLIENT_ID` in `spotify.js`. While the app is in development mode only users added under Settings → User Management (max 5) can use it.
 - [ ] (optional) Extract possible genre of this artist so you can search and filter (search already matches `genres` if the lineup JSON has them)
 - [ ] "Now" mode which shows you what artist you should be at now and next
 

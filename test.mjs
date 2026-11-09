@@ -1,7 +1,7 @@
 // Run: node test.mjs
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { clashes, toICS, parseList, dayOf, offsetMinutes, localTime, setKey, withKeys, pickColour, RANGER_COLOURS, agenda, countdown, artistLinks, timeline, nowOffset, festivalDay, parseTestNow } from './lib.js';
+import { clashes, toICS, parseList, dayOf, offsetMinutes, localTime, setKey, withKeys, pickColour, RANGER_COLOURS, agenda, countdown, artistLinks, pickTracks, timeline, nowOffset, festivalDay, parseTestNow } from './lib.js';
 
 const used = RANGER_COLOURS.slice(0, 6);
 assert.equal(pickColour(used), RANGER_COLOURS[6]); // only unused colour
@@ -103,3 +103,10 @@ const al = { artists: { 'Tiësto': { spotify: 'S1' }, 'Adiel': { soundcloud: 'C2
 assert.deepEqual(artistLinks(al, 'TIESTO'), { spotify: 'S1' });
 assert.deepEqual(artistLinks(al, 'ADIEL B2B AFEM SYKO'), { soundcloud: 'C2', spotify: 'S3' });
 assert.deepEqual(artistLinks({}, 'Nobody'), {});
+
+// Spotify: first 2 tracks by the artist (by ID if known, else name), skipping other artists and duplicates
+const tr = (uri, ...artists) => ({ uri, artists: artists.map(([id, name]) => ({ id, name })) });
+const hits = [tr('u1', ['x', 'Cover Band']), tr('u2', ['k', 'Kaskade']), tr('u2', ['k', 'Kaskade']), null, tr('u3', ['o', 'Other'], ['k', 'Kaskade']), tr('u4', ['k', 'Kaskade'])];
+assert.deepEqual(pickTracks(hits, 'Kaskade', 'k'), ['u2', 'u3']);
+assert.deepEqual(pickTracks(hits, 'KASKADE'), ['u2', 'u3']); // no ID: name match
+assert.deepEqual(pickTracks(hits, 'Kaskade', 'nope'), []);

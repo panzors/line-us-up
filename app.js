@@ -1,3 +1,5 @@
+// Spotify playlist export is disabled for now (the app owner needs Spotify Premium). To turn it back on, uncomment the 4 "Spotify" lines in app.js and the button in index.html.
+// import { spotifyPlaylist, spotifyReturned } from './spotify.js'; // first: it restores ?lineup= after a Spotify login, before shared.js reads it
 import { dayOf, timeOf, clashes, toICS, parseList, offsetMinutes, localTime, pickColour, artistLinks } from './lib.js';
 import { esc, $, dayLabel, stageColours, loadLineup, loadState, saveState, clearState, usedColours as used, person as icon } from './shared.js';
 
@@ -118,6 +120,7 @@ async function init() {
   if (!lineup) return;
   state = loadState(lineup);
   $('letsgo').href = 'now.html' + location.search;
+  $('print').href = 'print.html' + location.search;
   $('title').textContent = lineup.event;
   $('notice').textContent = lineup.notice || '';
   $('name').value = state.name;
@@ -177,6 +180,8 @@ async function init() {
     if (!lineup.sets.some(s => s.start && state.favourites[s.id])) return alert("None of your picks have set times yet, so there's nothing to add to a calendar.");
     download(fileBase() + '.ics', toICS(lineup, state.favourites), 'text/calendar');
   };
+  // const spotifyError = e => { console.error('[line-us-up] spotify', e); alert(e.message); };
+  // $('export-spotify').onclick = e => spotifyPlaylist(lineup, state, e.target).catch(spotifyError);
   $('import-mine').onchange = e => readFiles(e.target, list => {
     if (Object.keys(state.favourites).length && !confirm('Replace your current picks with this file?')) return;
     state.favourites = list.favourites;
@@ -192,7 +197,16 @@ async function init() {
   });
 
   render();
+  // if (spotifyReturned()) spotifyPlaylist(lineup, state, $('export-spotify')).catch(spotifyError); // back from Spotify login: finish the job
 }
+
+// First visit only: one site-wide flag, not per lineup. If storage is blocked it just shows every visit.
+try {
+  if (!localStorage.getItem('line-us-up:welcomed')) {
+    $('welcome').addEventListener('close', () => { try { localStorage.setItem('line-us-up:welcomed', '1'); } catch {} });
+    $('welcome').showModal();
+  }
+} catch { $('welcome').showModal(); }
 
 init().catch(e => {
   console.error('[line-us-up] page failed after loading', e);

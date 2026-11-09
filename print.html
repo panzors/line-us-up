@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Printable lineup</title>
+  <!-- Own styles, not style.css: plain black on white so it prints cleanly on any printer. -->
+  <style>
+    body { margin: 0 auto; max-width: 900px; padding: 16px; font: 12px/1.35 system-ui, sans-serif; color: #000; background: #fff; }
+    h1 { font-size: 20px; margin: 0 0 4px; }
+    h2 { font-size: 15px; margin: 18px 0 6px; border-bottom: 2px solid #000; page-break-after: avoid; }
+    .controls { display: flex; gap: 12px; align-items: center; margin: 8px 0; }
+    .controls a, .controls button { color: #000; font: inherit; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 3px 6px; border-bottom: 1px solid #999; vertical-align: top; }
+    th { border-bottom: 1px solid #000; }
+    tr { page-break-inside: avoid; }
+    td.time { white-space: nowrap; width: 1%; }
+    tr.fav td.artist { font-weight: 700; }
+    .muted { color: #555; }
+    section { page-break-inside: auto; }
+    @media print {
+      .controls { display: none; }
+      body { padding: 0; max-width: none; }
+      section + section { page-break-before: always; }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">Line Us Up</h1>
+  <p class="muted"><b>Bold</b> = your pick · ★★ SUPERMUSTSEE · ⚠ clashes with another of your picks</p>
+  <div class="controls">
+    <a id="back" href="index.html">← Back</a>
+    <button onclick="print()">Print</button>
+  </div>
+  <main id="lineup"><p class="muted">Loading lineup…</p></main>
+  <script type="module" src="print.js"></script>
+</body>
+</html>

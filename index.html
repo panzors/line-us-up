@@ -16,7 +16,10 @@
       <h1 id="title">Line Us Up</h1>
       <p id="notice" class="muted"></p>
     </div>
-    <a id="letsgo" class="button go" href="now.html">PARTY MODE →</a>
+    <div class="top-actions">
+      <a id="print" class="button ghost" href="print.html" aria-label="Printable view" title="Printable view">🖨️</a>
+      <a id="letsgo" class="button go" href="now.html">PARTY MODE →</a>
+    </div>
   </header>
   <section class="panel" aria-label="Who's going">
     <label class="name">You're <input id="name" placeholder="your name" maxlength="40"></label>
@@ -26,6 +29,9 @@
       <summary class="button ghost">My list ▾</summary>
       <div class="menu-panel">
         <button id="export-ics">Add to calendar (.ics)</button>
+        <!-- Spotify playlist export disabled for now, see app.js -->
+        <!-- <button id="export-spotify">Create Spotify playlist</button> -->
+
         <button id="export-json">Export my list (JSON)</button>
         <label class="button">Import my list <input type="file" id="import-mine" accept=".json,application/json" hidden></label>
         <hr>
@@ -49,7 +55,23 @@
     <span class="muted">Lineups:</span>
     <a href="index.html">EDC Thailand Dec 2026</a>
     <a href="index.html?lineup=lineups/edc-thailand-2026-jan.json">EDC Thailand Jan 2026</a>
+    <a href="#" onclick="event.preventDefault(); welcome.showModal()">About</a>
+    <a class="go coffee" href="https://buymeacoffee.com/panzors" target="_blank" rel="noopener">☕ Buy me a coffee</a>
   </footer>
+  <dialog id="welcome" aria-labelledby="welcome-title">
+    <form method="dialog">
+      <h2 id="welcome-title">Welcome</h2>
+      <p>Select which aritsts you are interested in and share with your friends!</p>
+      <h3>Why I Built This</h3>
+      <p>Keep your data entirely yours, no apps, no database. Just you! This is hosted on github and the information is on your browser's local storage.</p>
+      <h3>How to use</h3>
+      <p>Click on the stars for what you're into. Second click makes it into a must see for you. Export your list and or import your friends list. Export as calendar invite and import it on your phone or use the "Party mode" option. Printable option is also available.</p>
+      <p>The main view is generally best used on desktop. Party mode is best kept as a webpage loaded on your phone.</p>
+      <h3>Terms and conditions</h3>
+      <p>Feel free to fork this project and add your own festival lineup and share with friends. Support me by buying me a coffee.</p>
+      <button class="go">Lets get raving!</button>
+    </form>
+  </dialog>
   <script type="module" src="app.js"></script>
 </body>
 </html>

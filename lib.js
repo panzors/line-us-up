@@ -23,6 +23,12 @@ export function artistLinks(lineup, artist) {
   return Object.assign({}, ...[artist, ...artist.split(/\s+(?:b2b|&|x)\s+/i)].reverse().map(n => by[normName(n)] || {}));
 }
 
+// Spotify search hits → URIs of the first n tracks by this artist (by Spotify ID when the lineup has one, else by name).
+export function pickTracks(tracks, artist, artistId, n = 2) {
+  const mine = t => t.artists.some(a => artistId ? a.id === artistId : normName(a.name) === normName(artist));
+  return [...new Set(tracks.filter(t => t && mine(t)).map(t => t.uri))].slice(0, n);
+}
+
 export const timeOf = iso => iso.slice(11, 16); // festival-local time as written in the JSON
 
 // "+07:00" / "Z" suffix of an ISO string → offset in minutes, so computed times show in festival-local time.
