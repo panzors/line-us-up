@@ -74,7 +74,7 @@ function render() {
     return `<div class="set${lvl ? ' fav' : ''}${matches(s) ? '' : ' dim'}" style="${style}">
       <button class="star" data-id="${esc(s.id)}" aria-label="Favourite level ${lvl} of 2 for ${esc(s.artist)}">${STARS[lvl]}</button>
       <div class="artist">${esc(s.artist)}</div>
-      <div class="meta">${s.start ? `${timeOf(s.start)}–${timeOf(s.end)}` : 'Time TBA'}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
+      <div class="meta">${s.start ? `${timeOf(s.start)}–${timeOf(s.end)}` : 'Time TBA'}${!s.start && s.stage ? ' · ' + esc(s.stage) : ''}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
       ${clash[s.id] ? `<div class="clash">⚠ ${clash[s.id].map(id => esc(byId[id].artist)).join(', ')}</div>` : ''}
       <div>${(lvl ? [state] : []).concat(friendsOf(s)).map(p => person(p, p.favourites[s.id])).join('')}</div>
       <div class="links">${Object.entries(links).map(([site, url]) => linkHTML(site, url)).join(' ')}</div>
