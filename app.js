@@ -74,7 +74,7 @@ function render() {
     return `<div class="set${lvl ? ' fav' : ''}${matches(s) ? '' : ' dim'}" style="${style}">
       <button class="star" data-id="${esc(s.id)}" aria-label="Favourite level ${lvl} of 2 for ${esc(s.artist)}">${STARS[lvl]}</button>
       <div class="artist">${esc(s.artist)}</div>
-      <div class="meta">${s.start ? `${timeOf(s.start)}–${timeOf(s.end)}` : 'Time TBA'}${!s.start && s.stage ? ' · ' + esc(s.stage) : ''}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
+      <div class="meta">${s.start ? `${timeOf(s.start)}–${timeOf(s.end)}` : 'Time TBA'}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
       ${clash[s.id] ? `<div class="clash">⚠ ${clash[s.id].map(id => esc(byId[id].artist)).join(', ')}</div>` : ''}
       <div>${(lvl ? [state] : []).concat(friendsOf(s)).map(p => person(p, p.favourites[s.id])).join('')}</div>
       <div class="links">${Object.entries(links).map(([site, url]) => linkHTML(site, url)).join(' ')}</div>
@@ -97,8 +97,16 @@ function render() {
     html += timed.map(s => card(s, `--stage:${colour[s.stage]}; grid-column:${stages.indexOf(s.stage) + 2}; grid-row:${row(Date.parse(s.start))} / ${row(Date.parse(s.end))}`)).join('') + '</div>';
   }
   if (tba.length) {
-    html += `<h2 class="tba marquee"><span>Set times TBA</span></h2><div class="tba-list">` +
-      [...tba].sort((a, b) => a.artist.localeCompare(b.artist)).map(s => card(s, '')).join('') + '</div>';
+    // Same grid as the timetable, but the time column stays empty and each stage's cards just stack.
+    const stages = [...new Set(tba.map(s => s.stage || ''))].sort((a, b) => !a - !b); // stage-less column last
+    const rowIn = {};
+    html += `<h2 class="tba marquee"><span>Set times TBA</span></h2>` +
+      `<div class="grid" style="grid-template-columns: 44px repeat(${stages.length}, minmax(0, 1fr))">` +
+      stages.map((st, i) => `<div class="stage" style="grid-column:${i + 2}; --stage:${colour[st]}">${esc(st || 'Stage TBA')}</div>`).join('') +
+      [...tba].sort((a, b) => a.artist.localeCompare(b.artist)).map(s => {
+        const st = s.stage || '', row = rowIn[st] = (rowIn[st] || 1) + 1;
+        return card(s, `--stage:${colour[st]}; grid-column:${stages.indexOf(st) + 2}; grid-row:${row}`);
+      }).join('') + '</div>';
   }
   $('lineup').innerHTML = html;
 
