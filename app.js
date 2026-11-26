@@ -67,7 +67,7 @@ function render() {
   const daySets = lineup.sets.filter(s => dayOf(s) === currentDay);
   const timed = daySets.filter(s => s.start), tba = daySets.filter(s => !s.start);
   const colour = stageColours(lineup);
-  const card = (s, style, showStage) => {
+  const card = (s, style, showStage, grouped) => {
     const lvl = state.favourites[s.id] || 0;
     const search = encodeURIComponent(s.artist);
     // Links from lineup.artists; only http(s) so a bad data file can't inject javascript: links.
@@ -80,7 +80,7 @@ function render() {
       ${showStage // phone list: tap the card to show its links; the name is the keyboard/screen-reader toggle
         ? `<button class="artist" data-toggle="${esc(s.id)}" aria-expanded="${isOpen}">${esc(s.artist)}</button>`
         : `<div class="artist">${esc(s.artist)}</div>`}
-      ${showStage && s.stage ? `<div class="where">${esc(s.stage)}</div>` : ''}
+      ${showStage && s.stage && !grouped ? `<div class="where">${esc(s.stage)}</div>` : ''}
       <div class="meta">${[s.start && `${timeOf(s.start)}–${timeOf(s.end)}`, s.genres?.map(esc).join(', ')].filter(Boolean).join(' · ')}</div>
       ${clash[s.id] ? `<div class="clash">⚠ ${clash[s.id].map(id => esc(byId[id].artist)).join(', ')}</div>` : ''}
       <div>${(lvl ? [state] : []).concat(friendsOf(s)).map(p => person(p, p.favourites[s.id])).join('')}</div>
@@ -90,9 +90,12 @@ function render() {
 
   let html = '';
   if (phone.matches) {
-    // Phones: one full-width column in start-time order (too narrow for a column per stage), TBA artists after it.
-    const list = sets => `<div class="list">${sets.map(s => card(s, `--stage:${colour[s.stage || '']}`, true)).join('')}</div>`;
-    if (timed.length) html += list([...timed].sort((a, b) => Date.parse(a.start) - Date.parse(b.start)));
+    // Phones: one full-width column (too narrow for a column per stage): each stage in lineup order, its sets by start time, TBA artists after it.
+    const list = (sets, grouped) => `<div class="list">${sets.map(s => card(s, `--stage:${colour[s.stage || '']}`, true, grouped)).join('')}</div>`;
+    const byStage = Map.groupBy([...timed].sort((a, b) => Date.parse(a.start) - Date.parse(b.start)), s => s.stage);
+    const stageOrder = Object.keys(colour);
+    html += [...byStage].sort(([a], [b]) => stageOrder.indexOf(a) - stageOrder.indexOf(b))
+      .map(([st, sets]) => `<div class="stage" style="--stage:${colour[st]}">${esc(st)}</div>` + list(sets, true)).join('');
     if (tba.length) html += `<h2 class="tba marquee"><span>Set times TBA · best viewed on the desktop</span></h2>` + list([...tba].sort((a, b) => a.artist.localeCompare(b.artist)));
   }
   if (timed.length && !phone.matches) {

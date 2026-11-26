@@ -7,12 +7,17 @@ let testNow = null; // ms, set once the lineup (and so the festival's time zone)
 const now = () => testNow ?? Date.now();
 
 const PX_PER_MIN = 3.2; // a 30-minute set gets 96px: enough for stage, artist, time and friend icons at PARTY MODE's text size
-const PARTY = ['🎉', '🪩', '🍻', '🕺', '💃', '🎊', '🥳', '🍹', '🌈', '✨', '🎶', '🔊'];
-// Same emoji for the same break on every refresh.
-const partyEmoji = ms => PARTY[Math.floor(ms / 60000) * 7919 % PARTY.length];
+// Break between picks: 🚶 if you have to change stage, 🍹 if the next pick is on the stage you're already at.
+function breakIcon(before, after) {
+  const here = new Set(before.sets.map(s => s.stage));
+  const walk = !after.sets.some(s => here.has(s.stage));
+  const mins = countdown(after.start - before.end);
+  return walk ? ['🚶', `Walk to ${[...new Set(after.sets.map(s => s.stage))].join(' / ')} · ${mins}`] : ['🍹', `Chill at ${after.sets[0].stage} · ${mins}`];
+}
 
 let lineup, state, colour;
 let selDay = null; // day picked in the date bar; null = today's / the next set's day
+let example = false; // no picks yet, so showing made-up ones
 let draw; // render() once set times are out, else renderUntimed()
 
 // Date bar: one button per festival day you have picks on.
@@ -23,17 +28,18 @@ function dayBar(picks, active) {
 }
 $('days').onclick = e => {
   const d = e.target.closest('button')?.dataset.day;
-  if (d) { selDay = d; $('full').open = true; draw(); }
+  if (d) { selDay = d; draw(); }
 };
 
-function card(s, t, style) {
+function card(s, t, style, cls = '') {
   const going = [state, ...state.friends].filter(p => p.favourites[s.id]);
   const lvl = state.favourites[s.id];
   const a = Date.parse(s.start), b = Date.parse(s.end);
   const kind = b <= t ? 'past' : a <= t ? 'playing' : 'later';
-  const when = kind === 'playing' ? `until ${timeOf(s.end)} · ${countdown(b - t)} left`
-    : `${timeOf(s.start)}–${timeOf(s.end)}${kind === 'later' ? ` · in ${countdown(a - t)}` : ''}`;
-  return `<div class="card ${kind}${lvl === 2 ? ' must' : ''}" style="--stage:${colour[s.stage]}; ${style}">
+  // Start over end, each on its own line, then how long until it starts / ends.
+  const when = `<span>${timeOf(s.start)}</span><span>${timeOf(s.end)}</span>` +
+    (kind === 'past' ? '' : `<span class="sub">${kind === 'playing' ? `${countdown(b - t)} left` : `in ${countdown(a - t)}`}</span>`);
+  return `<div class="card ${kind}${lvl === 2 ? ' must' : ''} ${cls}" style="--stage:${colour[s.stage]}; ${style}">
     <div class="where">${esc(s.stage)}</div>
     <div class="artist">${lvl === 2 ? '🌟 ' : ''}${esc(s.artist)}</div>
     <div class="meta">${when}</div>
@@ -44,17 +50,17 @@ function card(s, t, style) {
 function dayTimeline(picks, t) {
   const segs = timeline(picks, { pxPerMin: PX_PER_MIN });
   let html = '';
-  for (const seg of segs) {
+  segs.forEach((seg, i) => {
     if (seg.gap) {
-      html += `<div class="gap" style="height:${seg.px}px" title="Break ${countdown(seg.end - seg.start)}">${partyEmoji(seg.start)}</div>`;
-      continue;
+      const [icon, label] = breakIcon(segs[i - 1], segs[i + 1]);
+      html += `<div class="gap" style="height:${seg.px}px" title="${esc(label)}" role="img" aria-label="${esc(label)}">${icon}</div>`;
+      return;
     }
-    // Clashing picks sit side by side, each at its own time within the cluster.
-    const n = seg.sets.length;
+    // Clashing picks overlap at full width, each at its own time; later ones sit on top, nudged right so the edge below shows.
     html += `<div class="cluster" style="height:${seg.px}px">` + seg.sets.map((s, i) => card(s, t,
       `top:${(Date.parse(s.start) - seg.start) / 60000 * PX_PER_MIN}px; height:${(Date.parse(s.end) - Date.parse(s.start)) / 60000 * PX_PER_MIN}px;` +
-      `left:${i * 100 / n}%; width:calc(${100 / n}% - 4px)`)).join('') + '</div>';
-  }
+      `left:${i * 24}px; right:0; z-index:${i + 1}`, i < seg.sets.length - 1 ? 'under' : '')).join('') + '</div>';
+  });
   const y = nowOffset(segs, t);
   if (y !== null) html += `<div id="nowline" class="nowline" style="top:${y}px"><span>${localTime(t, offsetMinutes(picks[0].start))}</span></div>`;
   return `<div class="timeline">${html}</div>`;
@@ -110,12 +116,11 @@ function render() {
 
   const { playing, next, later } = agenda(lineup.sets, state.favourites, t);
   const festivalStart = Math.min(...lineup.sets.map(s => Date.parse(s.start)));
-  let html = '';
+  let html = example ? `<p class="starts">Example picks · <a href="index.html${esc(location.search)}">star your own →</a></p>` : '';
   if (t < festivalStart) html += `<p class="starts">Festival starts in <b>${countdown(festivalStart - t)}</b></p>`;
   html += playing.map(s => nowCard(s, t)).join('');
   if (!playing.length && next.length && t >= festivalStart) html += `<section class="focus free"><div class="label">Now</div><div class="who">Free time 🍹</div></section>`;
   if (next.length) html += nextCard(next, t);
-  else if (!playing.length) html += `<section class="focus empty"><div class="who">That's a wrap 🎉</div><p class="muted">None of your picks are left.</p></section>`;
 
   // Rest of the next set's night, as a compact list.
   const day = next[0] && dayOf(next[0]);
@@ -124,13 +129,13 @@ function render() {
     `<li style="--stage:${colour[s.stage]}"><time>${timeOf(s.start)}</time><span><b>${star(s)}${esc(s.artist)}</b><br><span class="muted">${esc(s.stage)}</span></span><span class="people">${who(s)}</span></li>`).join('') + '</ul>';
   $('lineup').innerHTML = html;
 
-  // Full timeline: the current festival day, else the next set's day.
-  const tlDay = selDay || festivalDay(lineup.sets, t) || day;
+  // Timeline: the day picked in the date bar, else the current festival day, else the next set's day, else the first.
+  const tlDay = selDay || festivalDay(lineup.sets, t) || day || dayOf(picks[0]); // after the festival: its first day
   dayBar(picks, tlDay);
   const dayPicks = picks.filter(s => dayOf(s) === tlDay);
   $('full').hidden = !dayPicks.length;
   if (dayPicks.length) {
-    $('full').querySelector('summary').textContent = `Full timeline · ${dayLabel(tlDay)}`;
+    $('full-title').textContent = `Timeline · ${dayLabel(tlDay)}`;
     $('timeline').innerHTML = dayTimeline(dayPicks, t);
   }
 }
@@ -163,6 +168,18 @@ if (lineup && !lineup.sets.some(s => s.start)) {
   (draw = renderUntimed)();
 } else if (lineup) {
   lineup.sets = lineup.sets.filter(s => s.start); // artists without set times can't be scheduled yet
+  // No picks yet: make example picks so the page shows what it does. Never saved.
+  // Sets in start order with a 30-min break between, plus the odd overlapping one (every 9th) so a clash shows too.
+  example = !lineup.sets.some(s => state.favourites[s.id]);
+  if (example) {
+    let busyUntil = 0;
+    state.favourites = Object.fromEntries(lineup.sets.toSorted((a, b) => Date.parse(a.start) - Date.parse(b.start)).filter((s, i) => {
+      const a = Date.parse(s.start);
+      if (a < busyUntil + 30 * 60000 && !(i % 9 === 0 && a < busyUntil)) return false;
+      busyUntil = Math.max(busyUntil, Date.parse(s.end));
+      return true;
+    }).map(s => [s.id, 1]));
+  }
   if (NOW_PARAM !== null) {
     const t = parseTestNow(NOW_PARAM, offsetMinutes(lineup.sets[0]?.start || 'Z'));
     if (Number.isNaN(t)) console.warn('[line-us-up] ignoring ?now=, expected one datetime like 2026-01-16T19:00, got', NOW_PARAM);

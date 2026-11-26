@@ -63,6 +63,7 @@
     <span class="muted">Lineups:</span>
     <a href="index.html">EDC Thailand Dec 2026</a>
     <a href="index.html?lineup=lineups/edc-thailand-2026-jan.json">EDC Thailand Jan 2026</a>
+    <a href="#" onclick="event.preventDefault(); howto.showModal()">How to</a>
     <a href="#" onclick="event.preventDefault(); welcome.showModal()">About</a>
     <a class="go coffee" href="https://buymeacoffee.com/panzors" target="_blank" rel="noopener">☕ Buy me a coffee</a>
   </footer>
@@ -78,6 +79,22 @@
       <h3>Terms and conditions</h3>
       <p>Feel free to fork this project and add your own festival lineup and share with friends. Support me by buying me a coffee.</p>
       <button class="go">Lets get raving!</button>
+    </form>
+  </dialog>
+  <dialog id="howto" aria-labelledby="howto-title">
+    <form method="dialog">
+      <h2 id="howto-title">How to</h2>
+      <h3>1. Pick your sets</h3>
+      <p>Tap ☆ on a set to star it ★. Tap again for 🌟 SUPERMUSTSEE. Use the day buttons, search and the "Show" filter to find sets.</p>
+      <h3>2. Add your friends</h3>
+      <p>Type your name, then <b>My list → Export my list</b> and send the file to your friends. Load theirs with <b>+ Add friend's list</b>. Their picks show as coloured people icons on each set.</p>
+      <h3>3. Party mode</h3>
+      <p>Open <b>PARTY MODE</b> on your phone at the festival. It shows what's on <b>now</b>, where to head <b>next</b>, clashes to choose between, and who's going. Tap a date at the top to see that day. Until set times are out, it lists each day's picks by stage.</p>
+      <p class="muted">Party mode changes once set times are out: before that it can only list picks by stage. To see the full version, try the previous edition, which has set times: <a href="index.html?lineup=lineups/edc-thailand-2026-jan.json">EDC Thailand Jan 2026</a>, then <a href="now.html?lineup=lineups/edc-thailand-2026-jan.json&amp;now=2026-01-16T21:00">its party mode mid-festival</a>.</p>
+      <h3>4. Take it with you</h3>
+      <p><b>My list → Add to calendar</b> puts your sets in your phone's calendar. 🖨️ gives a printable timetable.</p>
+      <p class="muted">Everything is saved in this browser only. Export your list to move it to another device.</p>
+      <button class="go">Got it</button>
     </form>
   </dialog>
   <script type="module" src="app.js"></script>

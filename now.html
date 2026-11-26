@@ -15,11 +15,11 @@
   </header>
   <nav id="days" class="seg" aria-label="Your days" hidden></nav>
   <main id="lineup" aria-live="polite"><p class="muted">Loading…</p></main>
-  <!-- Outside #lineup so re-renders keep it open/closed. -->
-  <details id="full" hidden>
-    <summary>Full timeline</summary>
+  <!-- The chosen day's picks on a time scale, below the Now/Next cards. -->
+  <section id="full" hidden>
+    <h2 id="full-title">Timeline</h2>
     <div id="timeline"></div>
-  </details>
+  </section>
   <script type="module" src="now.js"></script>
 </body>
 </html>

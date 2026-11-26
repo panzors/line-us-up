@@ -79,27 +79,27 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 /* PARTY MODE is high contrast for blurry vision: used at night, in crowds, at a glance. Big bold text, near-black
    backgrounds, no glows or gradients that soften edges. Stage colour is only a thick bar, never text (some stage
    neons, like the blue, are too dim to read as text). Scoped to .go-page where the names clash: Tom Select also uses .focus (wrapper) and .option (dropdown items). */
-#clock { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--fg); }
-.starts { margin: 12px 0; font-size: 22px; font-weight: 700; text-align: center; color: var(--yellow); }
+#clock { font-size: 30px; font-weight: 800; font-variant-numeric: tabular-nums; color: var(--fg); }
+.starts { margin: 12px 0; font-size: 24px; font-weight: 700; text-align: center; color: var(--yellow); }
 .go-page .focus { --stage: var(--accent); margin: 12px 0; padding: 18px 20px; border-radius: 16px; background: var(--surface);
   border: 3px solid var(--fg); border-left: 12px solid var(--stage); }
-.go-page .focus .label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--fg); }
-.go-page .focus .label b { font-size: 20px; }
-.go-page .focus .where { margin-top: 6px; font-size: 20px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.go-page .focus .label { font-size: 18px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--fg); }
+.go-page .focus .label b { font-size: 22px; }
+.go-page .focus .where { margin-top: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
 .go-page .focus .who { font-size: clamp(32px, 10vw, 48px); font-weight: 900; line-height: 1.1; overflow-wrap: anywhere; }
-.go-page .focus .row { display: flex; justify-content: space-between; margin-top: 8px; font-size: 20px; font-weight: 700; font-variant-numeric: tabular-nums; }
-.go-page .focus .people:not(:empty) { margin-top: 8px; }
+.go-page .focus .row { display: flex; justify-content: space-between; margin-top: 16px; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.go-page .focus .people:not(:empty) { margin-top: 14px; }
 .live { color: #ff3b3b; } /* solid, not blinking: a blinking dot is hard to find when blurry */
 .progress { height: 14px; margin-top: 14px; border-radius: 7px; background: #333; border: 1px solid var(--fg); overflow: hidden; }
 .progress span { display: block; height: 100%; background: var(--fg); }
-.go-page .focus.next .where { font-size: 26px; }
+.go-page .focus.next .where { font-size: 28px; }
 .go-page .focus.free, .go-page .focus.empty { --stage: var(--line); text-align: center; }
-.go-page .focus.free .who, .go-page .focus.empty .who { font-size: 24px; }
+.go-page .focus.free .who, .go-page .focus.empty .who { font-size: 28px; }
 .go-page .focus.pick { --stage: var(--warn); }
 .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-top: 10px; }
 .go-page .option { padding: 12px; border-radius: 12px; border: 2px solid var(--fg); border-left: 8px solid var(--stage); background: var(--bg); }
-.go-page .focus .option .where { font-size: 16px; margin: 0; }
-.go-page .focus .option .who { font-size: 24px; }
+.go-page .focus .option .where { font-size: 18px; margin: 0; }
+.go-page .focus .option .who { font-size: 28px; }
 .later { list-style: none; margin: 0; padding: 0; }
 .later li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; margin-bottom: 6px; border-radius: 10px; font-size: 20px;
   border: 2px solid var(--line); border-left: 8px solid var(--stage); background: var(--surface); }
@@ -109,8 +109,10 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 #full { margin-top: 24px; }
 .go-page #days { display: flex; width: 100%; margin-top: 12px; }
 .go-page #days[hidden] { display: none; }
-.go-page #days button { flex: 1; font-size: 16px; }
-#full summary { padding: 10px 0; font-size: 18px; font-weight: 700; }
+.go-page #days { border: 2px solid var(--fg); background: var(--bg); }
+.go-page #days button { flex: 1; font-size: 18px; font-weight: 800; color: var(--fg); }
+.go-page #days button[aria-pressed="true"] { background: var(--lime); color: #000; } /* black on lime: 16:1 */
+#full h2 { margin: 0 0 12px; }
 /* Timeline: heights are proportional to time (except capped breaks), so the now line can sit at the exact moment. */
 .timeline { position: relative; }
 .cluster { position: relative; }
@@ -121,7 +123,7 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .card.must { outline: 2px solid var(--yellow); }
 .gap { display: flex; align-items: center; justify-content: center; font-size: 28px; }
 .nowline { position: absolute; left: -8px; right: 0; z-index: 3; border-top: 4px solid var(--lime); pointer-events: none; }
-.nowline span { position: absolute; right: 0; top: -12px; background: var(--lime); color: #000; font-size: 14px; font-weight: 700; padding: 1px 6px; border-radius: 8px; }
+.nowline span { position: absolute; right: 0; top: -14px; background: var(--lime); color: #000; font-size: 18px; font-weight: 700; padding: 1px 6px; border-radius: 8px; }
 
 /* Tom Select search box, kept plain: looks like the other inputs and is one fixed line. Picked items are hidden in the box and
    shown as chips in their own row below (#picks), so typing and picking never change the box's size. */
@@ -215,12 +217,32 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 
 /* now.html page tokens (high contrast, see PARTY MODE above) and its versions of rules shared with index.html. */
 .go-page { --bg: #000; --surface: #120624; --fg: #fff; --muted: #e8dfff; --line: #9b7fd4;
-  background: var(--bg); font-size: 18px; font-weight: 500; }
+  background: var(--bg); font-size: 20px; font-weight: 600; }
+/* Big pupils smear small, thin or coloured text: no grey "muted" text, no stage-neon text, solid white borders. */
+.go-page .muted { font-size: 18px; color: var(--fg); }
+.go-page .where { color: var(--fg); }
+.go-page .later li { font-size: 22px; border-color: var(--fg) var(--fg) var(--fg) var(--stage); } /* left bar keeps the stage colour */
+.go-page .later time { font-size: 24px; }
+.go-page .card { font-size: 17px; border-color: var(--fg) var(--fg) var(--fg) var(--stage); }
+.go-page .card .where { font-size: 14px; }
+/* Time fills the tile's spare space and scales with it (cq units = % of the card's own size). */
+.go-page .card { display: flex; flex-direction: column; container-type: size; padding-block: 2px; }
+.go-page .card + .card { box-shadow: 0 -6px 0 var(--bg); } /* black gap above a clash tile drawn over another */
+.go-page .card .meta { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3em; text-align: center;
+  font-size: clamp(17px, min(13cqh, 16cqw), 44px); font-weight: 900;
+  line-height: 1.1; font-variant-numeric: tabular-nums; }
+.go-page .card .meta .sub { font-size: .55em; }
+.go-page .card.past { filter: brightness(.85); } /* not opacity: overlapping tiles must stay solid */
+/* A tile with a clash drawn over it: times go just under the artist, where they stay visible. */
+.go-page .card.under .meta { flex: 0; flex-direction: row; justify-content: flex-start; gap: 0; font-size: 17px; }
+.go-page .card.under .meta span:nth-child(2)::before { content: '–'; }
+.go-page .card.under .meta .sub::before { content: ' a0· a0'; }
+.go-page .card.under .meta + div { margin-top: auto; } /* friend icons stay at the bottom */
 .go-page .bar { border-bottom: 2px solid var(--line); }
-.go-page .bar #title { font-size: 18px; font-weight: 700; }
-.go-page h2 { font-size: 16px; font-weight: 800; color: var(--fg); }
+.go-page .bar #title { font-size: 20px; font-weight: 800; }
+.go-page h2 { font-size: 22px; font-weight: 900; color: var(--fg); }
 .go-page a:focus-visible, .go-page summary:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 
-#welcome { max-width: min(520px, calc(100vw - 32px)); padding: 20px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); color: var(--fg); }
-#welcome::backdrop { background: rgb(0 0 0 / .6); }
-#welcome h2 { margin-top: 0; color: var(--yellow); }
+#welcome, #howto { max-width: min(520px, calc(100vw - 32px)); padding: 20px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); color: var(--fg); }
+#welcome::backdrop, #howto::backdrop { background: rgb(0 0 0 / .6); }
+#welcome h2, #howto h2 { margin-top: 0; color: var(--yellow); }
