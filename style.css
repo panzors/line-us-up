@@ -104,8 +104,12 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .later li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; margin-bottom: 6px; border-radius: 10px; font-size: 20px;
   border: 2px solid var(--line); border-left: 8px solid var(--stage); background: var(--surface); }
 .later time { font-size: 22px; font-weight: 900; font-variant-numeric: tabular-nums; }
-.later li > span:nth-child(2) { flex: 1; }
+.later li > span:nth-child(2), .later .grow { flex: 1; }
+.go-page h2.stage { margin: 20px 0 8px; padding-left: 10px; border-left: 8px solid var(--stage); text-transform: uppercase; letter-spacing: .04em; }
 #full { margin-top: 24px; }
+.go-page #days { display: flex; width: 100%; margin-top: 12px; }
+.go-page #days[hidden] { display: none; }
+.go-page #days button { flex: 1; font-size: 16px; }
 #full summary { padding: 10px 0; font-size: 18px; font-weight: 700; }
 /* Timeline: heights are proportional to time (except capped breaks), so the now line can sit at the exact moment. */
 .timeline { position: relative; }

@@ -12,6 +12,19 @@ const PARTY = ['🎉', '🪩', '🍻', '🕺', '💃', '🎊', '🥳', '🍹', '
 const partyEmoji = ms => PARTY[Math.floor(ms / 60000) * 7919 % PARTY.length];
 
 let lineup, state, colour;
+let selDay = null; // day picked in the date bar; null = today's / the next set's day
+let draw; // render() once set times are out, else renderUntimed()
+
+// Date bar: one button per festival day you have picks on.
+function dayBar(picks, active) {
+  const days = [...new Set(picks.map(dayOf))].sort();
+  $('days').hidden = !days.length;
+  $('days').innerHTML = days.map(d => `<button data-day="${d}" aria-pressed="${d === active}">${esc(dayLabel(d))}</button>`).join('');
+}
+$('days').onclick = e => {
+  const d = e.target.closest('button')?.dataset.day;
+  if (d) { selDay = d; $('full').open = true; draw(); }
+};
 
 function card(s, t, style) {
   const going = [state, ...state.friends].filter(p => p.favourites[s.id]);
@@ -89,6 +102,7 @@ function render() {
   $('clock').textContent = localTime(t, offsetMinutes(lineup.sets[0]?.start || 'Z')) + (testNow === null ? '' : ' (test time)');
   const picks = lineup.sets.filter(s => state.favourites[s.id]).sort((a, b) => Date.parse(a.start) - Date.parse(b.start));
   if (!picks.length) {
+    $('days').hidden = true;
     $('lineup').innerHTML = `<section class="focus empty"><div class="who">No picks yet</div><p><a class="button go" href="index.html${esc(location.search)}">Star some sets →</a></p></section>`;
     $('full').hidden = true;
     return;
@@ -111,7 +125,8 @@ function render() {
   $('lineup').innerHTML = html;
 
   // Full timeline: the current festival day, else the next set's day.
-  const tlDay = festivalDay(lineup.sets, t) || day;
+  const tlDay = selDay || festivalDay(lineup.sets, t) || day;
+  dayBar(picks, tlDay);
   const dayPicks = picks.filter(s => dayOf(s) === tlDay);
   $('full').hidden = !dayPicks.length;
   if (dayPicks.length) {
@@ -120,14 +135,34 @@ function render() {
   }
 }
 
+// Before set times are out: the date bar plus the chosen day's sets, grouped by stage (in lineup order).
+// Shows your picks; with none yet, the whole lineup so the page isn't empty.
+function renderUntimed() {
+  const mine = lineup.sets.filter(s => state.favourites[s.id]);
+  const sets = mine.length ? mine : lineup.sets;
+  const day = selDay || sets.map(dayOf).sort()[0];
+  dayBar(sets, day);
+  const stageRank = st => st in colour ? Object.keys(colour).indexOf(st) : Infinity; // TBA last
+  const byStage = Map.groupBy(sets.filter(s => dayOf(s) === day), s => s.stage || 'Stage TBA');
+  $('lineup').innerHTML = `<p class="starts">Set times aren't out yet</p>` +
+    (mine.length ? '' : `<p class="muted">No picks yet, so this is everyone. <a href="index.html${esc(location.search)}">Star some artists →</a></p>`) +
+    [...byStage].sort(([a], [b]) => stageRank(a) - stageRank(b)).map(([stage, list]) => `<h2 class="stage" style="--stage:${colour[stage] || 'var(--line)'}">${esc(stage)}</h2><ul class="later">` +
+      list.map(s => `<li style="--stage:${colour[stage] || 'var(--line)'}"><b class="grow">${star(s)}${esc(s.artist)}</b><span class="people">${who(s)}</span></li>`).join('') + '</ul>').join('');
+}
+
 lineup = await loadLineup();
-if (lineup) lineup.sets = lineup.sets.filter(s => s.start); // artists without set times can't be scheduled yet
-if (lineup && !lineup.sets.length) {
-  $('lineup').innerHTML = `<section class="focus empty"><div class="who">Set times aren't out yet</div><p><a class="button go" href="index.html${esc(location.search)}">Star some artists →</a></p></section>`;
-  $('full').hidden = true;
-} else if (lineup) {
+if (lineup) {
   state = loadState(lineup);
   colour = stageColours(lineup);
+  console.log('[line-us-up] party mode state for', lineup.id, state);
+}
+if (lineup && !lineup.sets.some(s => s.start)) {
+  $('full').hidden = true;
+  $('title').textContent = lineup.event;
+  $('back').href = 'index.html' + location.search;
+  (draw = renderUntimed)();
+} else if (lineup) {
+  lineup.sets = lineup.sets.filter(s => s.start); // artists without set times can't be scheduled yet
   if (NOW_PARAM !== null) {
     const t = parseTestNow(NOW_PARAM, offsetMinutes(lineup.sets[0]?.start || 'Z'));
     if (Number.isNaN(t)) console.warn('[line-us-up] ignoring ?now=, expected one datetime like 2026-01-16T19:00, got', NOW_PARAM);
@@ -135,7 +170,7 @@ if (lineup && !lineup.sets.length) {
   }
   $('title').textContent = lineup.event;
   $('back').href = 'index.html' + location.search;
-  render();
+  (draw = render)();
   setInterval(render, 30000);
   // Phones pause timers in background tabs; refresh as soon as you look again.
   document.addEventListener('visibilitychange', () => document.hidden || render());
