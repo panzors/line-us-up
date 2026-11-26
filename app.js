@@ -18,6 +18,8 @@ const linkHTML = (site, url) => {
 };
 
 let lineup, state, currentDay;
+const expanded = new Set(); // phone list: ids of cards showing their links
+const phone = matchMedia('(max-width: 600px)'); // same breakpoint as style.css
 const picked = new Set(); // search picks: "g:<lower-cased genre>" or "a:<artist>"; empty = show all
 const genresOf = s => (s.genres || []).map(g => g.toLowerCase());
 const save = () => saveState(lineup, state);
@@ -65,24 +67,35 @@ function render() {
   const daySets = lineup.sets.filter(s => dayOf(s) === currentDay);
   const timed = daySets.filter(s => s.start), tba = daySets.filter(s => !s.start);
   const colour = stageColours(lineup);
-  const card = (s, style) => {
+  const card = (s, style, showStage) => {
     const lvl = state.favourites[s.id] || 0;
     const search = encodeURIComponent(s.artist);
     // Links from lineup.artists; only http(s) so a bad data file can't inject javascript: links.
     let links = Object.fromEntries(Object.entries(artistLinks(lineup, s.artist)).filter(([, u]) => /^https?:\/\//i.test(u)));
     if (!Object.keys(links).length) links = { spotify: 'https://open.spotify.com/search/' + search, soundcloud: 'https://soundcloud.com/search?q=' + search };
-    return `<div class="set${lvl ? ' fav' : ''}${matches(s) ? '' : ' dim'}" style="${style}">
+    const linksHTML = `<div class="links">${Object.entries(links).map(([site, url]) => linkHTML(site, url)).join(' ')}</div>`;
+    const isOpen = showStage && expanded.has(s.id);
+    return `<div class="set${lvl ? ' fav' : ''}${matches(s) ? '' : ' dim'}${isOpen ? ' open' : ''}" style="${style}"${showStage ? ` data-toggle="${esc(s.id)}"` : ''}>
       <button class="star" data-id="${esc(s.id)}" aria-label="Favourite level ${lvl} of 2 for ${esc(s.artist)}">${STARS[lvl]}</button>
-      <div class="artist">${esc(s.artist)}</div>
-      <div class="meta">${s.start ? `${timeOf(s.start)}–${timeOf(s.end)}` : 'Time TBA'}${s.genres?.length ? ' · ' + s.genres.map(esc).join(', ') : ''}</div>
+      ${showStage // phone list: tap the card to show its links; the name is the keyboard/screen-reader toggle
+        ? `<button class="artist" data-toggle="${esc(s.id)}" aria-expanded="${isOpen}">${esc(s.artist)}</button>`
+        : `<div class="artist">${esc(s.artist)}</div>`}
+      ${showStage && s.stage ? `<div class="where">${esc(s.stage)}</div>` : ''}
+      <div class="meta">${[s.start && `${timeOf(s.start)}–${timeOf(s.end)}`, s.genres?.map(esc).join(', ')].filter(Boolean).join(' · ')}</div>
       ${clash[s.id] ? `<div class="clash">⚠ ${clash[s.id].map(id => esc(byId[id].artist)).join(', ')}</div>` : ''}
       <div>${(lvl ? [state] : []).concat(friendsOf(s)).map(p => person(p, p.favourites[s.id])).join('')}</div>
-      <div class="links">${Object.entries(links).map(([site, url]) => linkHTML(site, url)).join(' ')}</div>
+      ${linksHTML}
     </div>`;
   };
 
   let html = '';
-  if (timed.length) {
+  if (phone.matches) {
+    // Phones: one full-width column in start-time order (too narrow for a column per stage), TBA artists after it.
+    const list = sets => `<div class="list">${sets.map(s => card(s, `--stage:${colour[s.stage || '']}`, true)).join('')}</div>`;
+    if (timed.length) html += list([...timed].sort((a, b) => Date.parse(a.start) - Date.parse(b.start)));
+    if (tba.length) html += `<h2 class="tba marquee"><span>Set times TBA · best viewed on the desktop</span></h2>` + list([...tba].sort((a, b) => a.artist.localeCompare(b.artist)));
+  }
+  if (timed.length && !phone.matches) {
     const stages = [...new Set(timed.map(s => s.stage))]; // order of first appearance in the JSON
     const offset = offsetMinutes(timed[0].start);
     const HALF_HOUR = 1800000;
@@ -96,7 +109,7 @@ function render() {
     }
     html += timed.map(s => card(s, `--stage:${colour[s.stage]}; grid-column:${stages.indexOf(s.stage) + 2}; grid-row:${row(Date.parse(s.start))} / ${row(Date.parse(s.end))}`)).join('') + '</div>';
   }
-  if (tba.length) {
+  if (tba.length && !phone.matches) {
     // Same grid as the timetable, but the time column stays empty and each stage's cards just stack.
     const stages = [...new Set(tba.map(s => s.stage || ''))].sort((a, b) => !a - !b); // stage-less column last
     const rowIn = {};
@@ -138,6 +151,8 @@ async function init() {
 
   $('lineup').onclick = e => {
     const id = e.target.dataset?.id;
+    const toggle = !id && !e.target.closest('a') && e.target.closest('[data-toggle]')?.dataset.toggle;
+    if (toggle) { expanded.has(toggle) ? expanded.delete(toggle) : expanded.add(toggle); return render(); }
     if (!id) return;
     const next = ((state.favourites[id] || 0) + 1) % 3;
     if (next) state.favourites[id] = next; else delete state.favourites[id];
@@ -205,6 +220,7 @@ async function init() {
   });
 
   render();
+  phone.addEventListener('change', render); // rotate / resize across the breakpoint swaps grid <-> list
   // if (spotifyReturned()) spotifyPlaylist(lineup, state, $('export-spotify')).catch(spotifyError); // back from Spotify login: finish the job
 }
 
