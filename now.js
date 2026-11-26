@@ -19,7 +19,7 @@ function breakIcon(before, after) {
 let lineup, state, colour;
 let selDay = null; // day picked in the date bar; null = today's / the next set's day
 let example = false; // no picks yet, so showing made-up ones
-let centred = false; // the now line is scrolled to the middle once, not on every 30s refresh
+let centred = false; // the now line is scrolled to the middle once, not on every 90s refresh
 let draw; // render() once set times are out, else renderUntimed()
 
 // Date bar: one button per festival day you have picks on.
@@ -195,7 +195,7 @@ if (lineup && !lineup.sets.some(s => s.start)) {
   $('title').textContent = lineup.event;
   $('back').href = 'index.html' + location.search;
   (draw = render)();
-  setInterval(render, 30000);
+  setInterval(render, 90000); // 90s: often enough for a minute clock, light on phone batteries
   // Phones pause timers in background tabs; refresh as soon as you look again.
   document.addEventListener('visibilitychange', () => document.hidden || render());
 }
