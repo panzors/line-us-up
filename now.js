@@ -6,6 +6,7 @@ const NOW_PARAM = new URLSearchParams(location.search).get('now');
 let testNow = null; // ms, set once the lineup (and so the festival's time zone) is known
 const now = () => testNow ?? Date.now();
 
+const PAST_SCALE = 0.4; // sets that are over shrink to this share of their height
 const PX_PER_MIN = 3.2; // a 30-minute set gets 96px: enough for stage, artist, time and friend icons at PARTY MODE's text size
 // Break between picks: 🚶 if you have to change stage, 🍹 if the next pick is on the stage you're already at.
 function breakIcon(before, after) {
@@ -18,6 +19,7 @@ function breakIcon(before, after) {
 let lineup, state, colour;
 let selDay = null; // day picked in the date bar; null = today's / the next set's day
 let example = false; // no picks yet, so showing made-up ones
+let centred = false; // the now line is scrolled to the middle once, not on every 30s refresh
 let draw; // render() once set times are out, else renderUntimed()
 
 // Date bar: one button per festival day you have picks on.
@@ -36,9 +38,8 @@ function card(s, t, style, cls = '') {
   const lvl = state.favourites[s.id];
   const a = Date.parse(s.start), b = Date.parse(s.end);
   const kind = b <= t ? 'past' : a <= t ? 'playing' : 'later';
-  // Start over end, each on its own line, then how long until it starts / ends.
-  const when = `<span>${timeOf(s.start)}</span><span>${timeOf(s.end)}</span>` +
-    (kind === 'past' ? '' : `<span class="sub">${kind === 'playing' ? `${countdown(b - t)} left` : `in ${countdown(a - t)}`}</span>`);
+  // Start over end, each on its own line.
+  const when = `<span>${timeOf(s.start)}</span><span>${timeOf(s.end)}</span>`;
   return `<div class="card ${kind}${lvl === 2 ? ' must' : ''} ${cls}" style="--stage:${colour[s.stage]}; ${style}">
     <div class="where">${esc(s.stage)}</div>
     <div class="artist">${lvl === 2 ? '🌟 ' : ''}${esc(s.artist)}</div>
@@ -49,6 +50,7 @@ function card(s, t, style, cls = '') {
 
 function dayTimeline(picks, t) {
   const segs = timeline(picks, { pxPerMin: PX_PER_MIN });
+  for (const seg of segs) if (!seg.gap && seg.end <= t) seg.px *= PAST_SCALE; // nowOffset reads seg.px, so the now line stays right
   let html = '';
   segs.forEach((seg, i) => {
     if (seg.gap) {
@@ -57,8 +59,9 @@ function dayTimeline(picks, t) {
       return;
     }
     // Clashing picks overlap at full width, each at its own time; later ones sit on top, nudged right so the edge below shows.
+    const ppm = seg.end <= t ? PX_PER_MIN * PAST_SCALE : PX_PER_MIN;
     html += `<div class="cluster" style="height:${seg.px}px">` + seg.sets.map((s, i) => card(s, t,
-      `top:${(Date.parse(s.start) - seg.start) / 60000 * PX_PER_MIN}px; height:${(Date.parse(s.end) - Date.parse(s.start)) / 60000 * PX_PER_MIN}px;` +
+      `top:${(Date.parse(s.start) - seg.start) / 60000 * ppm}px; height:${(Date.parse(s.end) - Date.parse(s.start)) / 60000 * ppm}px;` +
       `left:${i * 24}px; right:0; z-index:${i + 1}`, i < seg.sets.length - 1 ? 'under' : '')).join('') + '</div>';
   });
   const y = nowOffset(segs, t);
@@ -128,6 +131,8 @@ function render() {
   if (rest.length) html += `<h2>Later ${t < festivalStart ? 'that night' : 'tonight'}</h2><ul class="later">` + rest.map(s =>
     `<li style="--stage:${colour[s.stage]}"><time>${timeOf(s.start)}</time><span><b>${star(s)}${esc(s.artist)}</b><br><span class="muted">${esc(s.stage)}</span></span><span class="people">${who(s)}</span></li>`).join('') + '</ul>';
   $('lineup').innerHTML = html;
+  const onTheDay = festivalDay(lineup.sets, t) !== null;
+  $('lineup').hidden = onTheDay; // on the day the timeline says it all
 
   // Timeline: the day picked in the date bar, else the current festival day, else the next set's day, else the first.
   const tlDay = selDay || festivalDay(lineup.sets, t) || day || dayOf(picks[0]); // after the festival: its first day
@@ -136,7 +141,9 @@ function render() {
   $('full').hidden = !dayPicks.length;
   if (dayPicks.length) {
     $('full-title').textContent = `Timeline · ${dayLabel(tlDay)}`;
-    $('timeline').innerHTML = dayTimeline(dayPicks, t);
+    // Only today's sets get the finished (shrunk, muted) look; any other day shows at full size.
+    $('timeline').innerHTML = dayTimeline(dayPicks, tlDay === festivalDay(lineup.sets, t) ? t : -Infinity);
+    if (onTheDay && !centred && $('nowline')) { $('nowline').scrollIntoView({ block: 'center' }); centred = true; }
   }
 }
 

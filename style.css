@@ -122,7 +122,7 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .card.past { opacity: .55; }
 .card.must { outline: 2px solid var(--yellow); }
 .gap { display: flex; align-items: center; justify-content: center; font-size: 28px; }
-.nowline { position: absolute; left: -8px; right: 0; z-index: 3; border-top: 4px solid var(--lime); pointer-events: none; }
+.nowline { position: absolute; left: -8px; right: 0; z-index: 100; /* above any stack of clashing cards */ border-top: 4px solid var(--lime); pointer-events: none; }
 .nowline span { position: absolute; right: 0; top: -14px; background: var(--lime); color: #000; font-size: 18px; font-weight: 700; padding: 1px 6px; border-radius: 8px; }
 
 /* Tom Select search box, kept plain: looks like the other inputs and is one fixed line. Picked items are hidden in the box and
@@ -231,12 +231,11 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .go-page .card .meta { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .3em; text-align: center;
   font-size: clamp(17px, min(13cqh, 16cqw), 44px); font-weight: 900;
   line-height: 1.1; font-variant-numeric: tabular-nums; }
-.go-page .card .meta .sub { font-size: .55em; }
-.go-page .card.past { filter: brightness(.85); } /* not opacity: overlapping tiles must stay solid */
+.go-page .card.past { filter: saturate(.25) brightness(.6); } /* not opacity: overlapping tiles must stay solid */
+.go-page .card.past .meta, .go-page .card.past .meta + div { display: none; } /* shrunk: stage and artist only */
 /* A tile with a clash drawn over it: times go just under the artist, where they stay visible. */
 .go-page .card.under .meta { flex: 0; flex-direction: row; justify-content: flex-start; gap: 0; font-size: 17px; }
 .go-page .card.under .meta span:nth-child(2)::before { content: '–'; }
-.go-page .card.under .meta .sub::before { content: ' a0· a0'; }
 .go-page .card.under .meta + div { margin-top: auto; } /* friend icons stay at the bottom */
 .go-page .bar { border-bottom: 2px solid var(--line); }
 .go-page .bar #title { font-size: 20px; font-weight: 800; }
