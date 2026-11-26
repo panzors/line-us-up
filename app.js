@@ -169,7 +169,8 @@ async function init() {
   const searchSelect = $('search-select');
   const group = (label, prefix, values) => `<optgroup label="${label}">` +
     [...new Set(values)].sort((a, b) => a.localeCompare(b)).map(v => `<option value="${esc(prefix + v)}">${esc(v)}</option>`).join('') + '</optgroup>';
-  searchSelect.innerHTML = group('Artists', 'a:', lineup.sets.map(s => s.artist)) + group('Genres', 'g:', lineup.sets.flatMap(genresOf));
+  // Genre search off for now; to bring it back, append: + group('Genres', 'g:', lineup.sets.flatMap(genresOf))
+  searchSelect.innerHTML = group('Artists', 'a:', lineup.sets.map(s => s.artist));
   // Both paths read the native <select>, which Tom Select keeps in sync. Picks show as chips in their own row (#picks), not in the box.
   const syncSearch = () => {
     picked.clear();
