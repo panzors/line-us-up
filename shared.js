@@ -10,6 +10,8 @@ export const LINEUP_URL = LINEUPS.includes(requested) ? requested : LINEUPS[0];
 const THEMES = { 'lineups/tomorrowland-thailand-2026.json': 'theme-tomorrowland.css' };
 if (THEMES[LINEUP_URL] && document.querySelector('link[href="style.css"]'))
   document.head.append(Object.assign(document.createElement('link'), { rel: 'stylesheet', href: THEMES[LINEUP_URL] }));
+// Works offline after the first visit (see sw.js). Needs https or localhost.
+navigator.serviceWorker?.register('sw.js');
 export const esc = t => String(t).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
 export const $ = id => document.getElementById(id);
 // "2026-12-19" → "Sat, 19 Dec" (in the viewer's language); UTC so the date never shifts.
