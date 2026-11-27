@@ -1,0 +1,13 @@
+/* Tomorrowland Thailand palette, from thailand.tomorrowland.com's [data-theme=thailand] tokens (HSL as the site defines them).
+   Load after style.css to override its colours. Day colours (--cyan, --lime, --yellow, --blue) have no site equivalent and are kept. */
+:root {
+  --bg: hsl(334, 26%, 5%);        /* site --background */
+  --surface: hsl(25, 100%, 9%);   /* site --background-dark */
+  --raised: hsl(25, 97%, 15%);    /* site --accent-2-dark */
+  --glow: hsl(25, 100%, 27%);     /* site --accent-2 */
+  --fg: hsl(0, 0%, 96%);          /* site --font-color-primary */
+  --muted: hsla(0, 0%, 96%, .6);
+  --line: hsla(33, 100%, 46%, .3);
+  --accent: hsl(33, 100%, 46%);   /* site --accent-1 */
+  --gradient: linear-gradient(90deg, hsl(25, 100%, 27%) 0%, hsl(33, 100%, 46%) 100%); /* site header/button gradient */
+}

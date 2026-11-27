@@ -50,6 +50,8 @@ To use a different lineup: `?lineup=lineups/edc-thailand-2026-jan.json`. Only fi
   "id": "edc-thailand-2026",              // unique; personal lists and localStorage are tied to it
   "event": "EDC Thailand 2026",
   "notice": "optional banner text",
+  "dayStartsAt": "13:00",                 // optional; the timetable always starts by this time
+  "dayEndsAt": "01:00",                   // optional; sets starting before this time (and party mode until then) count as the previous day; the timetable runs to it
   "artists": {                            // optional; Spotify/SoundCloud buttons use these instead of a search
     "Artist Name": { "spotify": "https://open.spotify.com/artist/…", "soundcloud": "https://soundcloud.com/…" }
   },

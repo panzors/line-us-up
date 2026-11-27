@@ -131,18 +131,18 @@ function render() {
   if (rest.length) html += `<h2>Later ${t < festivalStart ? 'that night' : 'tonight'}</h2><ul class="later">` + rest.map(s =>
     `<li style="--stage:${colour[s.stage]}"><time>${timeOf(s.start)}</time><span><b>${star(s)}${esc(s.artist)}</b><br><span class="muted">${esc(s.stage)}</span></span><span class="people">${who(s)}</span></li>`).join('') + '</ul>';
   $('lineup').innerHTML = html;
-  const onTheDay = festivalDay(lineup.sets, t) !== null;
+  const onTheDay = festivalDay(lineup.sets, t, lineup.dayEndsAt) !== null;
   $('lineup').hidden = onTheDay; // on the day the timeline says it all
 
   // Timeline: the day picked in the date bar, else the current festival day, else the next set's day, else the first.
-  const tlDay = selDay || festivalDay(lineup.sets, t) || day || dayOf(picks[0]); // after the festival: its first day
+  const tlDay = selDay || festivalDay(lineup.sets, t, lineup.dayEndsAt) || day || dayOf(picks[0]); // after the festival: its first day
   dayBar(picks, tlDay);
   const dayPicks = picks.filter(s => dayOf(s) === tlDay);
   $('full').hidden = !dayPicks.length;
   if (dayPicks.length) {
     $('full-title').textContent = `Timeline · ${dayLabel(tlDay)}`;
     // Only today's sets get the finished (shrunk, muted) look; any other day shows at full size.
-    $('timeline').innerHTML = dayTimeline(dayPicks, tlDay === festivalDay(lineup.sets, t) ? t : -Infinity);
+    $('timeline').innerHTML = dayTimeline(dayPicks, tlDay === festivalDay(lineup.sets, t, lineup.dayEndsAt) ? t : -Infinity);
     if (onTheDay && !centred && $('nowline')) { $('nowline').scrollIntoView({ block: 'center' }); centred = true; }
   }
 }

@@ -1,0 +1,1303 @@
+{
+  "id": "tomorrowland-thailand-2026",
+  "event": "Tomorrowland Thailand 2026",
+  "notice": "Data scraped from thailand.tomorrowland.com",
+  "dayStartsAt": "13:00",
+  "dayEndsAt": "01:00",
+  "artists": {
+    "Jelle DK": {
+      "instagram": "https://www.instagram.com/dj_jelle_dk/"
+    },
+    "DJ Licious": {
+      "instagram": "https://www.instagram.com/djlicious_official/",
+      "spotify": "https://open.spotify.com/artist/30SUNrTLW7OZeDALH3sWzH?si=-d0n7wvERYOebzza52rrCg"
+    },
+    "Henri PFR": {
+      "instagram": "https://www.instagram.com/henripfr/"
+    },
+    "Jan V": {
+      "instagram": "https://www.instagram.com/dj_janv/"
+    },
+    "John Newman": {
+      "instagram": "https://www.instagram.com/johnnewmanmusic/"
+    },
+    "Honey Gee": {
+      "instagram": "https://www.instagram.com/honeygeedj/"
+    },
+    "Kevin de Vries": {
+      "instagram": "https://www.instagram.com/kevindevriesmusic/"
+    },
+    "Bassjackers": {
+      "instagram": "https://www.instagram.com/bassjackers/"
+    },
+    "Jerrooo": {
+      "instagram": "https://www.instagram.com/jerrooo_official/"
+    },
+    "Vini Vici": {
+      "instagram": "https://www.instagram.com/vinivicimusic/"
+    },
+    "MANDY": {
+      "facebook": "https://www.facebook.com/MANDYofficial/",
+      "instagram": "https://www.instagram.com/mandyofficial_be/",
+      "website": "https://www.djmandyofficial.be/",
+      "youtube": "DJ MANDY - https://www.youtube.com/channel/UCsFcbYXC0IGlDbV5FyQMjGw",
+      "tiktok": "https://www.tiktok.com/@mandyofficialbe"
+    },
+    "Da Tweekaz": {
+      "instagram": "https://www.instagram.com/datweekaz/"
+    },
+    "Martin Garrix": {
+      "instagram": "https://www.instagram.com/martingarrix/"
+    },
+    "ARTEN": {
+      "instagram": "https://www.instagram.com/arten.music?igsh=ZmZyZ20wZGZoOHBu"
+    },
+    "Bibi Seck": {
+      "instagram": "https://www.instagram.com/bibisck/"
+    },
+    "NOME.": {
+      "facebook": "https://www.facebook.com/officialnome",
+      "instagram": "https://www.instagram.com/nome.music?igsh=MXdsOG0zYW1na2FyZw==",
+      "soundcloud": "https://soundcloud.com/officialnome",
+      "spotify": "https://open.spotify.com/artist/0k52cXAjNIDjZOE1WDEV93?%20si=MXT9DEYtQPew97phLQCrEg",
+      "youtube": "https://www.youtube.com/@djnome.",
+      "tiktok": "https://www.tiktok.com/@nome.dj?_r=1&_t=ZG-93OC0nvQoiG"
+    },
+    "Miss Monique": {
+      "instagram": "https://www.instagram.com/djmissmonique/"
+    },
+    "NERVO": {
+      "instagram": "https://www.instagram.com/nervomusic/"
+    },
+    "DJ Sally": {
+      "instagram": "https://www.instagram.com/djsallymusic/"
+    },
+    "Amber Broos": {
+      "instagram": "https://www.instagram.com/amberbroos/"
+    },
+    "Blazy": {
+      "facebook": "https://www.facebook.com/blazytrance/",
+      "instagram": "https://www.instagram.com/blazyhenrique/",
+      "soundcloud": "https://soundcloud.com/itsblazy",
+      "twitter": "https://twitter.com/blazyhenrique",
+      "youtube": "https://www.youtube.com/channel/UCxXckE0JtI_xXFghRcA0TWQ"
+    },
+    "DJ BORING": {
+      "instagram": "https://www.instagram.com/dj.boring/"
+    },
+    "Dubvision": {
+      "facebook": "https://www.facebook.com/DubVisionmusic/",
+      "instagram": "https://www.instagram.com/dubvisionmusic/",
+      "soundcloud": "https://soundcloud.com/dubvisionmusic",
+      "youtube": "https://www.youtube.com/channel/UCdbFjONDWTsdy8pgCsgvlxg"
+    },
+    "Blastoyz": {
+      "instagram": "https://www.instagram.com/blastoyz/"
+    },
+    "Afrojack": {
+      "facebook": "https://www.facebook.com/djafrojack",
+      "instagram": "https://www.instagram.com/afrojack",
+      "soundcloud": "https://soundcloud.com/afrojack",
+      "spotify": "https://open.spotify.com/artist/4D75GcNG95ebPtNvoNVXhz",
+      "twitter": "https://twitter.com/afrojack",
+      "website": "https://afrojack.com/",
+      "youtube": "https://www.youtube.com/user/afrojacktv",
+      "tiktok": "https://www.tiktok.com/@afrojack"
+    },
+    "Yves V": {
+      "instagram": "https://www.instagram.com/yves_v/"
+    },
+    "Coco Bevan": {
+      "instagram": "https://www.instagram.com/coco.bevan",
+      "soundcloud": "https://soundcloud.com/user-773783906",
+      "spotify": "https://open.spotify.com/artist/61DCCdxVPQhC6aghew5S8f",
+      "youtube": "https://www.youtube.com/channel/UC5thKP1rA7SjbfBhQMOaWGg",
+      "tiktok": "https://www.tiktok.com/@coco.bevan"
+    },
+    "Dimitri Vegas & Like Mike": {
+      "instagram": "https://www.instagram.com/dimitrivegasandlikemike/"
+    },
+    "Mind Against": {
+      "instagram": "https://www.instagram.com/mindagainst/",
+      "spotify": "https://open.spotify.com/artist/48LWLoeY0dhwaiX1FRsn72?si=fTWJbQdNTP24WgP2cPkUig"
+    },
+    "Steve Aoki": {
+      "instagram": "https://www.instagram.com/steveaoki/"
+    },
+    "Angemi": {
+      "tiktok": "https://www.tiktok.com/@angemimusic"
+    },
+    "Capoon": {
+      "instagram": "https://www.instagram.com/capoonmusic/"
+    },
+    "Dino Lenny": {
+      "instagram": "https://www.instagram.com/dino_lenny/"
+    },
+    "MATTN": {
+      "instagram": "https://www.instagram.com/mattnworld/"
+    },
+    "Kölsch": {
+      "instagram": "https://www.instagram.com/kolschofficial/"
+    },
+    "Matisse & Sadko": {
+      "instagram": "https://www.instagram.com/matissesadko?igsh=NXBhY3VzNzczd3Vx",
+      "spotify": "https://open.spotify.com/artist/2QMCcKIPHnjQaPPgoEst88?si=30A7ASYtSAmklwiJNPfoTA"
+    },
+    "Lucas & Steve": {
+      "instagram": "https://www.instagram.com/lucasandsteve/",
+      "spotify": "https://open.spotify.com/artist/5wwneIFdawNgQ7GvKK29Z3?si=NfdgbvBWQwSysrb0IQEDbA"
+    },
+    "Agents of Time": {
+      "instagram": "https://www.instagram.com/agentsoftime/",
+      "spotify": "https://open.spotify.com/artist/6Jbyd4qzEtbFtswZP1o6Ht?si=5MhM5AwqRka8yiyCpSxlCQ"
+    },
+    "Andromedik": {
+      "instagram": "https://www.instagram.com/andromedik.official/"
+    },
+    "ADAM K": {
+      "instagram": "https://www.instagram.com/adamkdj/"
+    },
+    "Laidback Luke": {
+      "instagram": "https://www.instagram.com/laidbackluke/",
+      "spotify": "https://open.spotify.com/artist/53cQZtWDwDJwVCNZlfJ6Qk?si=vxkE1j-2SyKWqbS2AoHtGg"
+    },
+    "ALOK": {
+      "instagram": "https://www.instagram.com/alok/"
+    },
+    "DJ Tennis": {
+      "facebook": "https://www.facebook.com/tennisdj/",
+      "instagram": "https://www.instagram.com/djtennis",
+      "soundcloud": "https://soundcloud.com/djtennisdjtennis",
+      "spotify": "https://open.spotify.com/artist/6vJvFV1A2CpT8s5B1oUN6t",
+      "tiktok": "https://www.tiktok.com/@djtennistiktok"
+    },
+    "MORTEN": {
+      "facebook": "https://www.facebook.com/MORTENofficial/",
+      "instagram": "https://www.instagram.com/mortenofficial/?hl=en",
+      "soundcloud": "https://soundcloud.com/mortenofficial",
+      "spotify": "https://open.spotify.com/artist/19HFRWmRCl27kTk6LeqAO8?si=yPwxE3qcTEGILfnYhC5BDA",
+      "twitter": "https://twitter.com/MORTENofficial"
+    },
+    "Lost Frequencies": {
+      "instagram": "https://www.instagram.com/lostfrequencies/"
+    },
+    "Netsky": {
+      "instagram": "https://www.instagram.com/netskyofficial/"
+    },
+    "Joris Voorn": {
+      "instagram": "https://www.instagram.com/jorisvoorn/"
+    },
+    "Krystal Klear": {
+      "instagram": "https://www.instagram.com/officialkrystalklear/",
+      "spotify": "https://open.spotify.com/artist/0jqr8aeeHSn5pMEVD4aTrI?si=VOLcVRH7RXSPth2LmKyJyg"
+    }
+  },
+  "sets": [
+    {
+      "artist": "DaDoo",
+      "stage": "CODEX",
+      "start": "2026-12-11T13:00:00+07:00",
+      "end": "2026-12-11T15:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "CLAUDINE",
+      "stage": "CORE",
+      "start": "2026-12-11T13:00:00+07:00",
+      "end": "2026-12-11T14:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Jonnie B",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T13:00:00+07:00",
+      "end": "2026-12-11T15:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Mike Bond",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T13:00:00+07:00",
+      "end": "2026-12-11T14:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Goldfish",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T13:00:00+07:00",
+      "end": "2026-12-11T14:25:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Jelle DK",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-11T13:00:00+07:00",
+      "end": "2026-12-11T17:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Jijie",
+      "stage": "PAPILLON",
+      "start": "2026-12-11T13:00:00+07:00",
+      "end": "2026-12-11T15:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Rave Republic",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T14:25:00+07:00",
+      "end": "2026-12-11T15:25:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Hyalyte",
+      "stage": "CORE",
+      "start": "2026-12-11T14:30:00+07:00",
+      "end": "2026-12-11T16:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Sm1le",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T14:30:00+07:00",
+      "end": "2026-12-11T16:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "DJ Licious",
+      "stage": "CODEX",
+      "start": "2026-12-11T15:00:00+07:00",
+      "end": "2026-12-11T16:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Lonskii",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T15:00:00+07:00",
+      "end": "2026-12-11T16:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Vicky Kroon",
+      "stage": "PAPILLON",
+      "start": "2026-12-11T15:00:00+07:00",
+      "end": "2026-12-11T17:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Youna",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T15:25:00+07:00",
+      "end": "2026-12-11T16:25:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Saint Ludo",
+      "stage": "CORE",
+      "start": "2026-12-11T16:00:00+07:00",
+      "end": "2026-12-11T17:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Kryder",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T16:00:00+07:00",
+      "end": "2026-12-11T17:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Camila Jun",
+      "stage": "CODEX",
+      "start": "2026-12-11T16:30:00+07:00",
+      "end": "2026-12-11T18:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Amy Wiles",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T16:30:00+07:00",
+      "end": "2026-12-11T18:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Henri PFR",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T16:30:00+07:00",
+      "end": "2026-12-11T17:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Jan V",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-11T17:00:00+07:00",
+      "end": "2026-12-11T21:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Makasi",
+      "stage": "PAPILLON",
+      "start": "2026-12-11T17:00:00+07:00",
+      "end": "2026-12-11T19:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Oppidan",
+      "stage": "CORE",
+      "start": "2026-12-11T17:30:00+07:00",
+      "end": "2026-12-11T19:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Raiden",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T17:30:00+07:00",
+      "end": "2026-12-11T19:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Lilly Palmer",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T17:35:00+07:00",
+      "end": "2026-12-11T18:35:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Elfigo",
+      "stage": "CODEX",
+      "start": "2026-12-11T18:00:00+07:00",
+      "end": "2026-12-11T19:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Marsh",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T18:00:00+07:00",
+      "end": "2026-12-11T19:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "John Newman",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T18:35:00+07:00",
+      "end": "2026-12-11T19:35:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Pegassi",
+      "stage": "CORE",
+      "start": "2026-12-11T19:00:00+07:00",
+      "end": "2026-12-11T21:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Honey Gee",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T19:00:00+07:00",
+      "end": "2026-12-11T20:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Palmera",
+      "stage": "PAPILLON",
+      "start": "2026-12-11T19:00:00+07:00",
+      "end": "2026-12-11T20:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Linska",
+      "stage": "CODEX",
+      "start": "2026-12-11T19:30:00+07:00",
+      "end": "2026-12-11T21:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Eli & Fur b2b Yotto",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T19:30:00+07:00",
+      "end": "2026-12-11T21:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Kevin de Vries",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T19:40:00+07:00",
+      "end": "2026-12-11T20:40:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Wukong",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T20:00:00+07:00",
+      "end": "2026-12-11T21:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Lennert Wolfs",
+      "stage": "PAPILLON",
+      "start": "2026-12-11T20:30:00+07:00",
+      "end": "2026-12-11T22:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "HALŌ",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T20:40:00+07:00",
+      "end": "2026-12-11T21:40:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Solardo",
+      "stage": "CODEX",
+      "start": "2026-12-11T21:00:00+07:00",
+      "end": "2026-12-11T22:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "X CLUB.",
+      "stage": "CORE",
+      "start": "2026-12-11T21:00:00+07:00",
+      "end": "2026-12-11T23:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Cosmic Gate",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T21:00:00+07:00",
+      "end": "2026-12-11T22:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Bassjackers",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T21:00:00+07:00",
+      "end": "2026-12-11T22:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Jerrooo",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-11T21:00:00+07:00",
+      "end": "2026-12-12T01:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Vini Vici",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T21:45:00+07:00",
+      "end": "2026-12-11T22:45:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Aly & Fila",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T22:00:00+07:00",
+      "end": "2026-12-11T23:30:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "MANDY",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T22:00:00+07:00",
+      "end": "2026-12-11T23:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "TA:REK",
+      "stage": "PAPILLON",
+      "start": "2026-12-11T22:00:00+07:00",
+      "end": "2026-12-12T00:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Camelphat",
+      "stage": "CODEX",
+      "start": "2026-12-11T22:30:00+07:00",
+      "end": "2026-12-12T00:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Alan Walker",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T22:50:00+07:00",
+      "end": "2026-12-11T23:50:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Funk Tribu",
+      "stage": "CORE",
+      "start": "2026-12-11T23:00:00+07:00",
+      "end": "2026-12-12T01:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Da Tweekaz",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-11T23:00:00+07:00",
+      "end": "2026-12-12T00:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Ferry Corsten b2b Marsh",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-11T23:30:00+07:00",
+      "end": "2026-12-12T00:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Martin Garrix",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-11T23:50:00+07:00",
+      "end": "2026-12-12T00:50:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Ferry Corsten",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T00:00:00+07:00",
+      "end": "2026-12-12T01:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "Flosstradamus b2b Yellow Claw",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T00:00:00+07:00",
+      "end": "2026-12-12T01:00:00+07:00",
+      "day": "2026-12-11"
+    },
+    {
+      "artist": "PETRA",
+      "stage": "CODEX",
+      "start": "2026-12-12T13:00:00+07:00",
+      "end": "2026-12-12T14:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "An!ka",
+      "stage": "CORE",
+      "start": "2026-12-12T13:00:00+07:00",
+      "end": "2026-12-12T15:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Puffer P",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T13:00:00+07:00",
+      "end": "2026-12-12T14:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Row1",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T13:00:00+07:00",
+      "end": "2026-12-12T14:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Riviere",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T13:00:00+07:00",
+      "end": "2026-12-12T14:25:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Jan V",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-12T13:00:00+07:00",
+      "end": "2026-12-12T17:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Arten",
+      "stage": "PAPILLON",
+      "start": "2026-12-12T13:00:00+07:00",
+      "end": "2026-12-12T15:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "KARTY",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T14:25:00+07:00",
+      "end": "2026-12-12T15:25:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Romeo Blanco",
+      "stage": "CODEX",
+      "start": "2026-12-12T14:30:00+07:00",
+      "end": "2026-12-12T16:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Tripical Note",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T14:30:00+07:00",
+      "end": "2026-12-12T16:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "XY",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T14:30:00+07:00",
+      "end": "2026-12-12T16:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Meltmode",
+      "stage": "CORE",
+      "start": "2026-12-12T15:00:00+07:00",
+      "end": "2026-12-12T17:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Semsei",
+      "stage": "PAPILLON",
+      "start": "2026-12-12T15:00:00+07:00",
+      "end": "2026-12-12T17:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Meaghan",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T15:25:00+07:00",
+      "end": "2026-12-12T16:25:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Manuals",
+      "stage": "CODEX",
+      "start": "2026-12-12T16:00:00+07:00",
+      "end": "2026-12-12T17:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Firaga",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T16:00:00+07:00",
+      "end": "2026-12-12T17:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Meguru",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T16:00:00+07:00",
+      "end": "2026-12-12T18:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Ian Asher",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T16:30:00+07:00",
+      "end": "2026-12-12T17:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Bibi Seck",
+      "stage": "CORE",
+      "start": "2026-12-12T17:00:00+07:00",
+      "end": "2026-12-12T19:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Jerrooo",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-12T17:00:00+07:00",
+      "end": "2026-12-12T21:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Rebeca Ark",
+      "stage": "PAPILLON",
+      "start": "2026-12-12T17:00:00+07:00",
+      "end": "2026-12-12T19:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "NOME.",
+      "stage": "CODEX",
+      "start": "2026-12-12T17:30:00+07:00",
+      "end": "2026-12-12T19:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Ghost Rider",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T17:30:00+07:00",
+      "end": "2026-12-12T19:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Miss Monique",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T17:35:00+07:00",
+      "end": "2026-12-12T18:35:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Nakadia",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T18:00:00+07:00",
+      "end": "2026-12-12T19:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Nervo",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T18:35:00+07:00",
+      "end": "2026-12-12T19:35:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "DJ Sally",
+      "stage": "CODEX",
+      "start": "2026-12-12T19:00:00+07:00",
+      "end": "2026-12-12T20:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Luuk van Dijk",
+      "stage": "CORE",
+      "start": "2026-12-12T19:00:00+07:00",
+      "end": "2026-12-12T20:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Somnia",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T19:00:00+07:00",
+      "end": "2026-12-12T20:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "DJ Licious",
+      "stage": "PAPILLON",
+      "start": "2026-12-12T19:00:00+07:00",
+      "end": "2026-12-12T21:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Amber Broos b2b Space 92",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T19:30:00+07:00",
+      "end": "2026-12-12T21:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Sub Zero Project",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T19:40:00+07:00",
+      "end": "2026-12-12T20:40:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "22 Bullets",
+      "stage": "CODEX",
+      "start": "2026-12-12T20:00:00+07:00",
+      "end": "2026-12-12T21:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Blazy",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T20:00:00+07:00",
+      "end": "2026-12-12T21:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "DJ Boring b2b Luuk van Dijk",
+      "stage": "CORE",
+      "start": "2026-12-12T20:30:00+07:00",
+      "end": "2026-12-12T21:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Artbat",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T20:40:00+07:00",
+      "end": "2026-12-12T21:40:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Dubvision",
+      "stage": "CODEX",
+      "start": "2026-12-12T21:00:00+07:00",
+      "end": "2026-12-12T22:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Blastoyz b2b WHITENO1SE",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T21:00:00+07:00",
+      "end": "2026-12-12T22:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Hannah Laing",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T21:00:00+07:00",
+      "end": "2026-12-12T22:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Jelle DK",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-12T21:00:00+07:00",
+      "end": "2026-12-13T01:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Carly Wilford",
+      "stage": "PAPILLON",
+      "start": "2026-12-12T21:00:00+07:00",
+      "end": "2026-12-12T22:30:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "DJ Boring",
+      "stage": "CORE",
+      "start": "2026-12-12T21:30:00+07:00",
+      "end": "2026-12-12T23:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Afrojack",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T21:45:00+07:00",
+      "end": "2026-12-12T22:45:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Yves V",
+      "stage": "CODEX",
+      "start": "2026-12-12T22:00:00+07:00",
+      "end": "2026-12-12T23:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Vegas",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T22:00:00+07:00",
+      "end": "2026-12-12T23:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Nico Moreno",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-12T22:30:00+07:00",
+      "end": "2026-12-13T00:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Coco Bevan",
+      "stage": "PAPILLON",
+      "start": "2026-12-12T22:30:00+07:00",
+      "end": "2026-12-13T00:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Dimitri Vegas & Like Mike",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T22:50:00+07:00",
+      "end": "2026-12-12T23:50:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Third Party",
+      "stage": "CODEX",
+      "start": "2026-12-12T23:00:00+07:00",
+      "end": "2026-12-13T00:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Mind Against",
+      "stage": "CORE",
+      "start": "2026-12-12T23:00:00+07:00",
+      "end": "2026-12-13T01:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Mad Maxx b2b Stryker",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-12T23:00:00+07:00",
+      "end": "2026-12-13T00:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Steve Aoki",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-12T23:50:00+07:00",
+      "end": "2026-12-13T00:50:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "DVBBS",
+      "stage": "CODEX",
+      "start": "2026-12-13T00:00:00+07:00",
+      "end": "2026-12-13T01:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "Infected Mushroom",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T00:00:00+07:00",
+      "end": "2026-12-13T01:00:00+07:00",
+      "day": "2026-12-12"
+    },
+    {
+      "artist": "J-Nana",
+      "stage": "CODEX",
+      "start": "2026-12-13T13:00:00+07:00",
+      "end": "2026-12-13T14:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Dennis Gold",
+      "stage": "CORE",
+      "start": "2026-12-13T13:00:00+07:00",
+      "end": "2026-12-13T15:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Lora Matia",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T13:00:00+07:00",
+      "end": "2026-12-13T14:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Yukio",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-13T13:00:00+07:00",
+      "end": "2026-12-13T15:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Nuttrix",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T13:00:00+07:00",
+      "end": "2026-12-13T14:25:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Jerrooo",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-13T13:00:00+07:00",
+      "end": "2026-12-13T17:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "JOULIE",
+      "stage": "PAPILLON",
+      "start": "2026-12-13T13:00:00+07:00",
+      "end": "2026-12-13T15:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Halo",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T14:25:00+07:00",
+      "end": "2026-12-13T15:25:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Maysaa",
+      "stage": "CODEX",
+      "start": "2026-12-13T14:30:00+07:00",
+      "end": "2026-12-13T16:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Angemi",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T14:30:00+07:00",
+      "end": "2026-12-13T16:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Capoon",
+      "stage": "CORE",
+      "start": "2026-12-13T15:00:00+07:00",
+      "end": "2026-12-13T16:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Xenia Dia",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-13T15:00:00+07:00",
+      "end": "2026-12-13T16:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Neon",
+      "stage": "PAPILLON",
+      "start": "2026-12-13T15:00:00+07:00",
+      "end": "2026-12-13T17:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Botcash",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T15:25:00+07:00",
+      "end": "2026-12-13T16:25:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Pixzy",
+      "stage": "CODEX",
+      "start": "2026-12-13T16:00:00+07:00",
+      "end": "2026-12-13T17:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Tiger Drama",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T16:00:00+07:00",
+      "end": "2026-12-13T17:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Dino Lenny",
+      "stage": "CORE",
+      "start": "2026-12-13T16:30:00+07:00",
+      "end": "2026-12-13T18:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Luna & Lenthe",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-13T16:30:00+07:00",
+      "end": "2026-12-13T18:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "MATTN",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T16:30:00+07:00",
+      "end": "2026-12-13T17:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Merow",
+      "stage": "CODEX",
+      "start": "2026-12-13T17:00:00+07:00",
+      "end": "2026-12-13T18:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Jelle DK",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-13T17:00:00+07:00",
+      "end": "2026-12-13T21:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Whisnu Santika",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T17:30:00+07:00",
+      "end": "2026-12-13T18:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Kölsch",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T17:35:00+07:00",
+      "end": "2026-12-13T18:35:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Rayray",
+      "stage": "CODEX",
+      "start": "2026-12-13T18:00:00+07:00",
+      "end": "2026-12-13T19:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Maxi Meraki",
+      "stage": "CORE",
+      "start": "2026-12-13T18:00:00+07:00",
+      "end": "2026-12-13T19:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Henri Bergmann",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-13T18:00:00+07:00",
+      "end": "2026-12-13T19:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Matisse & Sadko",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T18:30:00+07:00",
+      "end": "2026-12-13T19:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Onfaya",
+      "stage": "PAPILLON",
+      "start": "2026-12-13T18:30:00+07:00",
+      "end": "2026-12-13T20:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Novah",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T18:35:00+07:00",
+      "end": "2026-12-13T19:35:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Sabai",
+      "stage": "CODEX",
+      "start": "2026-12-13T19:00:00+07:00",
+      "end": "2026-12-13T20:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "AMÉMÉ b2b Honeyluv",
+      "stage": "CORE",
+      "start": "2026-12-13T19:30:00+07:00",
+      "end": "2026-12-13T21:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Lucas & Steve",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T19:30:00+07:00",
+      "end": "2026-12-13T20:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Agents Of Time",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-13T19:30:00+07:00",
+      "end": "2026-12-13T21:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "R3hab",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T19:40:00+07:00",
+      "end": "2026-12-13T20:40:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Andromedik",
+      "stage": "CODEX",
+      "start": "2026-12-13T20:00:00+07:00",
+      "end": "2026-12-13T21:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "AdamK",
+      "stage": "PAPILLON",
+      "start": "2026-12-13T20:00:00+07:00",
+      "end": "2026-12-13T21:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Laidback Luke",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T20:30:00+07:00",
+      "end": "2026-12-13T22:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Alok",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T20:40:00+07:00",
+      "end": "2026-12-13T21:40:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "APASHE",
+      "stage": "CODEX",
+      "start": "2026-12-13T21:00:00+07:00",
+      "end": "2026-12-13T22:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "DJ Tennis",
+      "stage": "CORE",
+      "start": "2026-12-13T21:00:00+07:00",
+      "end": "2026-12-13T22:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Kevin de Vries b2b MORTEN",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-13T21:00:00+07:00",
+      "end": "2026-12-13T22:30:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Jan V",
+      "stage": "MOOSE BAR",
+      "start": "2026-12-13T21:00:00+07:00",
+      "end": "2026-12-14T00:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "JoWaves",
+      "stage": "PAPILLON",
+      "start": "2026-12-13T21:30:00+07:00",
+      "end": "2026-12-13T23:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Lost Frequencies",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T21:45:00+07:00",
+      "end": "2026-12-13T22:45:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Netsky",
+      "stage": "CODEX",
+      "start": "2026-12-13T22:00:00+07:00",
+      "end": "2026-12-13T23:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Quintino",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T22:00:00+07:00",
+      "end": "2026-12-13T23:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Joris Voorn b2b Krystal Klear",
+      "stage": "CORE",
+      "start": "2026-12-13T22:30:00+07:00",
+      "end": "2026-12-14T00:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Artbat b2b R3hab",
+      "stage": "FREEDOM BY BUDWEISER",
+      "start": "2026-12-13T22:30:00+07:00",
+      "end": "2026-12-14T00:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Swedish House Mafia",
+      "stage": "MAINSTAGE",
+      "start": "2026-12-13T22:50:00+07:00",
+      "end": "2026-12-13T23:50:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Yellow Claw",
+      "stage": "CODEX",
+      "start": "2026-12-13T23:00:00+07:00",
+      "end": "2026-12-14T00:00:00+07:00",
+      "day": "2026-12-13"
+    },
+    {
+      "artist": "Brennan Heart",
+      "stage": "CRYSTAL GARDEN BY ANKER",
+      "start": "2026-12-13T23:00:00+07:00",
+      "end": "2026-12-14T00:00:00+07:00",
+      "day": "2026-12-13"
+    }
+  ]
+}

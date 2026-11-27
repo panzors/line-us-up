@@ -6,9 +6,11 @@ export const dayOf = s => s.day || s.start.slice(0, 10);
 export const setKey = s => dayOf(s) + ' ' + s.artist;
 
 // Gives every set its key as `id`; refuses lineups where an artist is listed twice on the same day.
+// Sets with no `day` that start before the lineup's `dayEndsAt` (e.g. "01:00") count as the night before.
 export function withKeys(lineup) {
   const seen = {};
   for (const s of lineup.sets) {
+    if (!s.day && s.start) s.day = localDate(Date.parse(s.start) - dayEndMs(lineup.dayEndsAt), offsetMinutes(s.start));
     s.id = setKey(s);
     if (seen[s.id]) throw new Error(`"${s.artist}" and "${seen[s.id]}" both get key ${s.id}; rename one (e.g. add "(closing set)")`);
     seen[s.id] = s.artist;
@@ -91,7 +93,8 @@ export function agenda(sets, favs, now) {
 
 // Festival day (as in `dayOf`) that time `t` belongs to, or null. While a day's sets run (even past midnight) it's that day;
 // otherwise it's today's festival-local date if the festival has sets that day (e.g. the afternoon before gates open).
-export function festivalDay(sets, t) {
+// `dayEndsAt` ("HH:MM", optional): until then the previous day still counts as today.
+export function festivalDay(sets, t, dayEndsAt) {
   const ranges = {};
   for (const s of sets) {
     const r = ranges[dayOf(s)] ||= [Infinity, -Infinity];
@@ -99,9 +102,10 @@ export function festivalDay(sets, t) {
     r[1] = Math.max(r[1], Date.parse(s.end));
   }
   for (const [d, [a, b]] of Object.entries(ranges)) if (t >= a && t < b) return d;
-  const today = localDate(t, offsetMinutes(sets[0]?.start || 'Z'));
+  const today = localDate(t - dayEndMs(dayEndsAt), offsetMinutes(sets[0]?.start || 'Z'));
   return ranges[today] ? today : null;
 }
+export const dayEndMs = hhmm => { const [h, m] = (hhmm || '0:0').split(':').map(Number); return ((h || 0) * 60 + (m || 0)) * 60000; };
 const localDate = (ms, offset) => new Date(ms + offset * 60000).toISOString().slice(0, 10);
 
 // One day's picks (sorted by start) → vertical segments with pixel heights.

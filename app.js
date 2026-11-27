@@ -1,6 +1,6 @@
 // Spotify playlist export is disabled for now (the app owner needs Spotify Premium). To turn it back on, uncomment the 4 "Spotify" lines in app.js and the button in index.html.
 // import { spotifyPlaylist, spotifyReturned } from './spotify.js'; // first: it restores ?lineup= after a Spotify login, before shared.js reads it
-import { dayOf, timeOf, clashes, toICS, parseList, offsetMinutes, localTime, pickColour, artistLinks } from './lib.js';
+import { dayOf, timeOf, clashes, toICS, parseList, offsetMinutes, localTime, pickColour, artistLinks, dayEndMs } from './lib.js';
 import { esc, $, dayLabel, stageColours, loadLineup, loadState, saveState, clearState, usedColours as used, person as icon } from './shared.js';
 
 const STARS = ['☆', '★', '🌟']; // none, want to see, SUPERMUSTSEE
@@ -102,12 +102,16 @@ function render() {
     const stages = [...new Set(timed.map(s => s.stage))]; // order of first appearance in the JSON
     const offset = offsetMinutes(timed[0].start);
     const HALF_HOUR = 1800000;
-    const t0 = Math.floor(Math.min(...timed.map(s => Date.parse(s.start))) / HALF_HOUR) * HALF_HOUR;
-    const tEnd = Math.max(...timed.map(s => Date.parse(s.end)));
+    // `dayStartsAt` / `dayEndsAt`: the grid always spans at least that time on the day to that time the next morning (label included).
+    const midnight = Date.parse(currentDay + 'T00:00:00' + timed[0].start.slice(19));
+    const dayStart = lineup.dayStartsAt ? midnight + dayEndMs(lineup.dayStartsAt) : Infinity;
+    const dayEnd = lineup.dayEndsAt && midnight + 86400000 + dayEndMs(lineup.dayEndsAt);
+    const t0 = Math.floor(Math.min(...timed.map(s => Date.parse(s.start)), dayStart) / HALF_HOUR) * HALF_HOUR;
+    const tEnd = Math.max(...timed.map(s => Date.parse(s.end)), dayEnd || 0);
     const row = ms => Math.round((ms - t0) / 300000) + 2;
     html += `<div class="grid" style="grid-template-columns: 44px repeat(${stages.length}, minmax(0, 1fr))">`;
     html += stages.map((st, i) => `<div class="stage" style="grid-column:${i + 2}; --stage:${colour[st]}">${esc(st)}</div>`).join('');
-    for (let t = t0; t < tEnd; t += HALF_HOUR) {
+    for (let t = t0; dayEnd ? t <= tEnd : t < tEnd; t += HALF_HOUR) {
       html += `<div class="tick" style="grid-row:${row(t)} / span 6">${localTime(t, offset)}</div>`;
     }
     html += timed.map(s => card(s, `--stage:${colour[s.stage]}; grid-column:${stages.indexOf(s.stage) + 2}; grid-row:${row(Date.parse(s.start))} / ${row(Date.parse(s.end))}`)).join('') + '</div>';

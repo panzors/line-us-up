@@ -54,6 +54,11 @@ assert.equal(festivalDay(days, at('2026-12-20T00:30:00+07:00')), '2026-12-19'); 
 assert.equal(festivalDay(days, at('2026-12-20T03:00:00+07:00')), '2026-12-20'); // night 1 over → day 2
 assert.equal(festivalDay(days, at('2026-12-18T20:00:00+07:00')), null);
 assert.equal(festivalDay(days, at('2026-12-21T02:00:00+07:00')), null);
+// dayEndsAt: before 01:00 still counts as the night before, for set days and the no-set-running fallback
+const late = withKeys({ dayEndsAt: '01:00', sets: [{ artist: 'L', start: '2026-12-20T00:30:00+07:00', end: '2026-12-20T01:30:00+07:00' }, { artist: 'M', start: '2026-12-20T01:00:00+07:00', end: '2026-12-20T02:00:00+07:00' }] });
+assert.deepEqual(late.sets.map(dayOf), ['2026-12-19', '2026-12-20']);
+assert.equal(festivalDay(days, at('2026-12-21T00:30:00+07:00'), '01:00'), '2026-12-20'); // night 2 ended 23:00, still its day till 01:00
+assert.equal(festivalDay(days, at('2026-12-21T00:30:00+07:00')), null);
 
 const T = Date.parse('2026-01-16T19:00:00+07:00');
 assert.equal(parseTestNow('2026-01-16T19:00', 420), T);                 // no zone → festival time

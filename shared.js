@@ -3,9 +3,13 @@ import { withKeys, pickColour } from './lib.js';
 
 // Pick a lineup with ?lineup=lineups/<file>.json. Only these files are allowed, so a shared link can't make the site
 // show someone else's JSON (fake event name or notice) under this domain. First one is the default.
-const LINEUPS = ['lineups/edc-thailand-2026-dec.json', 'lineups/edc-thailand-2026-jan.json'];
+const LINEUPS = ['lineups/edc-thailand-2026-dec.json', 'lineups/edc-thailand-2026-jan.json', 'lineups/tomorrowland-thailand-2026.json'];
 const requested = new URLSearchParams(location.search).get('lineup');
 export const LINEUP_URL = LINEUPS.includes(requested) ? requested : LINEUPS[0];
+// Per-lineup palette overrides, loaded after style.css. Pages without style.css (print) stay plain.
+const THEMES = { 'lineups/tomorrowland-thailand-2026.json': 'theme-tomorrowland.css' };
+if (THEMES[LINEUP_URL] && document.querySelector('link[href="style.css"]'))
+  document.head.append(Object.assign(document.createElement('link'), { rel: 'stylesheet', href: THEMES[LINEUP_URL] }));
 export const esc = t => String(t).replace(/[&<>"']/g, c => `&#${c.charCodeAt(0)};`);
 export const $ = id => document.getElementById(id);
 // "2026-12-19" → "Sat, 19 Dec" (in the viewer's language); UTC so the date never shifts.
