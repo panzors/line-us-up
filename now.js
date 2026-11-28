@@ -74,7 +74,7 @@ const star = s => state.favourites[s.id] === 2 ? '🌟 ' : '';
 
 function nowCard(s, t) {
   const a = Date.parse(s.start), b = Date.parse(s.end);
-  return `<section class="focus" style="--stage:${colour[s.stage]}">
+  return `<section class="focus now" style="--stage:${colour[s.stage]}">
     <div class="label"><span class="live">●</span> Now at</div>
     <div class="where">${esc(s.stage)}</div>
     <div class="who">${star(s)}${esc(s.artist)}</div>
@@ -120,19 +120,19 @@ function render() {
   const { playing, next, later } = agenda(lineup.sets, state.favourites, t);
   const festivalStart = Math.min(...lineup.sets.map(s => Date.parse(s.start)));
   let html = example ? `<p class="starts">Example picks · <a href="index.html${esc(location.search)}">star your own →</a></p>` : '';
-  if (t < festivalStart) html += `<p class="starts">Festival starts in <b>${countdown(festivalStart - t)}</b></p>`;
   html += playing.map(s => nowCard(s, t)).join('');
   if (!playing.length && next.length && t >= festivalStart) html += `<section class="focus free"><div class="label">Now</div><div class="who">Free time 🍹</div></section>`;
-  if (next.length) html += nextCard(next, t);
+  const started = t >= festivalStart; // before the festival the day timeline says it all
+  if (next.length && started) html += nextCard(next, t);
 
   // Rest of the next set's night, as a compact list.
   const day = next[0] && dayOf(next[0]);
   const rest = later.filter(s => dayOf(s) === day);
-  if (rest.length) html += `<h2>Later ${t < festivalStart ? 'that night' : 'tonight'}</h2><ul class="later">` + rest.map(s =>
+  if (rest.length && started) html += `<h2>Later tonight</h2><ul class="later">` + rest.map(s =>
     `<li style="--stage:${colour[s.stage]}"><time>${timeOf(s.start)}</time><span><b>${star(s)}${esc(s.artist)}</b><br><span class="muted">${esc(s.stage)}</span></span><span class="people">${who(s)}</span></li>`).join('') + '</ul>';
   $('lineup').innerHTML = html;
   const onTheDay = festivalDay(lineup.sets, t, lineup.dayEndsAt) !== null;
-  $('lineup').hidden = onTheDay; // on the day the timeline says it all
+  $('lineup').hidden = onTheDay || !html; // on the day the timeline says it all
 
   // Timeline: the day picked in the date bar, else the current festival day, else the next set's day, else the first.
   const tlDay = selDay || festivalDay(lineup.sets, t, lineup.dayEndsAt) || day || dayOf(picks[0]); // after the festival: its first day

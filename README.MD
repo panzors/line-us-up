@@ -1,5 +1,16 @@
 # Project goals
-Standalone app that allows anyone to generate and compare sets that they want to see with their friends.
+## TLDR;
+I hate apps on my phone and I wanted a way to find artists and navigate.
+
+## Story
+Promotor websites suck! They sometims have weird websites that require too many clicks and hard for me to discover artist's work. They have all the data but sucky UX! I just wanted a way to click through spotify/soundcloud and earmark ones I would like to see. Then! Send myself via calendar invites or something.
+
+I despise having to install yet another app that'll collect my data for "purposes" so I created my own without any data collection. I'd also like to compare sets to sync up with the crew which I've tried my best to do with this site. 
+
+For those on the desktop. This has a print mode. After grabbing lineup data from th ecrew, you can print it out and tell everyone where your interests are.
+
+Is this useful? For my discovery purposes, very. Actual lineup? Forcing a situation in a rave is not optimal. Let yourself hang loose! Go with the flow and emotions of the crowd.
+
 
 ## Features
 - [x] Supports EDC 2026 Thailand first

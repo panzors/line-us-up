@@ -87,6 +87,7 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .go-page .focus .label b { font-size: 22px; }
 .go-page .focus .where { margin-top: 6px; font-size: 22px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
 .go-page .focus .who { font-size: clamp(32px, 10vw, 48px); font-weight: 900; line-height: 1.1; overflow-wrap: anywhere; }
+.go-page .focus.now .who { font-size: clamp(96px, 30vw, 144px); line-height: 1; } /* 3x: the act playing now, readable from arm's length */
 .go-page .focus .row { display: flex; justify-content: space-between; margin-top: 16px; font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .go-page .focus .people:not(:empty) { margin-top: 14px; }
 .live { color: #ff3b3b; } /* solid, not blinking: a blinking dot is hard to find when blurry */
@@ -120,6 +121,7 @@ button:hover, .button:hover, select:hover { border-color: var(--cyan); }
 .card .where { font-size: 13px; text-transform: uppercase; letter-spacing: .05em; }
 .card.playing { border: 3px solid var(--fg); }
 .card.past { opacity: .55; }
+.card .artist { font-size: 21px; line-height: 1.1; overflow-wrap: anywhere; } /* 1.5x the default 14px */
 .card.must { outline: 2px solid var(--yellow); }
 .gap { display: flex; align-items: center; justify-content: center; font-size: 28px; }
 .nowline { position: absolute; left: -8px; right: 0; z-index: 100; /* above any stack of clashing cards */ border-top: 4px solid var(--lime); pointer-events: none; }
